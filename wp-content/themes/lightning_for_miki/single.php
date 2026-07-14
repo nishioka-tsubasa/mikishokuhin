@@ -1,0 +1,204 @@
+<?php
+/*
+ * 投稿記事テンプレート カスタマイズ
+ */
+get_header(); ?>
+
+<style>
+.col-5-card-img-non-image {
+    background-image: url('<?php echo get_option( 'lightning_theme_options' )['head_logo'];?>');
+    background-size: 60% auto;
+}
+
+.section.siteContent.single {
+	padding-top: 0;
+}
+</style>
+
+<?php
+/*-------------------------------------------*/
+/* Page Header
+/*-------------------------------------------*/
+?>
+<div class="section page-header">
+
+<div class="contents-headblock news">
+	<div class="title">
+		<h1>新着情報</h1>
+	</div>
+	<div class="subtitle">
+		NEWS
+	</div>
+</div><!--.contents-headblock-->
+
+	<div class="contents-headblock meal contact">
+		<div class="contents-backblock meal contact">
+		</div><!--.notice-backblock-->
+        <div class="contact-header">
+            <p><?php echo get_the_category()[0]->cat_name;; ?></p>
+        </div>
+	</div><!--.contents-headblock.meal-->
+
+</div><!--.section.page-header-->
+
+<div class="section siteContent single">
+<?php do_action( 'lightning_siteContent_prepend' ); ?>
+<div class="container">
+<?php do_action( 'lightning_siteContent_container_prepend' ); ?>
+<div class="row">
+<div class="<?php lightning_the_class_name( 'mainSection' ); ?>" id="main" role="main">
+<?php do_action( 'lightning_mainSection_prepend' ); ?>
+
+<?php
+if ( apply_filters( 'is_lightning_extend_single', false ) ) :
+	do_action( 'lightning_extend_single' );
+else :
+	if ( have_posts() ) :
+		while ( have_posts() ) :
+			the_post();
+		?>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<header>
+		<?php get_template_part( 'module_loop_post_meta' ); ?>
+		<h1 class="entry-title"><?php the_title(); ?></h1>
+		</header>
+
+		<?php do_action( 'ligthning_entry_body_before' ); ?>
+		<div class="entry-body">
+		<?php the_content(); ?>
+		</div>
+		<?php do_action( 'ligthning_entry_body_after' ); ?>
+
+		<div class="entry-footer">
+		<?php
+		$args = array(
+			'before'      => '<nav class="page-link"><dl><dt>Pages :</dt><dd>',
+			'after'       => '</dd></dl></nav>',
+			'link_before' => '<span class="page-numbers">',
+			'link_after'  => '</span>',
+			'echo'        => 1,
+		);
+			wp_link_pages( $args );
+			?>
+
+				<?php
+				/*-------------------------------------------*/
+				/*  Category and tax data
+				/*-------------------------------------------*/
+				$args          = array(
+					'template'      => __( '<dl><dt>%s</dt><dd>%l</dd></dl>', 'lightning' ),
+					'term_template' => '<a href="%1$s">%2$s</a>',
+				);
+				$taxonomies    = get_the_taxonomies( $post->ID, $args );
+				$taxnomiesHtml = '';
+				if ( $taxonomies ) {
+					foreach ( $taxonomies as $key => $value ) {
+						if ( $key != 'post_tag' ) {
+							$taxnomiesHtml .= '<div class="entry-meta-dataList">' . $value . '</div>';
+						}
+					} // foreach
+				} // if ($taxonomies)
+				$taxnomiesHtml = apply_filters( 'lightning_taxnomiesHtml', $taxnomiesHtml );
+				echo $taxnomiesHtml;
+			?>
+
+			<?php
+			$tags_list = get_the_tag_list();
+			if ( $tags_list ) :
+			?>
+			<div class="entry-meta-dataList entry-tag">
+			<dl>
+			<dt><?php _e( 'Tags', 'lightning' ); ?></dt>
+	<dd class="tagcloud"><?php echo $tags_list; ?></dd>
+	</dl>
+	</div><!-- [ /.entry-tag ] -->
+	<?php endif; ?>
+		</div><!-- [ /.entry-footer ] -->
+
+		<?php comments_template( '', true ); ?>
+	</article>
+
+
+	<?php if ( $bootstrap == '3' ) { ?>
+		<nav>
+		  <ul class="pager">
+			<li class="previous"><?php previous_post_link( '%link', '%title' ); ?></li>
+			<li class="next"><?php next_post_link( '%link', '%title' ); ?></li>
+		  </ul>
+		</nav>
+	<?php } ?>
+
+	<?php
+	if ( $bootstrap == '4' ) {
+		$post_previous = get_previous_post();
+		$post_next     = get_next_post();
+		if ( $post_previous || $post_next ) {
+			$options = array(
+				'layout'       => 'card-holizontal',
+				'display'      => array(
+					'image'       => true,
+					'excerpt'     => false,
+					'date'        => true,
+					'link_button' => false,
+					// 'link_text'   => __( 'Read more', 'lightning' ),
+					'overlay'     => '',
+				),
+				'class'        => array(
+					'outer' => 'card-sm',
+				),
+				'body_prepend' => '',
+				'body_append'  => '',
+			);
+		?>
+
+		<div class="card-deck postNextPrev">
+
+			<?php
+			if ( $post_previous ) {
+				$options['body_prepend'] = '<p class="postNextPrev_label">' . __( 'Previous article', 'lightning' ) . '</p>';
+				VK_Component_Posts::the_view( $post_previous, $options );
+				// get_template_part( 'module_loop_post_card' );
+			} else {
+				echo '<div class="card card-noborder"></div>';
+			} // if ( $post_previous ) {
+			wp_reset_postdata();
+			?>
+
+			<?php
+			if ( $post_next ) {
+				$options['body_prepend']   = '<p class="postNextPrev_label">' . __( 'Next article', 'lightning' ) . '</p>';
+				$options['class']['outer'] = 'card-sm card-holizontal-reverse postNextPrev_next';
+				VK_Component_Posts::the_view( $post_next, $options );
+			} else {
+				echo '<div class="card card-noborder"></div>';
+			} // if ( $post_next ) {
+			wp_reset_postdata();
+			?>
+
+			</div>
+		<?php
+		} // if ( $post_previous || $post_next ) {
+	} // if ( $bootstrap == '4' ) {
+	?>
+
+	<?php
+	endwhile;
+	endif;
+	endif;
+?>
+
+<div class="prev-interview newslist-back">
+	<a href="/category/notice/">一覧へ戻る</a>
+</div>
+</div><!-- [ /.mainSection ] -->
+
+<div class="<?php lightning_the_class_name( 'sideSection' ); ?>">
+<?php get_sidebar( get_post_type() ); ?>
+</div><!-- [ /.subSection ] -->
+
+</div><!-- [ /.row ] -->
+</div><!-- [ /.container ] -->
+</div><!-- [ /.siteContent ] -->
+<?php get_footer(); ?>
+
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/single.js"></script>

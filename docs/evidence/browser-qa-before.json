@@ -1,0 +1,140 @@
+[
+  {
+    "viewport": {
+      "name": "pc",
+      "width": 1280,
+      "height": 900
+    },
+    "target": {
+      "name": "home",
+      "url": "https://mikishokuhin.co.jp/"
+    },
+    "markerInfo": {
+      "bodyHeight": 3035,
+      "brokenImages": [],
+      "hasFooter": true,
+      "hasHeader": true,
+      "imageCount": 17,
+      "markers": [],
+      "title": "三基食品株式会社",
+      "url": "https://mikishokuhin.co.jp/"
+    },
+    "screenshot": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/browser-screenshots-before/pc-home.png",
+    "console": []
+  },
+  {
+    "viewport": {
+      "name": "pc",
+      "width": 1280,
+      "height": 900
+    },
+    "target": {
+      "name": "contact",
+      "url": "https://mikishokuhin.co.jp/contact/"
+    },
+    "markerInfo": {
+      "bodyHeight": 1978,
+      "brokenImages": [],
+      "hasFooter": true,
+      "hasHeader": true,
+      "imageCount": 4,
+      "markers": [],
+      "title": "お問い合わせ – 三基食品株式会社",
+      "url": "https://mikishokuhin.co.jp/contact/"
+    },
+    "screenshot": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/browser-screenshots-before/pc-contact.png",
+    "console": []
+  },
+  {
+    "viewport": {
+      "name": "pc",
+      "width": 1280,
+      "height": 900
+    },
+    "target": {
+      "name": "notice",
+      "url": "https://mikishokuhin.co.jp/notice/"
+    },
+    "markerInfo": {
+      "bodyHeight": 2376,
+      "brokenImages": [],
+      "hasFooter": true,
+      "hasHeader": true,
+      "imageCount": 9,
+      "markers": [],
+      "title": "新着情報 – 三基食品株式会社",
+      "url": "https://mikishokuhin.co.jp/notice/"
+    },
+    "screenshot": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/browser-screenshots-before/pc-notice.png",
+    "console": []
+  },
+  {
+    "viewport": {
+      "name": "sp",
+      "width": 390,
+      "height": 844
+    },
+    "target": {
+      "name": "home",
+      "url": "https://mikishokuhin.co.jp/"
+    },
+    "markerInfo": {
+      "bodyHeight": 4453,
+      "brokenImages": [],
+      "hasFooter": true,
+      "hasHeader": true,
+      "imageCount": 17,
+      "markers": [],
+      "title": "三基食品株式会社",
+      "url": "https://mikishokuhin.co.jp/"
+    },
+    "screenshot": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/browser-screenshots-before/sp-home.png",
+    "console": []
+  },
+  {
+    "viewport": {
+      "name": "sp",
+      "width": 390,
+      "height": 844
+    },
+    "target": {
+      "name": "contact",
+      "url": "https://mikishokuhin.co.jp/contact/"
+    },
+    "markerInfo": {
+      "bodyHeight": 2368,
+      "brokenImages": [],
+      "hasFooter": true,
+      "hasHeader": true,
+      "imageCount": 4,
+      "markers": [],
+      "title": "お問い合わせ – 三基食品株式会社",
+      "url": "https://mikishokuhin.co.jp/contact/"
+    },
+    "screenshot": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/browser-screenshots-before/sp-contact.png",
+    "console": []
+  },
+  {
+    "viewport": {
+      "name": "sp",
+      "width": 390,
+      "height": 844
+    },
+    "target": {
+      "name": "notice",
+      "url": "https://mikishokuhin.co.jp/notice/"
+    },
+    "markerInfo": {
+      "bodyHeight": 4741,
+      "brokenImages": [],
+      "hasFooter": true,
+      "hasHeader": true,
+      "imageCount": 9,
+      "markers": [],
+      "title": "新着情報 – 三基食品株式会社",
+      "url": "https://mikishokuhin.co.jp/notice/"
+    },
+    "screenshot": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/browser-screenshots-before/sp-notice.png",
+    "console": []
+  }
+]

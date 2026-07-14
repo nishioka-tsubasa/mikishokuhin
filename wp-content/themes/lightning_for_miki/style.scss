@@ -1,0 +1,3691 @@
+@charset "utf-8";
+
+/*
+Theme Name: Lightning for 三基食品株式会社
+Theme URI: https://mikishokuhin.co.jp
+Template: lightning
+Author: Wiz
+Version: 1.0.0
+
+メディアサイズ分岐
+ -> @media (min-width: 768px) 大型タブレット
+ -> @media (max-width: 1200px) ラップトップ
+ -> @media (max-width: 991px) 大型タブレット
+ -> @media (max-width: 767px) 中型タブレット
+ -> @media (max-width: 575px) スマートフォン
+*/
+
+$pc: 1200px;
+$pc-md: 991px;
+$tab: 767px;
+$sp-wide: 575px;
+$sp: 425px;
+$sp-small: 376px;
+$sp-minimun: 320px;
+
+@mixin pc{
+    @media (max-width: ($pc)) {
+        @content;
+    }
+}
+@mixin pc-md{
+    @media (max-width: ($pc-md)) {
+        @content;
+    }
+}
+@mixin tab{
+    @media (max-width: ($tab)) {
+        @content;
+    }
+}
+@mixin sp-wide{
+    @media (max-width: ($sp-wide)) {
+        @content;
+    }
+}
+@mixin sp{
+    @media (max-width: ($sp)) {
+        @content;
+    }
+}
+@mixin sp-small{
+    @media (max-width: ($sp-small)) {
+        @content;
+    }
+}
+@mixin sp-minimun{
+    @media (max-width: ($sp-minimun)) {
+        @content;
+    }
+}
+
+img {
+  width: 100%;
+}
+
+/* ---------------------------------
+    トップページ
+--------------------------------- */
+
+.pagination {
+  padding-top: 5% !important;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+ul.page-numbers li {
+  width: 35px;
+  height: auto;
+
+  a {
+    border-color: #E0704F;
+    color: #E0704F;
+    border-radius: 60px;
+    margin: 0 5%;
+    padding: 5%;
+    text-align: center;
+  }
+
+  span.page-numbers.current {
+    border-color: #E0704F;
+    color: #E0704F;
+    border-radius: 60px;
+    margin: 0 5%;
+    padding: 5%;
+    text-align: center;
+    color: white;
+  }
+
+  &:last-child > a, &:first-child > a {
+    border-radius: 60px;
+  }
+}
+
+a.page-numbers:hover {
+  background-color: #E0704F !important;
+  opacity: 0.5;
+  color: white;
+}
+
+.carousel-indicators, .carousel-control-next, .carousel-control-prev {
+  display: none;
+}
+
+div#top__fullcarousel {
+  border: none;
+}
+
+.admin-bar div#top__fullcarousel {
+  top: 55px;
+}
+
+div#top__fullcarousel {
+  border: none;
+  top: 35px;
+  z-index: 1;
+}
+
+h3.slide-text-title {
+  text-shadow: #E0704F 2.5px 0px, #E0704F -2.5px 0px, #E0704F 0px -2.5px, #E0704F 0px 2.5px, #E0704F 2.5px 2.5px, #E0704F -2.5px 2.5px, #E0704F 2.5px -2.5px, #E0704F -2.5px -2.5px, #E0704F 1px 2.5px, #E0704F -1px 2.5px, #E0704F 1px -2.5px, #E0704F -1px -2.5px, #E0704F 2.5px 1px, #E0704F -2.5px 1px, #E0704F 2.5px -1px, #E0704F -2.5px -1px, 0 0 10px #000;
+  font-weight: bold;
+  font-size: 2.5em;
+  margin: -2.5em 0 0;
+  letter-spacing: 0.1em;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 10vw;
+    max-height: 60px;
+    width: 100%;
+    bottom: -2em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/top_logo_header.png);
+    border-bottom: none;
+  }
+}
+
+.top .area {
+  text-align: center;
+  margin-top: 3em auto;
+
+  .title {
+    font-size: 1.4em;
+    color: #795A49;
+    letter-spacing: 0.1em;
+  }
+
+  .subtitle {
+    font-size: 0.6em;
+    color: #795A49;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+}
+
+/* 会社情報 */
+
+.company-area {
+  margin-top: 30px;
+
+  .info-box {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: center;
+
+    .main-image {
+      width: 50%;
+      height: auto;
+    }
+
+    .block-txt {
+      max-width: 50%;
+      line-height: 2em;
+      padding: 0 0 0 2em;
+      text-align: left;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    .detail-button {
+      /* margin-top:-15%; */
+      width: 100%;
+
+      a {
+        padding: 0.4em 1.2em;
+        background-color: #E0704F;
+        color: white;
+        border-radius: 2em;
+      }
+    }
+  }
+}
+
+/* 事業内容 */
+
+.notice-area.overview-area {
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_background.png);
+  padding-top: 8vw !important;
+  background-repeat-y: repeat;
+}
+
+.business-area {
+  background-color: #ffffff;
+
+  .title {
+    margin-top: 30px;
+  }
+
+  .info-box {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: center;
+  }
+
+  .message {
+    font-size: 1.2em;
+    color: #E0704F;
+    letter-spacing: 0.1em;
+  }
+
+  .submessage {
+    font-size: 0.8em;
+    color: #091933;
+    letter-spacing: 0.1em;
+    margin: 10px 0 10px 0;
+    line-height: 2em;
+  }
+
+  .info-box {
+    .block1, .block2 {
+      padding: 0 2.5%;
+      max-width: 40%;
+      height: auto;
+    }
+  }
+}
+
+.business-submessage {
+  line-height: 2em;
+  margin: 1% 0 4%;
+}
+
+.business-area .info-box .detail-button {
+  margin: 5% 0 5% -15%;
+
+  a {
+    padding: 0.4em 1.2em;
+    background-color: #795A49;
+    color: white;
+    border-radius: 2em;
+  }
+}
+
+.business .area {
+  .tab-content {
+    max-width: 1000px;
+    margin: 0;
+  }
+
+  .tab-switch {
+    &:checked + .tab-label {
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_bg_on.png);
+      color: white;
+    }
+
+    + .tab-label {
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_bg_off.png);
+      background-color: transparent;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none;
+      height: 6em;
+      width: auto;
+      min-width: 9em;
+      display: flex;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      justify-content: center;
+      align-items: center;
+      padding: 10px .5em 13px;
+      color: #EAE0D6;
+    }
+  }
+
+  .tab-wrap {
+    justify-content: center;
+  }
+
+  .description {
+    font-size: 0.9em;
+    line-height: 1.8em;
+    color: #091933;
+  }
+
+  .detail-button {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 0.3em 1em;
+    border-radius: 1em;
+    background: #795a49;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+  }
+}
+
+.business-link-section {
+  margin: 2em 0 6em;
+  padding: 0 0.5em;
+
+  > div {
+    width: auto;
+    position: relative;
+  }
+}
+
+.business .area .detail-button.product-link {
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+  padding: 0.3em 1.5em 0.3em 3.5em;
+}
+
+.product-link:before {
+  content: '';
+  width: 26px;
+  height: 8px;
+  margin-top: 8px;
+  border: 0;
+  border-bottom: solid 1px white;
+  border-left: solid 1px white;
+  position: absolute;
+  transform: skew(130deg);
+  left: 50px;
+}
+
+.business .area .detail-button.quality-link {
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+  padding: 0.3em 3.5em 0.3em 1.5em;
+}
+
+.quality-link:before {
+  content: '';
+  width: 26px;
+  height: 8px;
+  margin-top: 8px;
+  border: 0;
+  border-bottom: solid 1px white;
+  border-right: solid 1px white;
+  position: absolute;
+  transform: skew(55deg);
+  right: 50px;
+}
+
+.business .area .detail-button.product-list-link {
+  background: #e0704f;
+}
+
+.detail-button a {
+  color: white;
+}
+
+.business .area {
+  .business-all {
+    display: inline-flex;
+
+    > div {
+      width: 40%;
+      margin: 0 5%;
+      text-align: center;
+    }
+
+    img.main-image {
+      width: 100%;
+      height: auto;
+    }
+
+    > div .description {
+      text-align: justify;
+      letter-spacing: 0.1em;
+      margin: 2em 0;
+    }
+  }
+
+  .dept-block {
+    margin-bottom: 3em;
+  }
+}
+
+.dept-block.point.last-business-section {
+  margin-bottom: 0;
+}
+
+.business .area {
+  .dept-block-inner {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+
+    .txt .title {
+      color: #e0704f;
+      font-size: 1.2em;
+      text-align: left;
+    }
+
+    > div.img {
+      align-items: center;
+      display: flex;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      justify-content: center;
+    }
+
+    p {
+      font-size: 0.9em;
+    }
+  }
+
+  .dept-block-inner-left.img {
+    width: 40%;
+  }
+
+  .dept-block-inner-right {
+    &.img {
+      width: 40%;
+    }
+
+    &.txt {
+      padding-left: 2em;
+      width: 65%;
+    }
+  }
+
+  .dept-block-inner-left.txt {
+    padding-left: 2em;
+    width: 65%;
+  }
+
+  .dept-block.title {
+    .dept-block-inner p {
+      color: #091933;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-align: left;
+    }
+
+    .txt-bold {
+      color: #795a49;
+      font-size: 1.1em;
+      line-height: 2em;
+    }
+  }
+}
+
+.dept-block-inner .txt .title:before {
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_title_li.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  height: 1.3em;
+  margin: 0 0.1em 0 -1.5em;
+  width: 1em;
+  vertical-align: -0.3em;
+}
+
+.business-link-section {
+  p, br {
+    display: none;
+  }
+
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+.business-link-icon a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.detail-button.product-list-link {
+  position: relative;
+
+  &:before {
+    margin-right: 22px;
+  }
+
+  &:after {
+    margin-left: 25px;
+  }
+
+  &:before, &:after {
+    content: '';
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_title_li.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    position: relative;
+    bottom: 1px;
+    padding: 0.5em;
+  }
+}
+
+/* .business-link{
+    margin-right:1em;
+} */
+
+.recruit-link-button {
+  padding: 0.4em 1.2em;
+  background-color: #795A49;
+  color: white;
+  border-radius: 2em;
+  width: 35%;
+  margin: 0 auto;
+  position: relative;
+  right: 18px;
+  padding: 1% 6%;
+  text-align: center;
+
+  a {
+    color: white;
+  }
+}
+
+.info-box.recruit-info-box {
+  position: relative;
+  left: 17px;
+}
+
+/* 生産部門 */
+
+.production-img1 {
+  width: 25% !important;
+  justify-content: flex-end !important;
+  -webkit-justify-content: flex-end !important;
+}
+
+.production-img2 {
+  width: 20% !important;
+}
+
+.production-img3 {
+  width: 50% !important;
+  padding-left: 1.5em;
+}
+
+/* 品質管理部門 */
+
+.business-inspection {
+  border-top: none;
+  font-size: 0.9em;
+  margin-bottom: 1em;
+
+  td {
+    border: none;
+    padding: 5px 0;
+  }
+}
+
+.inspection-title {
+  width: 110px;
+  vertical-align: text-bottom;
+}
+
+/* 採用情報 */
+
+.message-back {
+  background: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/message-back.png) no-repeat bottom;
+  background-size: contain;
+}
+
+.recruit-area {
+  .title {
+    margin-top: 30px;
+  }
+
+  .info-box {
+    .block {
+      display: flex;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      justify-content: center;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .block1 {
+      max-width: 32%;
+      height: auto;
+    }
+
+    .block2, .block3, .block4, .block5 {
+      padding-left: 1%;
+      max-width: 33%;
+      height: auto;
+    }
+  }
+}
+
+.info-box .block div a > img.main-image {
+  width: 100%;
+}
+
+img.voice-block-inner-img {
+  width: 90%;
+}
+
+/* お知らせ欄 */
+
+.notice-area {
+  background-color: #ffffff;
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/top/info_background.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% auto;
+}
+
+.newslist-content {
+  margin: 2% auto;
+}
+
+.notice-area {
+  .notice {
+    margin: auto;
+    padding: 0;
+    max-width: 1000px;
+    margin: 0em auto;
+    text-align: center;
+  }
+
+  p.notice-title {
+    color: #E0704F;
+    font-size: 1.4em;
+  }
+
+  .main-notice {
+    margin-bottom: 20px;
+  }
+
+  a.notice-link {
+    margin: 1em 0 0;
+    padding: 0.4em 3.5em 0.4em 1.2em;
+    background-color: #795A49;
+    color: white;
+    border-radius: 2em;
+    position: relative;
+  }
+
+  td {
+    &.title {
+      a {
+        color: black;
+      }
+
+      text-align: left;
+    }
+
+    &.new {
+      text-align: right;
+    }
+  }
+
+  span.notice-new-mark {
+    border-radius: 1em;
+    background: #ea5504;
+    color: white;
+    padding: 0.1em 1em;
+  }
+
+  .main-notice td {
+    border-bottom: dashed 1px #B2B2B2;
+    padding: 0.5em 1em;
+  }
+}
+
+.news-title {
+  text-align: left;
+
+  a {
+    color: #091933;
+    text-align: left;
+  }
+}
+
+.notice-area {
+  .main-notice table {
+    border-top: dashed 1px #B2B2B2;
+  }
+
+  p.time-p {
+    margin: 0;
+    display: inline-block;
+  }
+
+  td.time {
+    text-align: left;
+    width: 9em;
+  }
+}
+
+/* ---------------------------------
+    会社情報
+--------------------------------- */
+
+.siteContent.company {
+  padding-top: 8vw !important;
+}
+
+/* 会社概要 */
+
+.company .overview {
+  width: 100%;
+
+  .column {
+    width: 100%;
+    border-bottom: 1px solid #707070;
+    padding: 10px 0;
+    display: inline-block;
+
+    .column-title {
+      color: #795A49;
+      width: 30%;
+      float: left;
+      margin-left: 3%;
+    }
+
+    .column-text {
+      color: #091933;
+
+      .license {
+        @include pc-md {
+          margin-bottom: 1.5rem;
+        }
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        .license-description {
+          width: 100%;
+          height: auto;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+
+  .factory {
+    width: 100%;
+    height: auto;
+    margin-bottom: 103px;
+  }
+}
+
+/* 工場 */
+
+.block.factory.sannan {
+  margin-bottom: 40px;
+  padding-top: 35px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  flex-flow: row-reverse;
+}
+
+.company .overview .factory {
+  img {
+    width: 37%;
+    height: 100%;
+  }
+
+  .factory-detail {
+    width: 60%;
+    height: auto;
+    padding: 0 1%;
+    font-size: 0.8em;
+    line-height: 1.6em;
+
+    .factory-name {
+      font-size: 1.4em;
+      color: #795A49;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.column-title span {
+  padding-left: 7%;
+  text-align: right;
+}
+
+.company .overview .factory .factory-detail {
+  .factory-description {
+    line-height: 1.8em;
+    font-size: 16px;
+  }
+
+  .factory-address {
+    width: 50%;
+    float: left;
+    margin-top: 10px;
+  }
+
+  .factory-link {
+    margin: 0 60% 0 0;
+    padding: 0.4em 1.2em;
+    background-color: #795A49;
+    color: white;
+    border-radius: 2em;
+  }
+}
+
+.factory-link {
+  position: relative;
+  top: 6px;
+}
+
+.company .overview .factory {
+  .factory-detail .factory-access {
+    width: 50%;
+    float: right;
+    margin-top: 10px;
+    padding-right: 0;
+  }
+
+  &:nth-child(even) .factory-detail {
+    float: right;
+  }
+
+  &:nth-child(odd) .factory-detail {
+    float: left;
+  }
+}
+
+.factory-detail.sannan-factory {
+  padding-left: 0 !important;
+}
+
+/* 企業理念 */
+
+.company .history .corporate-philosophy {
+  width: 100%;
+  height: auto;
+  margin-bottom: 60px;
+  float: left;
+
+  img {
+    width: 40%;
+    height: auto;
+  }
+
+  .corporate-philosophy-detail {
+    width: 60%;
+    height: auto;
+    padding: 0 5%;
+    font-size: 0.9em;
+    line-height: 1.8em;
+  }
+}
+
+.corporate-philosophy-detail {
+  &.corporate-section1 {
+    padding-left: 0 !important;
+    margin-top: 1%;
+  }
+
+  &.corporate-section2 {
+    padding-right: 0 !important;
+  }
+}
+
+.company .history {
+  .corporate-philosophy {
+    .corporate-philosophy-detail {
+      .corporate-philosophy-name {
+        font-size: 1.5em;
+        color: #E0704F;
+        margin-bottom: 10px;
+      }
+
+      .corporate-philosophy-description {
+        text-align: justify;
+      }
+
+      .corporate-philosophy-address {
+        width: 40%;
+        float: left;
+        margin-top: 10px;
+      }
+
+      .corporate-philosophy-link {
+        margin: 0 60% 0 0;
+        padding: 0.4em 1.2em;
+        background-color: #795A49;
+        color: white;
+        border-radius: 2em;
+      }
+
+      .corporate-philosophy-access {
+        width: 40%;
+        float: right;
+        margin-top: 10px;
+      }
+    }
+
+    &:nth-child(odd) .corporate-philosophy-detail {
+      float: left;
+    }
+
+    &:nth-child(even) .corporate-philosophy-detail {
+      float: right;
+    }
+  }
+
+  .block-history {
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/company/company_main_image.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 40% auto;
+  }
+
+  .column {
+    width: 100%;
+    border-bottom: 1px solid #707070;
+    padding: 10px 0;
+    display: inline-block;
+
+    .column-title {
+      color: #795A49;
+      width: 20%;
+      float: left;
+      margin-left: 3%;
+    }
+
+    .column-text {
+      color: #091933;
+      float: left;
+      text-align: left;
+    }
+  }
+}
+
+.mikishokuhin-history {
+  margin-top: 15%;
+}
+
+/* ---------------------------------
+    事業内容
+--------------------------------- */
+
+.siteContent.business {
+  padding-top: 0 !important;
+}
+
+.business {
+  .area {
+    .title {
+      font-size: 1.4em;
+      color: #795A49;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 0.6em;
+      color: #795A49;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+
+  .overview {
+    .name {
+      font-size: 1.3em;
+      color: #E0704F;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .sub-title {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #795A49;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .description {
+      margin-top: 20px;
+      font-size: 1em;
+      text-align: center;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .area .dept-block.title .txt-bold {
+    font-weight: bold;
+  }
+}
+
+.department-intro {
+  margin-top: 3%;
+}
+
+/* モバイル対応時に追加 */
+
+.dept-block-inner-right.txt ul li {
+  font-size: 0.9em;
+}
+
+/* 商品一覧 */
+
+.contents-backblock.product-back {
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/product/product-back.png);
+  background-position: top;
+  background-size: 100% auto;
+  background-repeat-y: repeat;
+  min-height: 2000px;
+  position: relative;
+  top: 37px !important;
+  padding-top: 15px;
+}
+
+.product-bg {
+  height: 100%;
+}
+
+.section.siteContent.product {
+  padding-top: 40px;
+}
+
+.contents-headblock.product {
+  height: 16vw;
+
+  h1 {
+    font-size: 24px;
+    text-shadow: 0px 0px;
+    color: #795a49;
+  }
+
+  .title {
+    padding-top: 2em;
+  }
+
+  .subtitle {
+    font-size: 10px;
+    color: #795a49;
+    text-shadow: 0px 0px;
+  }
+
+  .subtext {
+    color: #795a49;
+    padding-top: 1em;
+    font-weight: bold;
+
+    br {
+      display: none;
+    }
+  }
+}
+
+.siteContent.product {
+  .detail-button {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 0.3em 1em;
+    border-radius: 1em;
+    background: #e0704f;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+  }
+
+  .factory-block {
+    text-align: center;
+
+    > h2 {
+      font-size: 1.3em;
+      text-align: center;
+      color: #e0704f;
+      border: none;
+      margin-bottom: 0;
+    }
+  }
+
+  .factory-block-about > h3 {
+    font-size: 1.1em;
+    padding-bottom: 20px;
+
+    &:after, &:before {
+      display: none;
+    }
+  }
+
+  .factory-block-about-inner {
+    width: calc((100% - 2%) / 4);
+    display: inline-block;
+    padding: 1em 1em 3em;
+    position: relative;
+    z-index: 5;
+
+    > {
+      h4 {
+        font-size: 1em;
+        display: flex;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        min-height: 3em;
+        align-items: center;
+        text-align: left;
+        margin: 1em 0 0.5em;
+        line-height: 1.5em;
+        color: #091933;
+      }
+
+      img {
+        width: 77%;
+        padding: 0;
+      }
+
+      p {
+        font-size: 0.9em;
+        min-height: 6em;
+        text-align: left;
+        margin: 0 0 0.5em;
+        line-height: 2em;
+      }
+    }
+  }
+
+  .product-cosme {
+    margin: 1em 0 4em;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .product-cosme-detail {
+    font-size: 1.1em;
+    color: #795a49;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+
+  .product-cosme-url {
+    color: white;
+    padding: 0.3em 2em;
+    border-radius: 2em;
+    background-color: #795a49;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  }
+}
+
+/* ---------------------------------
+    採用情報
+--------------------------------- */
+
+.organization-back {
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/recruit_sub_bg.png);
+  background-repeat: repeat;
+  background-position: top;
+  background-size: 100% auto;
+  padding-bottom: 0;
+  padding-top: 3em !important;
+  min-height: 708px;
+}
+
+.contents-headblock.recruit {
+  max-height: 380px;
+}
+
+.section.siteContent.recruit {
+  padding-top: 6em;
+
+  &.sub_background {
+    padding-top: 0em;
+  }
+}
+
+.recruit-page-tit {
+  position: absolute;
+  top: 19%;
+  left: 10.5%;
+}
+
+.contents-backblock.recruit .title {
+  padding: 2em 0 0 3.3em;
+  text-align: left;
+}
+
+.section.siteContent.recruit .title {
+  font-size: 1.4em;
+  color: #795A49;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+#recruit-message {
+  margin-top: 37vw;
+}
+
+.title.recruit-event {
+  padding-top: 7%;
+}
+
+.section.siteContent.recruit {
+  .subtitle {
+    font-size: 0.6em;
+    color: #795A49;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .overview {
+    .catchy-copy {
+      margin: 2em 0 0;
+      letter-spacing: 0.1em;
+      font-size: 1.2em;
+      text-align: center;
+      color: #e0704f;
+    }
+
+    .description {
+      margin: 1em 20%;
+      font-size: 1em;
+      line-height: 2em;
+      text-align: left;
+      color: #091933;
+    }
+  }
+}
+
+img {
+  width: 100%;
+}
+
+div.sign {
+  width: 300px;
+  margin-right: 20%;
+  margin-left: auto;
+}
+
+p.sign-position {
+  float: left;
+}
+
+.sign-img {
+  width: 200px;
+  height: auto;
+  float: right;
+  height: auto;
+}
+
+.sign {
+  overflow: hidden;
+}
+
+.employee__img img {
+    height: auto;
+    transform: scale(.8); // スライドのサイズを80%にする
+    transition: opacity .5s, transform .5s; // スライド透過率と拡大のアニメーション時間を0.5秒に設定
+    width: 100%;
+    @include sp-wide {
+        transform: scale(.6);
+    }
+}
+.employee-list .slick-center .employee__img img {
+    opacity: 1; // 中央のスライドは透過しない
+    transform: scale(1.5); // 中央のスライドは小さくしない
+    @include sp-wide {
+        transform: scale(.7);
+    }
+}
+.employee__belongs img {
+    height: auto;
+    transform: scale(.8); // スライドのサイズを80%にする
+    transition: opacity .5s, transform .5s; // スライド透過率と拡大のアニメーション時間を0.5秒に設定
+    width: 100%;
+    @include sp-wide {
+        transform: scale(.6);
+    }
+}
+.employee-list .slick-center .employee__belongs img {
+    opacity: 1; // 中央のスライドは透過しない
+    transform: scale(1.5); // 中央のスライドは小さくしない
+    @include sp-wide {
+        transform: scale(.7);
+    }
+}
+.slick-center {
+    .employee__belongs {
+        width: 68%;
+        position: absolute;
+        z-index: 1;
+        right: -53%;
+        top: -23%;
+        @include tab {
+            right: -62%;
+            top: -17%;
+        }
+        @include sp-wide {
+            right: -32%;
+            top: 0;
+            width: 78%;
+        }
+    }
+    .employee__img img {
+        box-shadow: 10px 10px 0px 0 #E2CEB3;
+        @include tab {
+            box-shadow: 5px 5px 0px 0 #E2CEB3;
+        }
+        @include sp-wide {
+            box-shadow: 10px 10px 0px 0 #E2CEB3;
+        }
+    }
+    .employee__detail {
+        margin-top: 5rem;
+        transform: scale(1.5);
+        @include pc-md {
+            margin-top: 7rem;
+        }
+        @include tab {
+            margin-top: 5rem;
+        }
+        @include sp-wide {
+            margin-top: 1rem;
+        }
+        &__name {
+            h3 {
+                font-size: .9em;
+                @include sp-wide {
+                    padding-bottom: 0.5rem;
+                    margin: 0;
+                }
+            }
+            &__catch {
+                font-size: .6rem;
+            }
+        }
+    }
+}
+.slick-prev,
+.slick-next {
+    background-repeat: no-repeat !important;
+    background-size: 100% !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    top: 42% !important;
+    z-index: 1;
+    @include pc-md {
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+    }
+    @include tab {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+    @include sp-wide {
+        width: 4.5rem !important;
+        height: 4.5rem !important;
+        top: 50% !important;
+    }
+    &:before {
+        content: none !important;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+.slick-prev {
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/common/slick-prev_btn.png) !important;
+    left: 38% !important;
+    @include pc-md {
+        left: 32% !important;
+    }
+    @include tab {
+        left: 30% !important;
+    }
+    @include sp-wide {
+        left: 0 !important;
+    }
+}
+.slick-next {
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/common/slick-next_btn.png) !important;
+    right: 38% !important;
+    @include pc-md {
+        right: 32% !important;
+    }
+    @include tab {
+        right: 30% !important;
+    }
+    @include sp-wide {
+        right: 0 !important;
+    }
+}
+.slick-counter {
+    text-align: center;
+    margin-top: 1rem;
+    .current {
+        font-size: 1.5rem;
+        color: #E0704F;
+    }
+    .total {
+        color: #795A49;
+    }
+}
+.employee {
+    margin: 1.5rem;
+    position: relative;
+    padding: 0 1rem;
+    @include tab {
+        padding: 0;
+    }
+    @include sp-wide {
+        margin: 0;
+    }
+    &__belongs {
+        width: 80%;
+        position: absolute;
+        z-index: 1;
+        right: -25%;
+        top: -9%;
+        @include tab {
+            width: 100%;
+            right: -49%;
+        }
+        @include sp-wide {
+            width: 65%;
+            top: 2%;
+            right: -15%;
+        }
+    }
+    &__detail {
+        &__name {
+            h3 {
+                text-align: center;
+                font-size: 1em;
+                &:before {
+                    content: none;
+                }
+            }
+            &__catch {
+                font-size: .8em;
+                text-align: center;
+                color: black;
+            }
+        }
+    }
+}
+.slick-list {
+    padding-top: 5rem !important;
+    @include sp-wide {
+      padding-top: 0 !important;
+      min-height: 400px !important;
+    }
+}
+.employee-link_list {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -ms-flex-wrap : wrap;
+    -webkit-flex-wrap : wrap;
+    align-items: center;
+    margin: 2rem auto;
+    width: 75%;
+    @include pc-md {
+        width: 100%;
+    }
+    @include sp-wide {
+        display: block;
+    }
+    .employee-link {
+        width: calc(100% / 3 - 1rem);
+        margin: .5rem;
+        text-align: center;
+        border-radius: 50px;
+        background-color: #E0704F;
+        box-shadow: 0 .5rem .5rem 0 rgba(0, 0, 0, .33);
+        padding: 0.25rem 0.5rem;
+        border: solid 1px transparent;
+        cursor: pointer;
+        @include tab {
+            width: calc(100% / 2 - 1rem);
+        }
+        @include sp-wide {
+            width: 90%;
+            margin: 0 auto .5rem;
+        }
+        &:hover {
+            cursor: pointer;
+            box-shadow: none;
+            background-color: white;
+            border: solid 1px #E0704F;
+            color: #E0704F;
+            transition: .3s;
+        }
+        a {
+            color: white;
+            cursor: pointer;
+            &:hover {
+                text-decoration: none;
+                color: #E0704F;
+                cursor: pointer;
+            }
+        }
+        &__name {
+            span {
+                padding-left: 0.5rem;
+            }
+        }
+    }
+}
+
+.employee__detail__name {
+  h3 {
+      display: none;
+  }
+  &__catch {
+    display: none;
+  }
+}
+
+.slick-current {
+  .employee__detail__name {
+    h3 {
+      display:block;
+    }
+    &__catch {
+      display: block;
+    }
+  }
+}
+
+.section.siteContent.recruit {
+  .voice {
+    margin: 3em 0 0;
+  }
+
+  .voice-title {
+    text-align: center;
+    font-size: 1.3em;
+    text-align: center;
+    color: #795a49;
+
+    &:before, &:after {
+      display: none;
+    }
+  }
+
+  .voice-block-inner {
+    padding: 0.5em;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  .voice-block {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+  }
+
+  .voice-block-inner-name {
+    min-height: 3em;
+    line-height: 1.5em;
+    font-size: 1.1em;
+    color: #000;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .voice-block-inner-desc {
+    font-size: 0.9em;
+    line-height: 1.6em;
+    color: #091933;
+    min-height: 5em;
+  }
+
+  .voice-block-inner-desc-small {
+    font-size: 0.8em;
+  }
+
+  .voice-block-inner-detail {
+    display: inline-block;
+    color: white;
+    border-radius: 1.3em;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    background: #795a49;
+    padding: 0.1em 1em;
+  }
+
+  .organization-block-inner {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    margin-top: 2em;
+  }
+}
+
+.organization-block-inner.last-organization-block {
+  margin-bottom: 3em;
+}
+
+.section.siteContent.recruit .organization-block-inner-flex {
+  padding: 0.5em;
+
+  &.img {
+    width: 40%;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    align-items: center;
+    position: relative;
+  }
+}
+
+.organization-coment {
+  position: absolute;
+  bottom: 15px;
+  right: 70px;
+  left: 64px;
+  font-size: 0.85em;
+  color: white;
+  background-color: #D6A090;
+  padding: 0 20px;
+  border-radius: 50px;
+  text-align: center;
+  width: 205px;
+
+  &.organization-subcoment {
+    bottom: 140px;
+    left: 0;
+    right: 268px;
+    width: 110px;
+  }
+
+  &.organization-thirdcoment {
+    left: 132px;
+    right: 37px;
+    width: 140px;
+  }
+
+  &.event-coment {
+    right: 40px;
+    left: -21px;
+    background-color: #90ABD6;
+    width: 345px;
+  }
+
+  &.subevent-coment {
+    background-color: #90ABD6;
+    bottom: 130px;
+    left: 33px;
+    right: 250px;
+    width: 70px;
+  }
+
+  &.event-thirdcoment {
+    background-color: #90ABD6;
+    left: 97px;
+    right: 50px;
+  }
+}
+
+.section.siteContent.recruit {
+  .organization-block-inner-flex.txt {
+    width: 60%;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    > {
+      h2 {
+        border: none;
+        margin: 0;
+        font-size: 1.2em;
+        color: #e0704f;
+      }
+
+      p {
+        font-size: 0.9em;
+        margin: 0;
+      }
+    }
+  }
+
+  .recruitment-info-block-title {
+    display: inline-block;
+    min-width: 13em;
+    border-radius: 2em;
+    padding: 0.1em 1em;
+    border: 1px solid #e0704f;
+    font-size: 1em;
+    text-align: center;
+    color: #e0704f;
+  }
+}
+
+.factory-block.end-factory-block {
+  margin-top: 30px;
+  padding-bottom: 60px;
+}
+
+.recruitment-info {
+  margin-bottom: 30px;
+}
+
+.organization {
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* ---------------------------------
+    採用情報 / 社員インタビュー
+--------------------------------- */
+
+.contents-headblock.recruit.detail {
+  max-height: calc(294px + 32px);
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/sub_background.jpg);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 100% auto;
+}
+
+.contents-backblock.recruit.detail {
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/detail/detail-bg.jpg);
+  max-height: 294px;
+
+  .title {
+    padding: 3em 0 0;
+    text-shadow: 0px 0px;
+    font-size: 1.4em;
+    line-height: 1.5em;
+    text-align: center;
+    color: #e0704f;
+  }
+
+  .subtitle {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+    color: #e0704f;
+  }
+
+  .worker-block {
+    margin: 1em;
+    display: inline-flex;
+  }
+
+  .worker-block-inner {
+    margin: 1em;
+  }
+
+  .worker-block-inner-name {
+    font-size: 1.2em;
+    color: #795a49;
+
+    &:after, &:before {
+      display: none;
+    }
+  }
+
+  .worker-block-inner-detail {
+    font-size: 0.9em;
+    line-height: 1.8em;
+    text-align: center;
+    color: #091933;
+  }
+}
+
+.interview-section {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  margin: 3% auto 1.5em;
+  width: 85%;
+}
+
+.recruit-interview-block.text_r .interview-section {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.interview-detail {
+  width: 100%;
+  text-align: justify;
+  padding: 0 3em 0 4.5em;
+}
+
+.recruit-interview-block.text_r .interview-detail {
+  padding: 0 0 0 6em;
+}
+
+.interview-detail + .interview-image {
+  width: 58%;
+}
+
+.interview-photo-detail {
+  font-size: 0.85em;
+}
+
+.interview-detail h3 {
+  line-height: 1.5em;
+  position: relative;
+  font-size: 1.2em;
+
+  &:before {
+    background: none;
+    content: '';
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_title_li.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    position: relative;
+    top: 2px;
+    padding: 0.5em;
+  }
+}
+
+.anser-section {
+  margin-top: 2%;
+
+  h3 {
+    color: black;
+    font-size: 0.9rem;
+    margin: 0 auto 7px;
+    padding-bottom: 0;
+    line-height: 1.6em;
+
+    &:before {
+      background: none;
+      content: '';
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_title_li.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: transparent;
+      position: relative;
+      top: 2px;
+      padding: 0.5em;
+    }
+  }
+}
+
+.anser-name {
+  background: none;
+  content: '';
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_title_li.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-color: transparent;
+  padding-left: 27px;
+}
+
+.second-neme {
+  margin-left: 24px;
+}
+
+.interview-detail h3:before {
+  display: none;
+}
+
+.interview-detail-number {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 57px;
+  width: 68px;
+  top: -13px;
+  left: -74px;
+  font-weight: normal;
+  font-size: 1em;
+  color: #fff;
+  text-shadow: 0px 2px 4px #412a50;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/detail/h3-before.png);
+}
+
+.recruit-interview-block {
+  padding: 1em 0 0;
+}
+
+.recruit-interview h2 > {
+  p {
+    margin-bottom: 0;
+    line-height: 1.7em;
+  }
+
+  br {
+    display: none;
+  }
+}
+
+.recruit-interview-block {
+  &.white {
+    background-color: white;
+  }
+
+  &.standard-image {
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/detail/subdetail-bg.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 50% auto;
+  }
+
+  &.image {
+    background-color: white;
+
+    .container {
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/detail/subdetail-bg.png);
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 50% auto;
+    }
+  }
+
+  .container {
+    padding: 1em 0;
+  }
+}
+
+.recruit-interview h2 {
+  position: relative;
+  border: none;
+  text-shadow: 0px 0px;
+  font-size: 1.4em;
+  line-height: 1.5em;
+  text-align: center;
+  color: #e0704f;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: none;
+    height: 70px;
+    width: 68px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 23px;
+    left: 12%;
+  }
+
+  &:before {
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/detail/h2-before.png);
+  }
+
+  &:after {
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/detail/h2-after.png);
+    left: 80%;
+  }
+}
+
+.other-interview-link {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  padding: 2em 0 6em;
+
+  > div {
+    width: auto;
+    padding: 0 0.5em;
+    position: relative;
+  }
+}
+
+.prev-interview > a {
+  color: white;
+  border-radius: 2em;
+  background-color: #795a49;
+  padding: 0.5em 1.5em 0.5em 3.5em;
+
+  &:before {
+    content: '';
+    width: 26px;
+    height: 8px;
+    margin-top: 8px;
+    border: 0;
+    border-bottom: solid 1px white;
+    border-left: solid 1px white;
+    position: absolute;
+    transform: skew(130deg);
+    left: 32px;
+  }
+}
+
+.next-interview > a {
+  color: white;
+  border-radius: 2em;
+  background-color: #795a49;
+  padding: 0.5em 3.5em 0.5em 1.5em;
+
+  &:before {
+    content: '';
+    width: 26px;
+    height: 8px;
+    margin-top: 8px;
+    border: 0;
+    border-bottom: solid 1px white;
+    border-right: solid 1px white;
+    position: absolute;
+    transform: skew(55deg);
+    right: 32px;
+  }
+}
+
+.notice-area a.notice-link:before {
+  content: '';
+  width: 26px;
+  height: 8px;
+  margin-top: 8px;
+  border: 0;
+  border-bottom: solid 1px white;
+  border-right: solid 1px white;
+  position: absolute;
+  transform: skew(55deg);
+  right: 32px;
+  right: 26px;
+}
+.recruit-back {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.recruit-back > a {
+  border-radius: 2em;
+  background-color: #795a49;
+  padding: 0.5em 2em;
+  color: white;
+  box-shadow: 0 .5rem .5rem 0 rgba(0, 0, 0, .33);
+  border: solid 1px transparent;
+  &:hover {
+      text-decoration: none;
+      box-shadow: none;
+      color: #795a49;
+      border: solid 1px #795a49;
+  }
+}
+
+/* ---------------------------------
+    お問い合わせ
+--------------------------------- */
+
+.contents-headblock.meal.contact {
+  height: auto;
+}
+
+.contact-title {
+  padding-top: 3em;
+  font-size: 1.4em;
+  color: #795A49;
+  letter-spacing: 0.1em;
+  text-align: center;
+
+  h1 {
+    font-size: 24px;
+    text-shadow: 0px 0px;
+    color: #795a49;
+  }
+}
+
+.contact-subtitle {
+  font-size: 10px;
+  color: #795a49;
+  text-shadow: 0px 0px;
+}
+
+.contact-form__lead, .recruitment_entry_show, .contact-form-btn, .contact-form-privacy__txt.entry_confirmation_show {
+  text-align: center;
+}
+
+th.c-form01_table__table-th {
+  width: 38%;
+  vertical-align: top;
+}
+
+input.form-control, .form-control {
+  max-width: 100% !important;
+}
+
+td.c-form01_table__table-td p {
+  margin-bottom: 0;
+}
+
+/* .contact-detail, .age-input {
+    display: inline;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    align-items: start;
+    -webkit-box-align: start;
+-ms-flex-align: start;
+align-items: flex-start;
+} */
+
+.required {
+  width: 20%;
+  height: 22px;
+  border: solid 1px #E0704F;
+  border-radius: 60px;
+  color: #E0704F;
+  text-align: center;
+  margin-right: 3%;
+  font-size: 0.8rem;
+  display: inline-block;
+  vertical-align: top;
+}
+
+input.form-control {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.contact-input {
+  display: inline-block;
+  width: 70%;
+  vertical-align: middle;
+
+  &.age-input p {
+    width: 3em;
+    display: inline-block;
+    vertical-align: middle;
+
+    &.age {
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 2.5%;
+    }
+  }
+}
+
+.required.no-required {
+  border: none;
+  width: 20%;
+}
+
+.contact-input.gender {
+  width: 70%;
+  margin-left: auto;
+  padding-left: 0 !important;
+}
+
+.address-name {
+  color: black;
+}
+
+span.c-form01_table__table-td-label.td-label.td-note {
+  color: #E0704F;
+  font-size: 0.9rem;
+}
+
+select.p-region.form-control {
+  margin-bottom: 3%;
+}
+
+.contact-form-privacy__txt {
+  text-align: center;
+}
+
+.recruitment_entry_show, .contact-form-btn, .contact-form-privacy__txt.entry_confirmation_show {
+  margin-top: 5%;
+}
+
+.msg-box__name.entry-complete {
+  color: #E0704E;
+  text-align: center;
+}
+
+.contact-form-privacy__txt {
+  text-align: center;
+}
+
+a.contact-form-wrap__link {
+  color: #E0704F;
+}
+
+.btn-primary {
+  border-radius: 60px;
+}
+
+input.c-btn01__link.u-alpha.contact-form-btn__link.back_button.btn.btn-primary {
+  background-color: #ccc39d;
+  border-color: #ccc39d;
+}
+
+.contact-form__inner.u-inner01 .prev-interview > a {
+  background-color: #E0704F;
+}
+
+input.hiragana.form-control, textarea.hiragana.form-control {
+  ime-mode: active;
+}
+
+input {
+  &.hankaku.form-control, &.p-postal-code.hankaku.form-control {
+    ime-mode: inactive;
+  }
+}
+
+/* ---------------------------------
+    プライバシーポリシー
+--------------------------------- */
+
+.contents-backblock.meal.contact {
+  height: auto;
+}
+
+.privacy-content {
+  width: 75%;
+  margin: 0 auto;
+
+  h2 {
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+    border-top: 0;
+    color: #795a49;
+    font-size: 1.4em;
+  }
+}
+
+.container .privacy-content ul li {
+  list-style: circle;
+}
+
+/* ---------------------------------
+    新着情報
+--------------------------------- */
+
+.page-header {
+  background-color: #ffffff;
+}
+
+.contents-headblock.news {
+  z-index: 0;
+  background-color: #ffffff;
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/info/background.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  margin-top: 52px;
+  height: 12em;
+
+  .title {
+    padding-top: 2em;
+    font-size: 2em;
+    color: #795A49;
+  }
+
+  .subtitle {
+    font-size: 0.6em;
+    color: #795A49;
+  }
+}
+
+.section.siteContent.contact {
+  padding-top: 0;
+}
+
+.contact-mwwpform-row {
+  max-width: 700px;
+  margin: auto;
+}
+
+td {
+  &.contact-mwwpform-block-td-left {
+    width: 30%;
+  }
+
+  &.contact-mwwpform-block-td-right {
+    width: 70%;
+  }
+}
+
+.contact-mwwpform-button .btn-primary, .contact-mwwpform-thanks-message .btn-primary {
+  background-color: #EEEBDC;
+  color: black;
+  text-align: left;
+}
+
+.contact-mwwpform-button {
+  text-align: center;
+}
+
+span.error_on_display {
+  font-size: 14px;
+  color: #B70000;
+  display: block;
+  margin: 10px 0 0;
+  padding: 7px 0;
+}
+
+#contact-mwwpform-block-error-index {
+  .error {
+    display: none !important;
+  }
+
+  display: none;
+}
+
+p.address_title {
+  margin: 0 0 0.5em;
+  font-size: 0.8em;
+}
+
+#contact-mwwpform-block-sample {
+  display: none;
+}
+
+.contact-mwwpform-thanks-message {
+  text-align: center;
+
+  .btn-primary a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.prev-interview.newslist-back {
+  text-align: center;
+
+  > a {
+    position: relative;
+
+    &:before {
+      left: 25px;
+    }
+  }
+}
+
+.post .entry-body img {
+  width: auto;
+}
+
+/* ---------------------------------
+    投稿記事(single)
+--------------------------------- */
+
+h1.entry-title {
+  font-size: 1.4em;
+}
+
+.section.siteContent.single {
+  padding: 4em 0 3em;
+  width: 75%;
+  margin: 0 auto;
+}
+
+/* ---------------------------------
+    モバイル対応
+--------------------------------- */
+
+.business-area .message br, .mobile-production-img1, .mobile-production-img2, .mobile-production-img3, .mobile-production-img1, .mobile-production-img2, .mobile-production-img3 {
+  display: none;
+}
+
+p.recruitment-info-block-about br {
+  &:nth-child(1), &:nth-child(3) {
+    display: none;
+  }
+}
+
+.organization .mobile {
+  display: none;
+}
+
+.section.siteContent.recruit .organization-block-inner-flex.img.mobile {
+  width: 0;
+}
+
+.mobile-quality-img1, .mobile-quality-img2, .mobile-quality-img3 {
+  display: none;
+}
+
+/* ---------------------------------
+    タブレット対応
+--------------------------------- */
+@media (max-width: 911px) {
+  /* トップページ */
+
+  .company-area .info-box {
+    .main-image {
+      width: 60%;
+    }
+
+    .detail-button {
+      margin-top: 0;
+    }
+  }
+
+  .business-area .info-box {
+    .block1, .block2 {
+      width: 48%;
+    }
+  }
+
+  .recruit-area .info-box {
+    .block1, .block2, .block3, .block4, .block5 {
+      width: 38.4%;
+    }
+  }
+
+  .notice-area a.notice-link {
+    float: none;
+    margin: 2em auto 0;
+    display: block;
+    width: 160px;
+  }
+
+  /* 会社情報　理念・会社沿革 　タブレット用 */
+
+  .company-area .info-box .main-image {
+    object-fit: contain;
+  }
+
+  .company {
+    .overview .factory .factory-detail .factory-address {
+      padding-right: 10px;
+    }
+
+    .history .column .column-text {
+      width: 76%;
+    }
+  }
+
+  /* 事業内容 */
+
+  .business-link-icon {
+    width: 20%;
+  }
+
+  .production-img1, .production-img2 {
+    width: 30% !important;
+  }
+
+  /* 商品一覧 */
+
+  .section.siteContent.product {
+    padding-top: 80px;
+    height: auto;
+  }
+
+  .contents-headblock.product {
+    height: 20vw;
+  }
+
+  .contents-backblock.product-back {
+    top: 5px !important;
+    min-height: 3253px;
+  }
+
+  .siteContent.product .factory-block-about-inner {
+    width: calc((100% - 2%) / 2);
+    display: inline-table;
+
+    &:nth-child(odd) {
+      padding-right: 3em;
+    }
+
+    &:nth-child(even) {
+      padding-left: 3em;
+    }
+  }
+
+  /* 採用情報 */
+
+  #recruit-message {
+    margin-top: 0;
+  }
+
+  .recruit-page-tit {
+    top: 27%;
+    left: 17%;
+  }
+
+  .title.recruit-message {
+    padding-top: 70px;
+  }
+
+  .section.siteContent.recruit .overview .description {
+    margin: 1em 16%;
+  }
+
+  .contents-backblock {
+    display: block;
+    background-position: center;
+  }
+
+  .contents-headblock.recruit {
+    max-height: initial;
+    max-height: auto;
+  }
+
+  .organization-coment {
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+
+    &.organization-subcoment {
+      padding-left: 5px;
+      padding-right: 5px;
+      width: 80px;
+      bottom: 100px;
+      left: 45px;
+    }
+
+    &.organization-thirdcoment {
+      left: 150px;
+    }
+
+    &.event-coment {
+      left: 90px;
+      bottom: -28px;
+      width: 200px;
+    }
+
+    &.subevent-coment {
+      bottom: 75px;
+      left: 50px;
+    }
+  }
+
+  .recruitment-info-block-title {
+    margin-bottom: 0.5em;
+  }
+
+  .organization-coment.event-thirdcoment {
+    left: 120px;
+    bottom: 0;
+  }
+
+  .recruitment-info-block {
+    margin-bottom: 1em;
+  }
+
+  /* 社員インタビュー　画像サイズ・位置 */
+
+  .recruit-interview-block .interview-photo {
+    width: 350px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .interview-detail-number {
+    left: 0;
+  }
+
+  .interview-detail h3 {
+    padding-left: 72px;
+  }
+
+  h3.anser-name {
+    padding-left: 27px;
+  }
+
+  .recruit-interview h2 {
+    &:before {
+      left: 4%;
+    }
+
+    &:after {
+      left: 90%;
+    }
+  }
+
+  .interview-image .interview-photo-detail .anser-section h3 {
+    background: none;
+    content: '';
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/business/business_title_li.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-color: transparent;
+    padding-left: 27px;
+  }
+
+  .recruit-interview-block.text_r .interview-detail, .interview-detail {
+    padding: 0;
+  }
+
+  .interview-photo-detail {
+    margin-left: 10%;
+  }
+
+  /* 新着情報 */
+
+  .contents-headblock.news {
+    margin-top: 0;
+  }
+
+  .widget_recent_entries .subSection-title {
+    margin-top: 50px;
+  }
+
+  .contents-headblock.news {
+    height: 10em;
+  }
+
+  .col.subSection.sideSection.sideSection-col-two {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .widget {
+    &.widget_recent_entries ul li a, &.widget_archive ul li a {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .section.siteContent.recruit .organization-block-inner.last-organization-block {
+    margin-top: 4em;
+  }
+
+  /* お問い合わせ */
+  /* .required.no-required.gender-required{
+      width: 146px;
+      margin-left: 0;
+  } */
+
+  /* プライバシーポリシー */
+
+  .contact-title {
+    margin-top: 0;
+  }
+}
+
+/* タブレット対応ここまで */
+
+@media (max-width: 575px) {
+  /* ---------------------------------
+      トップページ
+  --------------------------------- */
+  /* 会社情報 */
+
+  .company-area .info-box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    .main-image {
+      width: 100%;
+    }
+
+    .block-txt {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .detail-button {
+      margin-top: 13.4px;
+      text-align: right;
+    }
+  }
+
+  /* 事業内容 */
+
+  .business-area .message {
+    letter-spacing: 0;
+
+    br {
+      display: block;
+    }
+  }
+
+  .business-submessage {
+    br {
+      display: none;
+    }
+
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .business-area .info-box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    .block1, .block2 {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .detail-button {
+      margin: 5% 0;
+    }
+
+    .block1 {
+      margin-bottom: 38px;
+    }
+  }
+
+  /* 採用情報 */
+
+  .message-back {
+    background: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/message-back_sp.png) no-repeat bottom;
+    background-size: 100%;
+  }
+
+  .voice {
+    margin-top: 13% !important;
+  }
+
+  .recruit-area .info-box {
+    .block {
+      margin-top: 0;
+    }
+
+    .block1, .block3, .block5 {
+      max-width: 100%;
+      width: 100%;
+      text-align: left;
+    }
+
+    .block2, .block4 {
+      max-width: 100%;
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  .info-box .block div a > img.main-image {
+    width: 87.09%;
+  }
+
+  .interview-detail-number {
+    left: -74px;
+  }
+
+  .interview-detail h3 {
+    padding-left: 0;
+  }
+
+  h3.anser-name {
+    padding-left: 27px;
+  }
+
+  /* 新着情報 */
+
+  .notice-area {
+    a.notice-link {
+      margin-top: 18.4px;
+      margin-bottom: 10px;
+    }
+
+    .main-notice td {
+      padding: 0.5em 0;
+    }
+  }
+
+  .newslist-content .new .notice-new-mark {
+    margin: 0 10px 0 0;
+  }
+
+  .notice .notice-link {
+    width: 60%;
+  }
+
+  .notice-area {
+    a.notice-link {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .main-notice {
+      table {
+        text-align: left;
+      }
+
+      td {
+        &.new {
+          display: inline-block;
+          margin-right: auto;
+          border-bottom: none;
+        }
+
+        &.time {
+          display: inline-block;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  td.news-title {
+    display: block;
+  }
+
+  /* ---------------------------------
+      会社情報
+  --------------------------------- */
+
+  .company .overview {
+    .column {
+      .column-title {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+
+      .column-text .license {
+        width: 45%;
+      }
+    }
+
+    .factory {
+      img {
+        width: 100%;
+      }
+
+      &:nth-child(even) .factory-detail {
+        float: none;
+      }
+
+      .factory-detail {
+        width: 100%;
+
+        .factory-name {
+          margin-top: 10px;
+          text-align: center;
+        }
+
+        .factory-address {
+          font-size: 14px;
+          line-height: 1.6em;
+          margin-top: 10px;
+          width: 100%;
+          float: none;
+        }
+
+        .factory-access {
+          font-size: 14px;
+          line-height: 1.6em;
+          margin-top: 10px;
+          width: 100%;
+          float: none;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  .block.factory.sannan {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  .company {
+    .overview {
+      .factory {
+        margin-bottom: 47.5px;
+      }
+
+      .sannan {
+        margin-bottom: 0px;
+      }
+    }
+
+    h3 {
+      margin-left: 0;
+    }
+
+    .overview .column {
+      padding-left: 15px;
+    }
+
+    .history .corporate-philosophy {
+      img {
+        width: 100%;
+        margin-top: 1.2em;
+      }
+
+      .corporate-philosophy-detail {
+        width: 100%;
+        padding: 0;
+
+        .corporate-philosophy-name {
+          font-size: 1.35em;
+        }
+      }
+    }
+  }
+
+  /* 会社情報　理念・会社沿革 */
+
+  .corporate-philosophy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+
+  .company .history .column .column-title {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+  }
+
+  .history h3 {
+    margin-left: 0px;
+  }
+
+  .company .history .block-history .column {
+    padding-left: 15px;
+  }
+
+  .mikishokuhin-history {
+    background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/company/company_main_image.png);
+    background-repeat: no-repeat;
+    background-position: 100% 35.5%;
+    background-size: 40% auto;
+  }
+
+  .company .history {
+    .block-history {
+      background-image: none;
+    }
+
+    .column .column-text {
+      width: 100%;
+    }
+  }
+
+  /* ---------------------------------
+      事業内容
+  --------------------------------- */
+
+  .business {
+    .area .business-all {
+      > div {
+        width: 100%;
+        margin: 0;
+      }
+
+      .production {
+        margin-bottom: 72.5px;
+      }
+    }
+
+    .overview {
+      .name, .sub-title, .description {
+        text-align: left;
+      }
+    }
+
+    .area {
+      .business-all {
+        display: block;
+      }
+
+      .dept-block-inner {
+        display: block;
+        justify-content: flex-start;
+        -webkit-justify-content: flex-start;
+        align-items: center;
+      }
+    }
+  }
+
+  .dept-block-inner .txt .title:before {
+    margin-left: -0.9em;
+  }
+
+  .business .area {
+    .dept-block-inner p {
+      font-size: 1em;
+    }
+
+    .dept-block-inner-right.txt {
+      padding-left: 0;
+      width: 100%;
+    }
+
+    .dept-block-inner-left {
+      &.txt {
+        padding-left: 0;
+        width: 100%;
+      }
+
+      &.img {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+    }
+
+    .dept-block-inner-right.img {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  .pc {
+    display: none !important;
+  }
+
+  .mobile-production-img1 {
+    width: 86.2% !important;
+  }
+
+  .mobile-production-img2 {
+    width: 49.5% !important;
+  }
+
+  .mobile-production-img3 {
+    width: 100% !important;
+  }
+
+  .mobile-production-img1, .mobile-production-img2, .mobile-production-img3 {
+    display: block;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .business-link-icon {
+    width: 100%;
+  }
+
+  .dept-block-inner-right.txt ul {
+    margin: -14px 0 0 0;
+    padding-left: 2em;
+
+    li {
+      margin: 0;
+    }
+  }
+
+  /* 品質管理部門 */
+
+  .business-inspection {
+    font-size: 1em;
+
+    td {
+      display: block;
+      width: 100%;
+      padding: 5px 0 0 0;
+    }
+  }
+
+  .business-link-icon {
+    padding: 0;
+  }
+
+  .mobile-quality-img1, mobile-quality-img2, .mobile-quality-img3 {
+    display: block;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mobile-quality-img1, .mobile-quality-img2 {
+    width: 86.2% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mobile-quality-img3 {
+    width: 100% !important;
+  }
+
+  .dept-block-inner-right.txt ul li {
+    font-size: 1em;
+  }
+
+  /* 下部リンクボタン */
+
+  .business-link-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+
+    .product-link, .quality-link {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .product-list-link {
+      margin-bottom: 10px;
+    }
+
+    .detail-button {
+      display: block;
+    }
+  }
+
+  .business .area .detail-button {
+    &.product-link, &.quality-link {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+  }
+
+  .product-link {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+
+  .quality-link {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+
+  .product-list-link {
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3;
+  }
+
+  .business-link-section {
+    .product-link a, .quality-link a {
+      display: block;
+    }
+  }
+
+  /* 商品一覧 */
+
+  .siteContent.product {
+    .product-cosme-url {
+      display: block;
+    }
+
+    .factory-block-about-inner {
+      width: calc((100% - 2%) / 2);
+      min-height: 23.5em;
+      position: relative;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+
+    .factory-block-about .factory-block-about-inner {
+      min-height: 24em;
+    }
+
+    .end-factory-block .factory-block-about .factory-block-about-inner {
+      &:nth-child(4), &:nth-child(5) {
+        min-height: 26em;
+      }
+    }
+
+    .detail-button {
+      position: absolute;
+      bottom: 3em;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+    }
+  }
+
+  .container {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .product-cosme-detail {
+    text-align: left;
+  }
+
+  .contents-headblock.product {
+    height: 34vw;
+
+    .title {
+      padding-top: 0;
+    }
+
+    .subtext br {
+      display: block;
+    }
+  }
+
+  .section.siteContent.product {
+    padding-top: 40px;
+  }
+
+  .siteContent.product .factory-block-about-inner {
+    &:nth-child(odd) {
+      padding-right: 1em;
+    }
+
+    &:nth-child(even) {
+      padding-left: 1em;
+    }
+  }
+
+  .contents-backblock.product-back {
+    min-height: 2786px;
+  }
+
+  /* ---------------------------------
+      採用情報
+  --------------------------------- */
+
+  .recruit-page-tit {
+    left: 12%;
+  }
+
+  .contents-headblock.recruit h1 {
+    position: relative;
+    left: -145px;
+    top: 27px;
+  }
+
+  .title.recruit-message {
+    padding-top: 53px;
+  }
+
+  .section.siteContent.recruit .overview .description {
+    margin: 1em 0;
+  }
+
+  div.sign {
+    width: 73%;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .sign-img {
+    width: 60%;
+    float: right;
+  }
+
+  .section.siteContent.recruit {
+    .overview {
+      .catchy-copy, .description {
+        text-align: left;
+      }
+    }
+
+    .voice-block {
+      display: block;
+    }
+
+    .voice-block-inner-desc {
+      min-height: 0;
+      font-size: 1em;
+    }
+
+    .voice-block-inner-name {
+      min-height: initial;
+      min-height: auto;
+      margin: 0 0 0.7em 0;
+    }
+
+    .organization-block-inner {
+      display: block;
+    }
+
+    .organization-block-inner-flex {
+      &.img, &.txt {
+        width: 100%;
+      }
+    }
+  }
+
+  p.recruitment-info-block-about br {
+    &:nth-child(1), &:nth-child(3) {
+      display: block;
+    }
+  }
+
+  .organization-block-inner-flex h2 {
+    text-align: center;
+  }
+
+  .organization .mobile {
+    display: block;
+  }
+
+  .organization-block-inner-flex.mobile {
+    position: relative;
+  }
+
+  .organization-coment {
+    bottom: 3%;
+
+    &.mobile {
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      width: 90%;
+    }
+  }
+
+  .organization-block-inner-flex.mobile {
+    position: relative;
+  }
+
+  .organization-coment {
+    &.event-coment.mobile {
+      width: 80%;
+    }
+
+    &.subevent-coment {
+      bottom: 40%;
+      left: 20%;
+    }
+
+    &.event-thirdcoment {
+      left: 60%;
+    }
+
+    &.organization-subcoment.mobile {
+      bottom: 40%;
+      left: 12%;
+      right: 0;
+      width: 100px;
+    }
+
+    &.organization-thirdcoment.mobile {
+      left: 64%;
+      right: 37px;
+      width: 140px;
+    }
+  }
+
+  .interview-section {
+    display: block;
+  }
+
+  .section.siteContent.recruit .recruitment-info-block-about {
+    margin-left: 0;
+  }
+
+  .organization-block-inner-flex.img.mobile {
+    margin-bottom: 10px;
+  }
+
+  .section.siteContent.recruit .organization-block-inner-flex.img.mobile {
+    width: 100%;
+  }
+
+  /* 社員インタビュー */
+
+  /* 社員インタビューのヘッダー */
+  /* 無地背景 */
+
+  .contents-headblock.recruit.detail {
+    background-repeat: repeat;
+    background-size: contain;
+  }
+
+  /* 柄背景 */
+
+  .contents-backblock.recruit.detail {
+    height: auto;
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+  }
+
+  .header-block {
+    padding: 10px 10% 30px 10%;
+  }
+
+  .contents-backblock.recruit.detail {
+    .title {
+      font-size: 1.2em;
+      position: static;
+    }
+
+    .worker-block {
+      display: block;
+    }
+  }
+
+  .worker-block .worker-block-inner-name {
+    padding-bottom: 7px;
+    margin: 0;
+  }
+
+  /* 社員インタビューのヘッダーここまで */
+
+  .interview-detail {
+    h3 {
+      margin: 17px 0.8em 0 4.5em;
+    }
+
+    p {
+      margin: 0 1.5em 0 1.5em;
+    }
+  }
+
+  .recruit-interview-block .interview-photo {
+    width: 100%;
+  }
+
+  .interview-image {
+    width: 66.3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+  }
+
+  .interview-detail {
+    padding: 17px 0 0 0;
+  }
+
+  .recruit-interview-block.text_r .interview-detail {
+    padding: 0;
+  }
+
+  .interview-photo-detail {
+    margin-left: 0;
+  }
+
+  .other-interview-link {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: center;
+  }
+
+  .prev-interview {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+
+  .recruit-back {
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3;
+  }
+
+  .next-interview {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+
+  .prev-interview > a, .next-interview > a, .recruit-back > a {
+    border-radius: 2em;
+  }
+
+  .other-interview-link {
+    a, br {
+      display: block;
+    }
+
+    .prev-interview {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .recruit-back {
+      margin-bottom: 10px;
+    }
+
+    .next-interview {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+  .interview-section {
+    display: block;
+  }
+
+  .recruit-interview h2 {
+    font-size: 1.2em;
+  }
+
+  .interview-detail {
+    .interview-photo-detail h3 {
+      margin: 10px 0 0 0;
+    }
+
+    h3.anser-name {
+      margin: 20px 0 10px 22px;
+    }
+  }
+
+  .second-neme {
+    margin-left: 12.6px;
+  }
+
+  /* 松下さん */
+
+  .recruit-interview h2 {
+    &:before, &:after {
+      height: 56px;
+      width: 54.4px;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      left: 90%;
+    }
+
+    p {
+      padding: 0 10%;
+    }
+  }
+
+  /* ---------------------------------
+      お問い合わせ
+  --------------------------------- */
+
+  .contents-headblock.meal.contact {
+    display: none;
+  }
+
+  p.contact-form__lead {
+    text-align: left;
+  }
+
+  .c-form01_table {
+    th {
+      display: block;
+      width: 100%;
+      border: none;
+      padding-bottom: 0;
+    }
+
+    td {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .contact-form-wrap__lead, .contact-form-privacy__txt {
+    text-align: left;
+  }
+
+  .required {
+    min-width: 60px;
+    border-radius: 30px;
+    margin-bottom: 7px;
+
+    &.no-required.gender-required {
+      min-width: 60px;
+      border-radius: 30px;
+      margin-bottom: 7px;
+    }
+  }
+
+  .contact-input {
+    width: 100%;
+  }
+
+  .required.no-required {
+    &.gender-required {
+      width: 86px;
+      display: none;
+    }
+
+    display: none;
+  }
+
+  /* ---------------------------------
+      プライバシーポリシー
+  --------------------------------- */
+
+  #main {
+    padding: 0;
+  }
+
+  .privacy-content {
+    width: 100%;
+  }
+
+  .contents-headblock.meal.contact {
+    display: none;
+  }
+
+  .privacy-content {
+    ol {
+      padding-left: 14px;
+    }
+
+    ul li {
+      list-style: circle;
+    }
+  }
+
+  /* ---------------------------------
+      新着情報
+  --------------------------------- */
+
+  .prev-interview.newslist-back {
+    margin-bottom: 50px;
+  }
+
+  .post .entry-body {
+    img {
+      width: 100%;
+      height: auto !important;
+    }
+
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .contents-headblock.recruit h1 {
+    left: -127px;
+    top: 3px;
+  }
+}
+
+/* モバイル対応ここまで */

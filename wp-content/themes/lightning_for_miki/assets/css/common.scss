@@ -1,0 +1,1010 @@
+@charset "utf-8";
+
+/*
+ページスタイル
+
+メディアサイズ分岐
+ -> @media (max-width: 991px) 大型タブレット
+ -> @media (max-width: 767px) 中型タブレット
+ -> @media (max-width: 575px) スマートフォン
+*/
+
+/*
+ * フッターが浮かないよう対策
+ */
+
+/**********************************************
+*　メディアクエリ
+***********************************************/
+$pc-md: 991px;
+$tab: 767px;
+$sp-wide: 575px;
+$sp: 425px;
+$sp-small: 376px;
+$sp-minimun: 320px;
+
+@mixin pc-md{
+    @media (max-width: ($pc-md)) {
+        @content;
+    }
+}
+@mixin tab{
+    @media (max-width: ($tab)) {
+        @content;
+    }
+}
+@mixin sp-wide{
+    @media (max-width: ($sp-wide)) {
+        @content;
+    }
+}
+@mixin sp{
+    @media (max-width: ($sp)) {
+        @content;
+    }
+}
+@mixin sp-small{
+    @media (max-width: ($sp-small)) {
+        @content;
+    }
+}
+@mixin sp-minimun{
+    @media (max-width: ($sp-minimun)) {
+        @content;
+    }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.gMenu_name {
+  font-weight: normal;
+}
+
+/*
+ * WEBフォント
+ */
+
+body {
+  font-family: kan48typos-std, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+}
+
+h1, h2 {}
+
+h3 {
+  border: 0px;
+  padding-bottom: 8px;
+  margin: 50px 0 0 0;
+  position: relative;
+  color: #795A49;
+  font-size: 1.5em;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    background: #795A49;
+    height: 1.2rem;
+    width: 4px;
+    margin-right: 10px;
+  }
+
+  &::after {
+    border: 0px;
+  }
+}
+
+h4 {}
+
+.siteContent {
+  padding-bottom: 0px;
+  padding: 3em 0 3em;
+}
+
+.area {
+  width: 100%;
+  padding: 10px 16% 30px 16% !important;
+}
+
+.contents-headblock {
+  height: 30vw;
+}
+
+.contents-backblock {
+  width: 100%;
+  height: 30vw;
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: 1;
+  top: 56px;
+}
+
+.admin-bar .contents-backblock {
+  top: calc(56px + 32px);
+}
+
+.sub_background {
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/sub_background.jpg);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 100% auto;
+  padding-bottom: 0;
+  height: 100%;
+}
+
+.contents-headblock {
+  .title {
+    padding-top: 14vw;
+    font-size: 2em;
+    color: #ffffff;
+  }
+
+  .subtitle {
+    font-size: 0.6em;
+    color: #ffffff;
+  }
+}
+
+.contents-backblock .title {
+  text-shadow: 0px 0px 10px #E0704F, 1px 0px 10px #E0704F, 0px 1px 10px #E0704F, -1px 0px 10px #E0704F, 0px -1px 10px #E0704F;
+}
+
+/* タブ */
+
+.tab-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 20px;
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    display: block;
+    order: -1;
+  }
+}
+
+.tab-label {
+  color: #795A49;
+  background: rgba(0, 0, 0, 0);
+  font-weight: bold;
+  white-space: nowrap;
+  text-align: center;
+  padding: 10px .5em;
+  order: -1;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: 15px 15px 0 0;
+  width: 30%;
+  border: 2px solid #795A49;
+
+  &:not(:last-of-type) {}
+}
+
+.tab-content {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+/* アクティブなタブ */
+
+.tab-switch {
+  &:checked + .tab-label {
+    color: White;
+    background: #795A49;
+
+    + .tab-content {
+      height: auto;
+      overflow: auto;
+      padding: 15px;
+      opacity: 1;
+      transition: .5s opacity;
+    }
+  }
+
+  display: none;
+}
+
+/* ラジオボタン非表示 */
+
+/*
+ * ヘッダー (scrolled処理無効化)
+ */
+
+@media (min-width: 992px) {
+  body.header_scrolled {
+    .gMenu_outer {
+      position: static;
+      width: auto;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .gMenu {
+      float: initial;
+      right: initial;
+      margin: 0;
+      padding: 0;
+      display: block;
+
+      > li {
+        width: auto;
+        border-right: none;
+
+        &:first-child {
+          border-left: none;
+        }
+      }
+    }
+
+    .navbar-header {
+      margin-bottom: auto;
+    }
+  }
+}
+
+@media (min-width: 992px) and (min-width: 992px) {
+  body.header_scrolled .gMenu_outer .gMenu {
+    width: auto;
+  }
+}
+
+@media (min-width: 992px) and (min-width: 1200px) {
+  body.header_scrolled .gMenu_outer .gMenu {
+    width: auto;
+  }
+}
+
+/*
+ * ヘッダー
+ */
+
+.admin-bar header.siteHeader {
+  top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  .admin-bar header.siteHeader {
+    top: 46px;
+  }
+
+  div#wpadminbar {
+    position: fixed;
+  }
+}
+
+header.siteHeader {
+  position: fixed;
+  border-bottom: none;
+
+  .container.siteHeadContainer {
+    padding: 0;
+  }
+
+  .navbar-brand img {
+    width: auto;
+    max-height: 40px;
+    margin: 3px 0;
+  }
+
+  div#gMenu_outer {
+    display: block;
+    min-height: auto;
+    width: auto;
+    font-family: kan415typos-std, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+
+    nav {
+      height: 56px;
+      display: block;
+      vertical-align: baseline;
+
+      ul {
+        height: 100%;
+      }
+    }
+  }
+
+  .gMenu > li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+
+    &:before {
+      border-bottom-color: #E0704F;
+      position: absolute;
+      bottom: 5px;
+      border-width: 0.3em;
+      transform: skew(45deg, 0);
+      z-index: 0;
+      max-width: 80%;
+      right: 10%;
+      left: 10%;
+    }
+
+    a {
+      z-index: 1;
+      position: relative;
+      letter-spacing: 1px;
+      color: #E0704F;
+    }
+
+    &.contact:before {
+      z-index: -1;
+    }
+  }
+
+  li {
+    &.contact {
+      background-color: #E0704F;
+
+      a {
+        color: white;
+      }
+    }
+
+    a {
+      color: #E0704F;
+    }
+  }
+
+  .sub-menu li a {
+    color: #fff;
+  }
+
+  li {
+    &.company a strong:before {
+      content: '';
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_company.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 4.5em;
+      height: 2.5em;
+      display: inline-block;
+      padding: 0.9em 0 0;
+      vertical-align: -0.6em;
+      margin-right: 0.5em;
+    }
+
+    &.business a strong:before {
+      content: '';
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_business.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 2em;
+      height: 2.5em;
+      display: inline-block;
+      padding: 0.9em 0 0;
+      vertical-align: -0.6em;
+      margin-right: 0.2em;
+    }
+
+    &.recruit a strong:before {
+      content: '';
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_recruit.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 3em;
+      height: 2.5em;
+      display: inline-block;
+      vertical-align: -0.6em;
+      margin-right: 0.4em;
+    }
+
+    &.contact a strong:before {
+      content: '';
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_inquiry.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 3em;
+      height: 2.5em;
+      display: inline-block;
+      vertical-align: -0.6em;
+    }
+  }
+}
+
+/* gnavをオレンジに */
+
+.device-pc .gMenu > li > a {
+  display: block;
+  overflow: hidden;
+  padding: 0px 1em !important;
+}
+
+header.siteHeader div#gMenu_outer nav ul.sub-menu {
+  height: auto;
+  margin: 4.8em 0 0 -7em;
+  position: absolute;
+  top: -20px;
+}
+
+@media screen and (min-width: 992px) {
+  header.siteHeader {
+    .container {
+      max-width: 1140px;
+    }
+
+    .siteHeader_logo {
+      float: left;
+      width: auto;
+      margin: 0 0 0 1em;
+    }
+
+    .gMenu {
+      right: 0;
+      margin: 0;
+      float: right;
+    }
+  }
+}
+
+/*
+ * ヘッダー分をマージン
+ */
+
+body div.section.page-header {
+  margin: 0 0 0;
+}
+
+/*
+ * フッター
+ */
+
+footer.siteFooter {
+  background-color: rgb(233, 151, 128);
+  border: none;
+  z-index: 1;
+  color: #ffffff;
+
+  .footerMenu li a {
+    border: none;
+    padding: 0 3em 0 0.5em;
+    color: #ffffff;
+  }
+
+  img.footer_menu_symbol {
+    width: auto;
+    height: 1.3em;
+  }
+
+  .footerMenu div > nav {
+    margin: 2.5em 0;
+  }
+
+  .companyInfo {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0em 3em;
+  }
+
+  .companyInfo-txt > img {
+    display: none;
+  }
+
+  .companyInfo-txt-box {
+    p {
+      &.company-name {
+        font-size: 1.4em;
+      }
+
+      font-size: 0.8em;
+      line-height: 0.6em;
+    }
+
+    margin: 1em 0 0;
+  }
+
+  .companyInfo-copyright {
+    > p {
+      font-size: 0.6em;
+      margin: auto 0 0;
+      height: 20px;
+    }
+
+    display: inherit;
+  }
+}
+
+/*
+ * パンくずリスト
+ */
+
+.section {
+  &.page-header > .section.breadSection {
+    z-index: 2;
+    border-bottom: none;
+    width: 100vw;
+    position: absolute;
+    color: #212529;
+  }
+
+  &.breadSection ol.breadcrumb {
+    padding: 15px 30px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .breadcrumb {
+    display: none;
+  }
+}
+
+/*
+ * Page Top ボタン
+ */
+@media (min-width: 1200px) {
+  #wpfront-scroll-top-container {
+    margin: 0 calc(50% - 570px) 0 0;
+  }
+}
+
+/*
+ * レスポンシブカスタマイズ
+ */
+
+@media (max-width: 991px) {
+  /*
+   * ヘッダー分をマージン
+   */
+
+  body div.section.page-header {
+    margin: 58px 0 0;
+  }
+
+  /*
+   * ヘッダー
+   */
+
+  header.siteHeader {
+    z-index: 2001;
+
+    .navbar-brand {
+      padding: 0;
+    }
+
+    .container.siteHeadContainer {
+      margin-left: 2em;
+    }
+
+    .navbar-brand img {
+      margin: 9.5px 0 13.5px;
+      display: block;
+      float: left;
+    }
+
+    div#gMenu_outer {
+      display: none;
+    }
+  }
+
+  body div {
+    &.vk-mobile-nav {
+      &.vk-mobile-nav-open {
+        top: 15px;
+        padding: 45px 0 0;
+        height: auto;
+        border: none;
+      }
+
+      height: auto;
+      padding: 0;
+    }
+
+    &.vk-mobile-nav-menu-btn {
+      right: calc(1vw + 2.5%);
+      left: auto;
+      margin: 7.5px 0 0;
+      background-size: 45px 45px !important;
+      border: none !important;
+    }
+
+    &.vk-mobile-nav {
+      nav > ul {
+        border: none;
+        overflow: hidden;
+      }
+
+      .global-nav {
+        margin-bottom: 0;
+      }
+
+      .widget_nav_menu ul li a {
+        letter-spacing: 1.5px;
+        font-size: 1.1em;
+        padding: .7em 1.5em;
+        color: #E0704F;
+      }
+
+      nav ul li {
+        a {
+          letter-spacing: 1.5px;
+          font-size: 1.1em;
+          padding: .7em 1.5em;
+          color: #E0704F;
+        }
+
+        &:nth-last-child(2) a {
+          border-bottom: none;
+        }
+
+        &.contact > a {
+          text-align: center;
+          background-color: #E0704F;
+          color: white;
+          border: none;
+
+          &:after {
+            content: '';
+          }
+
+          &:before {
+            content: '';
+            background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_inquiry.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 2em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: -0.1em;
+          }
+        }
+      }
+    }
+  }
+
+  /*
+   * パンくずリスト
+   */
+
+  .section.breadSection .container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  /*
+   * フッター
+   */
+
+  footer.siteFooter .footerMenu {
+    li {
+      border: none;
+      padding: 0.4em 0 0;
+    }
+
+    div > nav {
+      margin: 1.5em 0 2.5em;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  /*
+   * ヘッダー
+   */
+
+  header.siteHeader .container.siteHeadContainer {
+    margin-left: 1.5em;
+    margin-bottom: -4px;
+  }
+
+  .tab-label {
+    width: 42.7%;
+    padding: 5px .5em;
+    border: 1px solid #795A49;
+    font-size: 14px;
+  }
+
+  /*
+   * フッター
+   */
+
+  footer {
+    &.section.siteFooter .footerMenu > div.container {
+      padding: 0 2.5em;
+    }
+
+    &.siteFooter {
+      .companyInfo {
+        display: block;
+        margin: 1em 0;
+      }
+
+      .companyInfo-copyright {
+        margin: 2.5em 0 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .area {
+    padding: 10px 10% 30px 10% !important;
+  }
+
+  h3 {
+    padding-bottom: 20px;
+    margin: 50px 0 0 14.41px;
+  }
+}
+
+.business-list {
+  display: none;
+}
+
+/* タブレット用メニュー */
+
+@media (max-width: 991px) {
+  body div.vk-mobile-nav nav {
+    ul li a {
+      padding-left: 20%;
+      padding-top: 20px;
+      position: relative;
+      height: 60px;
+    }
+
+    .contact a {
+      padding-left: 0;
+    }
+  }
+
+  li {
+    &.company a::before {
+      content: '';
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_company.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 4.5em;
+      height: 2.5em;
+      position: absolute;
+      bottom: 11px;
+      left: 10%;
+    }
+
+    &.business a::before {
+      content: '';
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_business.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 2em;
+      height: 2.5em;
+      position: absolute;
+      bottom: 11px;
+      left: 13%;
+    }
+
+    &.recruit a::before {
+      content: '';
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_recruit.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 3em;
+      height: 2.5em;
+      position: absolute;
+      bottom: 11px;
+      left: 11.5%;
+    }
+  }
+
+  body div.vk-mobile-nav nav ul li.contact > a:before {
+    width: 3em;
+    height: 2.5em;
+    position: absolute;
+    bottom: 11px;
+    left: 35%;
+  }
+
+  .vk-menu-acc .acc-btn {
+    border: none;
+    background: none;
+    position: absolute;
+    top: 1px;
+    right: 0px;
+    width: 100%;
+    height: 59px;
+  }
+
+  body div.vk-mobile-nav nav ul {
+    li {
+      &.business a, &.recruit a {
+        border-top: 1px solid #795A49;
+        border-bottom: none;
+      }
+    }
+
+    &.sub-menu li {
+      a {
+        color: #795A49;
+        border: none;
+        height: 40px;
+        padding-top: 5px;
+        padding-left: 25%;
+
+        &::before {
+          content: none;
+        }
+
+        &::after {
+          content: "ー";
+          position: absolute;
+          left: 22%;
+        }
+      }
+
+      position: relative;
+    }
+  }
+
+  .vk-mobile-nav nav ul li a {
+    border-bottom: none;
+  }
+
+  .business-list {
+    display: block;
+  }
+}
+
+/* モバイル用メニュー */
+@media (max-width: 575px) {
+  body div.vk-mobile-nav nav {
+    ul li a {
+      padding-top: 18px;
+      padding-left: 27%;
+    }
+
+    .contact a {
+      padding: 20px 0 23px 0;
+    }
+  }
+
+  li {
+    &.company a::before {
+      width: 3.6em;
+      height: 2em;
+      bottom: 14.6px;
+      left: 7%;
+    }
+
+    &.business a::before {
+      width: 1.6em;
+      height: 2em;
+      bottom: 14.6px;
+      left: 11.7%;
+    }
+
+    &.recruit a::before {
+      width: 3em;
+      height: 2em;
+      bottom: 14.6px;
+      left: 10%;
+    }
+  }
+
+  body div.vk-mobile-nav nav ul {
+    li.contact > a:before {
+      width: 19.2em;
+      height: 2em;
+      bottom: 14px;
+      left: 24.5%;
+    }
+
+    &.sub-menu li a {
+      padding-left: 34%;
+
+      &::after {
+        left: 28%;
+      }
+    }
+  }
+}
+
+// slick
+.slick-dots {
+    li {
+      &:first-child {
+        display: none;
+      }
+      &:last-child {
+        display: none;
+      }
+      button {
+        &:before {
+          content: '\2022'!important;
+        }
+      }
+    }
+  }
+
+/* タブレット・モバイル用　オレンジ色のハンバーガーメニュー */
+
+.vk-mobile-nav-menu-btn {
+  &.menu-open {
+    background: url(../../assets/img/vk-menu-close-orange.svg) center 50% no-repeat;
+  }
+
+  background: url(../../assets/img/vk-menu-btn-orange.svg) center 50% no-repeat;
+}
+
+/* タブレット・モバイル用トップ画像 */
+@media (max-width: 991px) {
+  .business .contents-backblock, .company .contents-backblock, .recruit .contents-backblock {
+    height: 62.66vw;
+    background-size: cover;
+    position: static;
+    margin-top: 1.7vw;
+    background-repeat: no-repeat;
+  }
+
+  .contents-headblock {
+    &.business, &.company, &.recruit {
+      width: 100%;
+      height: auto;
+      background-repeat: repeat;
+      background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/sub_background.jpg);
+    }
+
+    h1 {
+      text-align: center;
+      padding-top: 13vw;
+    }
+  }
+
+  h1.recruit-page-tit {
+    padding-top: 0vw;
+  }
+
+  .product-back h1, .news h1 {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .business .contents-backblock, .company .contents-backblock, .recruit .contents-backblock {
+    margin-top: 2.2vw;
+  }
+}
+
+/* 事業内容ページ　左右の余白 */
+
+.area.department-intro {
+  padding: 4vw 10% 30px 10% !important;
+}
+
+/* タブレット 左右の余白 */
+@media (max-width: 991px) {
+  .area {
+    &.company-area, &.business-area, &.recruit-area, &.department-intro {
+      padding: 10px 10% 30px 10% !important;
+    }
+  }
+
+  .tab-switch:checked + .tab-label + .tab-content {
+    padding: 15px 0;
+  }
+
+  /* 商品一覧 */
+
+  .siteContent.product .factory-block-about > h3 {
+    margin: 0;
+  }
+
+  body .product-bg div.section.page-header {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 575px) {}

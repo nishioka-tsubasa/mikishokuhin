@@ -1,0 +1,373 @@
+{
+    "started_at": "2026-07-14T15:07:26+09:00",
+    "php": {
+        "version": "7.2.24",
+        "sapi": "apache2handler",
+        "memory_limit": "128M",
+        "max_execution_time": "30",
+        "upload_max_filesize": "100M",
+        "post_max_size": "110M",
+        "display_errors": "0",
+        "log_errors": "1",
+        "error_log": ""
+    },
+    "wordpress": {
+        "version": "6.9.4",
+        "home_url": "https://mikishokuhin.co.jp/",
+        "site_url": "https://mikishokuhin.co.jp/cms/",
+        "is_multisite": false,
+        "wp_debug": false,
+        "wp_debug_display": true,
+        "wp_debug_log": false,
+        "language": "ja"
+    },
+    "active_plugins": [
+        "advanced-custom-fields/acf.php",
+        "all-in-one-wp-migration/all-in-one-wp-migration.php",
+        "classic-editor/classic-editor.php",
+        "custom-field-suite/cfs.php",
+        "duplicate-post/duplicate-post.php",
+        "google-analytics-for-wordpress/googleanalytics.php",
+        "mw-wp-form/mw-wp-form.php",
+        "optinmonster/optin-monster-wp-api.php",
+        "tinymce-advanced/tinymce-advanced.php",
+        "userfeedback-lite/userfeedback.php",
+        "wpforms-lite/wpforms.php",
+        "wpfront-scroll-top/wpfront-scroll-top.php"
+    ],
+    "sitewide_plugins": [],
+    "plugins": [
+        {
+            "file": "advanced-custom-fields/acf.php",
+            "name": "Advanced Custom Fields",
+            "version": "5.8.7",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://www.advancedcustomfields.com",
+            "author": "Elliot Condon",
+            "active": true
+        },
+        {
+            "file": "akismet/akismet.php",
+            "name": "Akismet Anti-Spam",
+            "version": "4.1.3",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://akismet.com/",
+            "author": "Automattic",
+            "active": false
+        },
+        {
+            "file": "all-in-one-seo-pack/all_in_one_seo_pack.php",
+            "name": "All In One SEO Pack",
+            "version": "3.3.4",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://semperplugins.com/all-in-one-seo-pack-pro-version/",
+            "author": "Michael Torbert",
+            "active": false
+        },
+        {
+            "file": "all-in-one-wp-migration-file-extension/all-in-one-wp-migration-file-extension.php",
+            "name": "All-in-One WP Migration File Extension",
+            "version": "1.5",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://import.wp-migration.com/",
+            "author": "ServMask, Inc.",
+            "active": false
+        },
+        {
+            "file": "all-in-one-wp-migration/all-in-one-wp-migration.php",
+            "name": "All-in-One WP Migration",
+            "version": "7.6",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://servmask.com/",
+            "author": "ServMask",
+            "active": true
+        },
+        {
+            "file": "classic-editor/classic-editor.php",
+            "name": "Classic Editor",
+            "version": "1.5",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://wordpress.org/plugins/classic-editor/",
+            "author": "WordPress Contributors",
+            "active": true
+        },
+        {
+            "file": "custom-field-suite/cfs.php",
+            "name": "Custom Field Suite",
+            "version": "2.5.16",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "http://customfieldsuite.com/",
+            "author": "Matt Gibbs",
+            "active": true
+        },
+        {
+            "file": "duplicate-post/duplicate-post.php",
+            "name": "Duplicate Post",
+            "version": "3.2.4",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://duplicate-post.lopo.it/",
+            "author": "Enrico Battocchi",
+            "active": true
+        },
+        {
+            "file": "google-analytics-for-wordpress/googleanalytics.php",
+            "name": "Google Analytics for WordPress by MonsterInsights",
+            "version": "10.2.2",
+            "requires_wp": "5.6.0",
+            "requires_php": "7.2",
+            "plugin_uri": "https://www.monsterinsights.com/?utm_source=liteplugin&utm_medium=pluginheader&utm_campaign=pluginurl&utm_content=7%2E0%2E0",
+            "author": "MonsterInsights",
+            "active": true
+        },
+        {
+            "file": "hello.php",
+            "name": "Hello Dolly",
+            "version": "1.7.2",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "http://wordpress.org/plugins/hello-dolly/",
+            "author": "Matt Mullenweg",
+            "active": false
+        },
+        {
+            "file": "limit-login-attempts/limit-login-attempts.php",
+            "name": "Limit Login Attempts",
+            "version": "1.7.1",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "http://devel.kostdoktorn.se/limit-login-attempts",
+            "author": "Johan Eenfeldt",
+            "active": false
+        },
+        {
+            "file": "mw-wp-form/mw-wp-form.php",
+            "name": "MW WP Form",
+            "version": "4.2.0",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://plugins.2inc.org/mw-wp-form/",
+            "author": "Takashi Kitajima",
+            "active": true
+        },
+        {
+            "file": "optinmonster/optin-monster-wp-api.php",
+            "name": "OptinMonster",
+            "version": "2.16.5",
+            "requires_wp": "4.7",
+            "requires_php": "5.3",
+            "plugin_uri": "https://optinmonster.com",
+            "author": "OptinMonster Popup Builder Team",
+            "active": true
+        },
+        {
+            "file": "siteguard/siteguard.php",
+            "name": "SiteGuard WP Plugin",
+            "version": "1.5.0",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "http://www.jp-secure.com/cont/products/siteguard_wp_plugin/index_en.html",
+            "author": "JP-Secure",
+            "active": false
+        },
+        {
+            "file": "tinymce-advanced/tinymce-advanced.php",
+            "name": "TinyMCE Advanced",
+            "version": "5.3.0",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "http://www.laptoptips.ca/projects/tinymce-advanced/",
+            "author": "Andrew Ozz",
+            "active": true
+        },
+        {
+            "file": "userfeedback-lite/userfeedback.php",
+            "name": "UserFeedback Lite",
+            "version": "1.1.1",
+            "requires_wp": "5.9.0",
+            "requires_php": "5.6",
+            "plugin_uri": "https://www.userfeedback.com/lite?utm_source=liteplugin&utm_medium=pluginlist",
+            "author": "UserFeedback Team",
+            "active": true
+        },
+        {
+            "file": "wp-multibyte-patch/wp-multibyte-patch.php",
+            "name": "WP Multibyte Patch",
+            "version": "2.8.3",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "https://eastcoder.com/code/wp-multibyte-patch/",
+            "author": "Seisuke Kuraishi",
+            "active": false
+        },
+        {
+            "file": "wpforms-lite/wpforms.php",
+            "name": "WPForms Lite",
+            "version": "1.9.0.4",
+            "requires_wp": "5.5",
+            "requires_php": "7.0",
+            "plugin_uri": "https://wpforms.com",
+            "author": "WPForms",
+            "active": true
+        },
+        {
+            "file": "wpfront-scroll-top/wpfront-scroll-top.php",
+            "name": "WPFront Scroll Top",
+            "version": "2.0.2",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "http://wpfront.com/scroll-top-plugin/",
+            "author": "Syam Mohan",
+            "active": true
+        },
+        {
+            "file": "zipaddr-jp/zipaddr-jp.php",
+            "name": "zipaddr-jp",
+            "version": "1.23",
+            "requires_wp": "",
+            "requires_php": "",
+            "plugin_uri": "http://zipaddr2.com/wordpress/",
+            "author": "Tatsuro, Terunuma",
+            "active": false
+        }
+    ],
+    "current_theme": {
+        "name": "Lightning for 三基食品株式会社",
+        "version": "1.0.0",
+        "template": "lightning",
+        "stylesheet": "lightning_for_miki",
+        "parent": "Lightning"
+    },
+    "themes": [
+        {
+            "slug": "lightning",
+            "name": "Lightning",
+            "version": "7.0.7",
+            "template": "lightning",
+            "stylesheet": "lightning",
+            "parent": "",
+            "requires_wp": "",
+            "requires_php": "",
+            "active": false
+        },
+        {
+            "slug": "lightning_for_miki",
+            "name": "Lightning for 三基食品株式会社",
+            "version": "1.0.0",
+            "template": "lightning",
+            "stylesheet": "lightning_for_miki",
+            "parent": "Lightning",
+            "requires_wp": "",
+            "requires_php": "",
+            "active": true
+        },
+        {
+            "slug": "twentyfifteen",
+            "name": "Twenty Fifteen",
+            "version": "3.8",
+            "template": "twentyfifteen",
+            "stylesheet": "twentyfifteen",
+            "parent": "",
+            "requires_wp": "4.1",
+            "requires_php": "5.2.4",
+            "active": false
+        },
+        {
+            "slug": "twentynineteen",
+            "name": "Twenty Nineteen",
+            "version": "2.9",
+            "template": "twentynineteen",
+            "stylesheet": "twentynineteen",
+            "parent": "",
+            "requires_wp": "4.7",
+            "requires_php": "5.2.4",
+            "active": false
+        },
+        {
+            "slug": "twentyseventeen",
+            "name": "Twenty Seventeen",
+            "version": "3.7",
+            "template": "twentyseventeen",
+            "stylesheet": "twentyseventeen",
+            "parent": "",
+            "requires_wp": "4.7",
+            "requires_php": "5.2.4",
+            "active": false
+        },
+        {
+            "slug": "twentysixteen",
+            "name": "Twenty Sixteen",
+            "version": "3.3",
+            "template": "twentysixteen",
+            "stylesheet": "twentysixteen",
+            "parent": "",
+            "requires_wp": "4.4",
+            "requires_php": "5.2.4",
+            "active": false
+        },
+        {
+            "slug": "twentytwenty",
+            "name": "Twenty Twenty",
+            "version": "2.7",
+            "template": "twentytwenty",
+            "stylesheet": "twentytwenty",
+            "parent": "",
+            "requires_wp": "4.7",
+            "requires_php": "5.2.4",
+            "active": false
+        },
+        {
+            "slug": "twentytwentyfive",
+            "name": "Twenty Twenty-Five",
+            "version": "1.0",
+            "template": "twentytwentyfive",
+            "stylesheet": "twentytwentyfive",
+            "parent": "",
+            "requires_wp": "6.7",
+            "requires_php": "7.2",
+            "active": false
+        },
+        {
+            "slug": "twentytwentyfour",
+            "name": "Twenty Twenty-Four",
+            "version": "1.2",
+            "template": "twentytwentyfour",
+            "stylesheet": "twentytwentyfour",
+            "parent": "",
+            "requires_wp": "6.4",
+            "requires_php": "7.0",
+            "active": false
+        },
+        {
+            "slug": "twentytwentythree",
+            "name": "Twenty Twenty-Three",
+            "version": "1.5",
+            "template": "twentytwentythree",
+            "stylesheet": "twentytwentythree",
+            "parent": "",
+            "requires_wp": "6.1",
+            "requires_php": "5.6",
+            "active": false
+        },
+        {
+            "slug": "twentytwentytwo",
+            "name": "Twenty Twenty-Two",
+            "version": "1.8",
+            "template": "twentytwentytwo",
+            "stylesheet": "twentytwentytwo",
+            "parent": "",
+            "requires_wp": "5.9",
+            "requires_php": "5.6",
+            "active": false
+        }
+    ],
+    "bootstrap_output": "",
+    "bootstrap_errors": []
+}

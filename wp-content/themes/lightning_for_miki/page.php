@@ -1,0 +1,59 @@
+<?php
+/*
+ * デフォルト固定ページテンプレート
+ */
+get_header(); ?>
+
+<?php
+/*-------------------------------------------*/
+/* Page Header
+/*-------------------------------------------*/
+?>
+<div class="section page-header">
+	<?php
+	/*-------------------------------------------*/
+	/* BreadCrumb
+	/*-------------------------------------------*/
+	$old_file_name[] = 'module_panList.php';
+	if ( locate_template( $old_file_name, false, false ) ) {
+		locate_template( $old_file_name, true, false );
+	} else {
+		get_template_part( 'template-parts/breadcrumb' );
+	}
+	?>
+
+	<div class="contents-headblock meal contact">
+		<div class="contents-backblock meal contact">
+		</div><!--.notice-backblock-->
+        <div class="contact-header">
+            <p><?php the_title(); ?></p>
+        </div>
+	</div><!--.contents-headblock.meal-->
+
+</div><!--.section.page-header-->
+
+<?php
+/*-------------------------------------------*/
+/* サイトコンテンツ
+/*-------------------------------------------*/
+?>
+<div class="section siteContent contact">
+	<div class="container">
+		<div class="row">
+			<div class="col mainSection" id="main" role="main">
+                <div class="contact-mwwpform-row">
+                    <?php 
+                        if ( have_posts() ) {
+                            while ( have_posts() ) {
+                                the_post();
+                                the_content();
+                            } // end while(have_posts())
+                        } // end if(have_posts())
+                    ?>
+                </div>
+			</div><!-- [ /.mainSection ] -->
+		</div><!-- [ /.row ] -->
+	</div><!-- [ /.container ] -->
+</div><!-- [ /.siteContent ] -->
+
+<?php get_footer();

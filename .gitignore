@@ -1,0 +1,11 @@
+wp-config.php
+wp-content/uploads/
+wp-content/ai1wm-backups/
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+*.sql
+*.sql.gz
+*.wpress
+*.log
+.DS_Store
+
