@@ -26,9 +26,9 @@ get_header(); ?>
 	
 	<div class="contents-headblock recruit sub_background">
         <?php
-        $header_bg_url = get_field( 'header_bg' )['url'];
+        $header_bg_url = miki_get_acf_image_url( 'header_bg' );
         if ( wp_is_mobile() ) {
-            $header_bg_url = get_field( 'header_bg_mobile' )['url'];
+            $header_bg_url = miki_get_acf_image_url( 'header_bg_mobile' );
         }
         ?>
 		<div class="contents-backblock recruit" style="background-image: url(<?php echo $header_bg_url; ?>)" alt="<?php the_title(); ?>">
@@ -54,22 +54,22 @@ get_header(); ?>
         <div id="slick">
             <div class="employee-list">
             <?php
-                $fields = $cfs->get('employee_list');
+                $fields = miki_get_cfs_loop( 'employee_list' );
                 foreach ($fields as $field) :
             ?>
             <div class="employee">
-                <a href="/recruit/<?php echo $field['employee_link']; ?>">
+                <a href="/recruit/<?php echo miki_array_value( $field, 'employee_link' ); ?>">
                     <div class="employee__belongs">
-                        <img src="<?php echo $field['employee_belongs']; ?>">
+                        <img src="<?php echo miki_array_value( $field, 'employee_belongs' ); ?>">
                     </div>
                     <div class="employee__img">
-                        <img src="<?php echo $field['employee_img']; ?>">
+                        <img src="<?php echo miki_array_value( $field, 'employee_img' ); ?>">
                     </div>
                     <div class="employee__detail">
                         <div class="employee__detail__name">
-                            <h3><?php echo $field['employee_name']; ?></h3>
+                            <h3><?php echo miki_array_value( $field, 'employee_name' ); ?></h3>
                             <div class="employee__detail__name__catch">
-                                <?php echo $field['employee_catch']; ?>
+                                <?php echo miki_array_value( $field, 'employee_catch' ); ?>
                             </div>
                         </div>
                     </div>

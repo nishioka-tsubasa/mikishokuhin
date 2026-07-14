@@ -26,9 +26,9 @@ get_header(); ?>
 	
 	<div class="contents-headblock company">
 		<?php
-        $header_bg_url = get_field( 'header_bg' )['url'];
+        $header_bg_url = miki_get_acf_image_url( 'header_bg' );
         if ( wp_is_mobile() ) {
-            $header_bg_url = get_field( 'header_bg_mobile' )['url'];
+            $header_bg_url = miki_get_acf_image_url( 'header_bg_mobile' );
         }
         ?>
 		<div class="contents-backblock company" style="background-image: url(<?php echo $header_bg_url; ?>)" alt="<?php the_title(); ?>">
@@ -50,7 +50,7 @@ get_header(); ?>
     <div class="area">
 
         <div class="tab-wrap">
-            <input id="tab-overview" type="radio" name="TAB" class="tab-switch"<?php echo $_GET['page'] == 'history' ? '' : ' checked="checked"' ;?> />
+            <input id="tab-overview" type="radio" name="TAB" class="tab-switch"<?php echo isset( $_GET['page'] ) && $_GET['page'] == 'history' ? '' : ' checked="checked"' ;?> />
 			<label class="tab-label" for="tab-overview">会社概要</label>
             <div class="tab-content">
         	    <div class="overview">
@@ -84,7 +84,7 @@ get_header(); ?>
         			</div>
         	        <h3>工場</h3>
         	        <div class="block factory">
-        					<img src="<?php echo get_field( 'factory-nishinomiya-image' )['url']; ?>" alt="<?php echo get_field( 'factory-nishinomiya-image' )['alt']; ?>">
+        					<img src="<?php echo miki_get_acf_image_url( 'factory-nishinomiya-image' ); ?>" alt="<?php echo miki_get_acf_image_alt( 'factory-nishinomiya-image' ); ?>">
         					<div class="factory-detail">
         						<div class="factory-name">
         							西宮工場
@@ -104,7 +104,7 @@ get_header(); ?>
         					</div>
         			</div>
         	        <div class="block factory sannan">
-        				    <img src="<?php echo get_field( 'factory-sannan-image' )['url']; ?>" alt="<?php echo get_field( 'factory-sannan-image' )['alt']; ?>">
+        				    <img src="<?php echo miki_get_acf_image_url( 'factory-sannan-image' ); ?>" alt="<?php echo miki_get_acf_image_alt( 'factory-sannan-image' ); ?>">
         					<div class="factory-detail sannan-factory">
         						<div class="factory-name">
         							山南工場
@@ -125,7 +125,7 @@ get_header(); ?>
         			</div>
         	    </div>
             </div>
-            <input id="tab-history" type="radio" name="TAB" class="tab-switch"<?php echo $_GET['page'] == 'history' ? ' checked="checked"' : '' ;?> />
+            <input id="tab-history" type="radio" name="TAB" class="tab-switch"<?php echo isset( $_GET['page'] ) && $_GET['page'] == 'history' ? ' checked="checked"' : '' ;?> />
 			<label class="tab-label" for="tab-history">理念・会社沿革</label>
             <div class="tab-content">
         		<div class="history">

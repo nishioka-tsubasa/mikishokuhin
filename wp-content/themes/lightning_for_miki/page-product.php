@@ -55,14 +55,14 @@ get_header(); ?>
                     <h3>主な取扱商品</h3>
 
                 <?php
-                    foreach( $cfs->get('nishinomiya_loop') as $nishinomiya_loop ) :
+                    foreach( miki_get_cfs_loop( 'nishinomiya_loop' ) as $nishinomiya_loop ) :
                 ?>
 
                     <div class="factory-block-about-inner">
-                        <img src="<?php echo $nishinomiya_loop['nishinomiya_img']; ?>" alt="<?php echo $nishinomiya_loop['nishinomiya_name']; ?>">
-                        <h4><?php echo $nishinomiya_loop['nishinomiya_name']; ?></h4>
-                        <p><?php echo $nishinomiya_loop['nishinomiya_about']; ?></p>
-                        <a href="<?php echo $nishinomiya_loop['nishinomiya_url']; ?>" class="detail-button" target="_blank" rel="noopener">詳細へ</a>
+                        <img src="<?php echo miki_array_value( $nishinomiya_loop, 'nishinomiya_img' ); ?>" alt="<?php echo miki_array_value( $nishinomiya_loop, 'nishinomiya_name' ); ?>">
+                        <h4><?php echo miki_array_value( $nishinomiya_loop, 'nishinomiya_name' ); ?></h4>
+                        <p><?php echo miki_array_value( $nishinomiya_loop, 'nishinomiya_about' ); ?></p>
+                        <a href="<?php echo miki_array_value( $nishinomiya_loop, 'nishinomiya_url' ); ?>" class="detail-button" target="_blank" rel="noopener">詳細へ</a>
                     </div> 
 
                 <?php
@@ -72,7 +72,7 @@ get_header(); ?>
                 </div><!-- [ /.factory-block-about ] -->
             </div><!-- [ /.factory-block ] -->
 
-            <?php echo $cfs->get('cosme_html'); ?>
+            <?php echo miki_get_cfs_value( 'cosme_html' ); ?>
 
             <div class="factory-block end-factory-block">
                 <h2>山南工場</h2>
@@ -80,14 +80,14 @@ get_header(); ?>
                     <h3>主な取扱商品</h3>
 
                 <?php
-                    foreach( $cfs->get('sannan_loop') as $nishinomiya_loop ) :
+                    foreach( miki_get_cfs_loop( 'sannan_loop' ) as $nishinomiya_loop ) :
                 ?>
 
                     <div class="factory-block-about-inner">
-                        <img src="<?php echo $nishinomiya_loop['sannan_img']; ?>" alt="<?php echo $nishinomiya_loop['sannan_name']; ?>">
-                        <h4><?php echo $nishinomiya_loop['sannan_name']; ?></h4>
-                        <p><?php echo $nishinomiya_loop['sannan_about']; ?></p>
-                        <a href="<?php echo $nishinomiya_loop['sannan_url']; ?>" class="detail-button" target="_blank" rel="noopener">詳細へ</a>
+                        <img src="<?php echo miki_array_value( $nishinomiya_loop, 'sannan_img' ); ?>" alt="<?php echo miki_array_value( $nishinomiya_loop, 'sannan_name' ); ?>">
+                        <h4><?php echo miki_array_value( $nishinomiya_loop, 'sannan_name' ); ?></h4>
+                        <p><?php echo miki_array_value( $nishinomiya_loop, 'sannan_about' ); ?></p>
+                        <a href="<?php echo miki_array_value( $nishinomiya_loop, 'sannan_url' ); ?>" class="detail-button" target="_blank" rel="noopener">詳細へ</a>
                     </div> 
 
                 <?php

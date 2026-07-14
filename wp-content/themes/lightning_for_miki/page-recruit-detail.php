@@ -41,47 +41,47 @@ get_header(); ?>
     <div class="recruit-interview">
         <?php
             $interview_detail_number = 0;
-            foreach( $cfs->get('interview') as $interview ) :
+            foreach( miki_get_cfs_loop( 'interview' ) as $interview ) :
                 $interview_detail_number = $interview_detail_number + 1;
         ?>
-                <div class="recruit-interview-block <?php echo key($interview['bg']); ?> <?php echo key($interview['position']); ?>">
+                <div class="recruit-interview-block <?php echo miki_first_array_key( miki_array_value( $interview, 'bg', array() ) ); ?> <?php echo miki_first_array_key( miki_array_value( $interview, 'position', array() ) ); ?>">
                     <div class="container">
-                        <?php if ( $interview['interrupt'] ) : ?>
-                            <h2><?php echo $interview['interrupt']; ?></h2>
+                        <?php if ( miki_array_value( $interview, 'interrupt' ) ) : ?>
+                            <h2><?php echo miki_array_value( $interview, 'interrupt' ); ?></h2>
                         <?php endif; ?>
                         <div class="interview-section">
-                            <?php if ( $interview['question'] ) : ?>
+                            <?php if ( miki_array_value( $interview, 'question' ) ) : ?>
                                 <div class="interview-detail">
-                                    <h3><span class="interview-detail-number">Q<?php echo $interview_detail_number; ?></span><?php echo $interview['question']; ?></h2>
+                                    <h3><span class="interview-detail-number">Q<?php echo $interview_detail_number; ?></span><?php echo miki_array_value( $interview, 'question' ); ?></h2>
                                     <?php
                                     if ( wp_is_mobile() ) :
                                     ?>
-                                    <?php if ( $interview['img'] ) : ?>
+                                    <?php if ( miki_array_value( $interview, 'img' ) ) : ?>
                                         <div class="interview-image">
                                             <div class="interview-photo">
-                                                <img src="<?php echo $interview['img']; ?>" alt="Q<?php echo $interview_detail_number; ?>写真">
+                                                <img src="<?php echo miki_array_value( $interview, 'img' ); ?>" alt="Q<?php echo $interview_detail_number; ?>写真">
                                             </div>
                                             <div class="interview-photo-detail">
-                                                <?php echo $interview['img-detail']; ?>
+                                                <?php echo miki_array_value( $interview, 'img-detail' ); ?>
                                             </div>
                                         </div>
                                     <?php endif; ?>
                                     <?php
                                     endif;
                                     ?>
-                                    <p><?php echo $interview['answer']; ?></p>
+                                    <p><?php echo miki_array_value( $interview, 'answer' ); ?></p>
                                 </div>
                             <?php endif; ?>
                             <?php
                             if ( !wp_is_mobile() ) :
                             ?>
-                            <?php if ( $interview['img'] ) : ?>
+                            <?php if ( miki_array_value( $interview, 'img' ) ) : ?>
                                 <div class="interview-image">
                                     <div class="interview-photo">
-                                        <img src="<?php echo $interview['img']; ?>" alt="Q<?php echo $interview_detail_number; ?>写真">
+                                        <img src="<?php echo miki_array_value( $interview, 'img' ); ?>" alt="Q<?php echo $interview_detail_number; ?>写真">
                                     </div>
                                     <div class="interview-photo-detail">
-                                        <?php echo $interview['img-detail']; ?>
+                                        <?php echo miki_array_value( $interview, 'img-detail' ); ?>
                                     </div>
                                 </div>
                             <?php endif; ?>

@@ -26,9 +26,9 @@ get_header(); ?>
 	
 	<div class="contents-headblock business">
         <?php
-        $header_bg_url = get_field( 'header_bg' )['url'];
+        $header_bg_url = miki_get_acf_image_url( 'header_bg' );
         if ( wp_is_mobile() ) {
-            $header_bg_url = get_field( 'header_bg_mobile' )['url'];
+            $header_bg_url = miki_get_acf_image_url( 'header_bg_mobile' );
         }
         ?>
 		<div class="contents-backblock business" style="background-image: url(<?php echo $header_bg_url; ?>)" alt="<?php the_title(); ?>">

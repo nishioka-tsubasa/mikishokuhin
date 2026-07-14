@@ -5,6 +5,7 @@
 get_header(); ?>
 
 <?php
+$bootstrap = miki_get_bootstrap_type();
 if ( $bootstrap == '3' ) {
 	$old_file_name[] = 'module_slide.php';
 	if ( locate_template( $old_file_name, false, false ) ) {
@@ -16,15 +17,15 @@ if ( $bootstrap == '3' ) {
 	get_template_part( 'template-parts/slide', 'bs4' );
 }
 
-$days  = $cfs->get('notice_new_time'); ; // お知らせ：NEWを表示させる期間の日数を入力
+$days  = miki_get_cfs_value( 'notice_new_time', 0 ); // お知らせ：NEWを表示させる期間の日数を入力
 $today = date_i18n('U');
 $args = array(
 	'category_name' => 'notice', // お知らせ：カテゴリー
-	'posts_per_page' => $cfs->get('notice_display_count') // お知らせ：表示させる記事数
+	'posts_per_page' => miki_get_cfs_value( 'notice_display_count', 5 ) // お知らせ：表示させる記事数
 );
 
 // お問い合わせ先の電話番号取得のため
-$company_page_id = get_page_by_path("company")->ID;
+$company_page_id = miki_get_page_id_by_path( 'company' );
 ?>
 <div class="section siteContent top sub_background">
 

@@ -4,9 +4,11 @@
  */
 get_header(); ?>
 
+<?php $bootstrap = miki_get_bootstrap_type(); ?>
+
 <style>
 .col-5-card-img-non-image {
-    background-image: url('<?php echo get_option( 'lightning_theme_options' )['head_logo'];?>');
+    background-image: url('<?php echo miki_array_value( get_option( 'lightning_theme_options' ), 'head_logo' );?>');
     background-size: 60% auto;
 }
 
@@ -35,7 +37,7 @@ get_header(); ?>
 		<div class="contents-backblock meal contact">
 		</div><!--.notice-backblock-->
         <div class="contact-header">
-            <p><?php echo get_the_category()[0]->cat_name;; ?></p>
+            <p><?php $categories = get_the_category(); echo isset( $categories[0] ) ? $categories[0]->cat_name : ''; ?></p>
         </div>
 	</div><!--.contents-headblock.meal-->
 

@@ -145,15 +145,15 @@ get_header(); ?>
 					</div>
                 </div><!--.about-kraftboard-->
                 
-                <?php foreach ( $cfs->get('sntnc_loop') as $sntnc_loop ) :
+                <?php foreach ( miki_get_cfs_loop( 'sntnc_loop' ) as $sntnc_loop ) :
                 ?>
                     <div class="about-things">
                         <div class="about-things-img">
-                            <p class="about-things-img-title"><?php echo $sntnc_loop['title'] ?></p>
-                            <img src="<?php echo $sntnc_loop['image'] ?>" alt="<?php echo $sntnc_loop['title'] ?>">
+                            <p class="about-things-img-title"><?php echo miki_array_value( $sntnc_loop, 'title' ) ?></p>
+                            <img src="<?php echo miki_array_value( $sntnc_loop, 'image' ) ?>" alt="<?php echo miki_array_value( $sntnc_loop, 'title' ) ?>">
                         </div>
                         <div class="about-things-txt">
-                            <p class="about-things-txt-p"><?php echo $sntnc_loop['txt'] ?></p>
+                            <p class="about-things-txt-p"><?php echo miki_array_value( $sntnc_loop, 'txt' ) ?></p>
                         </div>
                     </div><!--.about-things-->
                 <?php endforeach;

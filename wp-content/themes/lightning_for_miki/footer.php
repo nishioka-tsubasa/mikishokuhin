@@ -34,7 +34,7 @@ if ( is_active_sidebar( 'footer-upper-widget-1' ) ) : ?>
 			);
 
 			// 会社情報は会社概要ページ(company)より取得
-			$company_page_id = get_page_by_path("company")->ID;
+			$company_page_id = miki_get_page_id_by_path( 'company' );
 			?>
 
 			<div class="companyInfo">

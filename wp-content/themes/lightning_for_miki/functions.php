@@ -79,6 +79,86 @@ function add_wp_footer_custom(){ ?>
 <?php }
 add_action( 'wp_footer', 'add_wp_footer_custom', 1 );
 
+if ( ! function_exists( 'miki_get_acf_image_url' ) ) {
+	function miki_get_acf_image_url( $field_name, $post_id = false ) {
+		$image = get_field( $field_name, $post_id );
+		if ( is_array( $image ) ) {
+			return isset( $image['url'] ) ? $image['url'] : '';
+		}
+		if ( is_numeric( $image ) ) {
+			$url = wp_get_attachment_image_url( $image, 'full' );
+			return $url ? $url : '';
+		}
+		return is_string( $image ) ? $image : '';
+	}
+}
+
+if ( ! function_exists( 'miki_get_acf_image_alt' ) ) {
+	function miki_get_acf_image_alt( $field_name, $post_id = false ) {
+		$image = get_field( $field_name, $post_id );
+		if ( is_array( $image ) ) {
+			return isset( $image['alt'] ) ? $image['alt'] : '';
+		}
+		if ( is_numeric( $image ) ) {
+			return (string) get_post_meta( $image, '_wp_attachment_image_alt', true );
+		}
+		return '';
+	}
+}
+
+if ( ! function_exists( 'miki_get_cfs_loop' ) ) {
+	function miki_get_cfs_loop( $field_name ) {
+		global $cfs;
+		if ( ! is_object( $cfs ) || ! method_exists( $cfs, 'get' ) ) {
+			return array();
+		}
+		$value = $cfs->get( $field_name );
+		return is_array( $value ) ? $value : array();
+	}
+}
+
+if ( ! function_exists( 'miki_get_cfs_value' ) ) {
+	function miki_get_cfs_value( $field_name, $default = '' ) {
+		global $cfs;
+		if ( ! is_object( $cfs ) || ! method_exists( $cfs, 'get' ) ) {
+			return $default;
+		}
+		$value = $cfs->get( $field_name );
+		return null === $value || false === $value ? $default : $value;
+	}
+}
+
+if ( ! function_exists( 'miki_array_value' ) ) {
+	function miki_array_value( $array, $key, $default = '' ) {
+		return is_array( $array ) && array_key_exists( $key, $array ) ? $array[ $key ] : $default;
+	}
+}
+
+if ( ! function_exists( 'miki_first_array_key' ) ) {
+	function miki_first_array_key( $array ) {
+		if ( ! is_array( $array ) ) {
+			return '';
+		}
+		foreach ( $array as $key => $value ) {
+			return $key;
+		}
+		return '';
+	}
+}
+
+if ( ! function_exists( 'miki_get_page_id_by_path' ) ) {
+	function miki_get_page_id_by_path( $path ) {
+		$page = get_page_by_path( $path );
+		return $page instanceof WP_Post ? $page->ID : 0;
+	}
+}
+
+if ( ! function_exists( 'miki_get_bootstrap_type' ) ) {
+	function miki_get_bootstrap_type() {
+		return isset( $GLOBALS['bootstrap'] ) ? (string) $GLOBALS['bootstrap'] : '4';
+	}
+}
+
 /*-------------------------------------------*/
 /*  MW WP FORM チェックボックス チェック数バリデート
 /*-------------------------------------------*/
@@ -89,12 +169,13 @@ if ( class_exists( 'MW_WP_Form_Abstract_Validation_Rule' ) ) {
 		public function rule( $key, array $options = array() ) {
 			$value = $this->Data->get( $key );
 			if ( ! MWF_Functions::is_empty( $value ) ) {
+				$max = isset( $options['max'] ) ? $options['max'] : 0;
 				$separator = $this->Data->get_separator_value( $key );
 				$values = explode( $separator, $value );
-				if ( MWF_Functions::is_numeric( $options['max'] ) && count( $values ) > $options['max'] ) {
+				if ( MWF_Functions::is_numeric( $max ) && count( $values ) > $max ) {
 					$defaults = array(
 						'max' => 0,
-						'message' => sprintf( '最大 %d つまで選択可能です', $options['max'] )
+						'message' => sprintf( '最大 %d つまで選択可能です', $max )
 					);
 					$options = array_merge( $defaults, $options );
 					return $options['message'];
@@ -104,8 +185,9 @@ if ( class_exists( 'MW_WP_Form_Abstract_Validation_Rule' ) ) {
 
 		public function admin( $key, $value ) {
 			$max = '';
-			if ( is_array( $value[$this->getName()] ) && isset( $value[$this->getName()]['max'] ) ) {
-				$max = $value[$this->getName()]['max'];
+			$rule_value = is_array( $value ) && isset( $value[ $this->getName() ] ) ? $value[ $this->getName() ] : array();
+			if ( is_array( $rule_value ) && isset( $rule_value['max'] ) ) {
+				$max = $rule_value['max'];
 			}
 			?>
 			<table>
