@@ -1,0 +1,164 @@
+[
+  {
+    "kind": "plugins",
+    "slug": "advanced-custom-fields",
+    "remote": "/logs/_migration/cms/wp-content/plugins/advanced-custom-fields",
+    "uploaded_files": 611
+  },
+  {
+    "kind": "plugins",
+    "slug": "akismet",
+    "remote": "/logs/_migration/cms/wp-content/plugins/akismet",
+    "uploaded_files": 47
+  },
+  {
+    "kind": "plugins",
+    "slug": "all-in-one-seo-pack",
+    "remote": "/logs/_migration/cms/wp-content/plugins/all-in-one-seo-pack",
+    "uploaded_files": 1182
+  },
+  {
+    "kind": "plugins",
+    "slug": "all-in-one-wp-migration",
+    "remote": "/logs/_migration/cms/wp-content/plugins/all-in-one-wp-migration",
+    "uploaded_files": 218
+  },
+  {
+    "kind": "plugins",
+    "slug": "classic-editor",
+    "remote": "/logs/_migration/cms/wp-content/plugins/classic-editor",
+    "uploaded_files": 6
+  },
+  {
+    "kind": "plugins",
+    "slug": "duplicate-post",
+    "remote": "/logs/_migration/cms/wp-content/plugins/duplicate-post",
+    "uploaded_files": 63
+  },
+  {
+    "kind": "plugins",
+    "slug": "google-analytics-for-wordpress",
+    "remote": "/logs/_migration/cms/wp-content/plugins/google-analytics-for-wordpress",
+    "uploaded_files": 784
+  },
+  {
+    "kind": "plugins",
+    "slug": "limit-login-attempts",
+    "remote": "/logs/_migration/cms/wp-content/plugins/limit-login-attempts",
+    "uploaded_files": 40
+  },
+  {
+    "kind": "plugins",
+    "slug": "mw-wp-form",
+    "remote": "/logs/_migration/cms/wp-content/plugins/mw-wp-form",
+    "uploaded_files": 145
+  },
+  {
+    "kind": "plugins",
+    "slug": "optinmonster",
+    "remote": "/logs/_migration/cms/wp-content/plugins/optinmonster",
+    "uploaded_files": 366
+  },
+  {
+    "kind": "plugins",
+    "slug": "siteguard",
+    "remote": "/logs/_migration/cms/wp-content/plugins/siteguard",
+    "uploaded_files": 103
+  },
+  {
+    "kind": "plugins",
+    "slug": "tinymce-advanced",
+    "remote": "/logs/_migration/cms/wp-content/plugins/tinymce-advanced",
+    "uploaded_files": 62
+  },
+  {
+    "kind": "plugins",
+    "slug": "userfeedback-lite",
+    "remote": "/logs/_migration/cms/wp-content/plugins/userfeedback-lite",
+    "uploaded_files": 2381
+  },
+  {
+    "kind": "plugins",
+    "slug": "wp-multibyte-patch",
+    "remote": "/logs/_migration/cms/wp-content/plugins/wp-multibyte-patch",
+    "uploaded_files": 12
+  },
+  {
+    "kind": "plugins",
+    "slug": "wpforms-lite",
+    "remote": "/logs/_migration/cms/wp-content/plugins/wpforms-lite",
+    "uploaded_files": 4599
+  },
+  {
+    "kind": "plugins",
+    "slug": "wpfront-scroll-top",
+    "remote": "/logs/_migration/cms/wp-content/plugins/wpfront-scroll-top",
+    "uploaded_files": 126
+  },
+  {
+    "kind": "plugins",
+    "slug": "zipaddr-jp",
+    "remote": "/logs/_migration/cms/wp-content/plugins/zipaddr-jp",
+    "uploaded_files": 9
+  },
+  {
+    "kind": "themes",
+    "slug": "lightning",
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning",
+    "uploaded_files": 546
+  },
+  {
+    "kind": "themes",
+    "slug": "twentyfifteen",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentyfifteen",
+    "uploaded_files": 135
+  },
+  {
+    "kind": "themes",
+    "slug": "twentynineteen",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentynineteen",
+    "uploaded_files": 98
+  },
+  {
+    "kind": "themes",
+    "slug": "twentyseventeen",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentyseventeen",
+    "uploaded_files": 95
+  },
+  {
+    "kind": "themes",
+    "slug": "twentysixteen",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentysixteen",
+    "uploaded_files": 110
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwenty",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentytwenty",
+    "uploaded_files": 61
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwentyfive",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentytwentyfive",
+    "uploaded_files": 235
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwentyfour",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentytwentyfour",
+    "uploaded_files": 107
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwentythree",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentytwentythree",
+    "uploaded_files": 51
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwentytwo",
+    "remote": "/logs/_migration/cms/wp-content/themes/twentytwentytwo",
+    "uploaded_files": 138
+  }
+]

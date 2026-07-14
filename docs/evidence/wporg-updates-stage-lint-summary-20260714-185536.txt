@@ -1,0 +1,9 @@
+Source lint file:
+work/wporg-updates-stage-lint-after-patch.txt
+
+Command check:
+rg -n "^(PHP )?(Deprecated|Warning|Notice):|^Fatal error:|^Parse error:|Errors parsing" work/wporg-updates-stage-lint-after-patch.txt
+
+Result:
+No matching PHP Warning / Fatal error / Deprecated / Notice / Parse error / Errors parsing lines were found after patching.
+

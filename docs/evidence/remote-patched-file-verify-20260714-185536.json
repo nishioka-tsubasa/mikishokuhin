@@ -1,0 +1,56 @@
+[
+  {
+    "file": "plugins/userfeedback-lite/includes/lib/class-mobile-detect.php",
+    "remote_sha256": "1a6dcef71faaa6017902d9bd9995615179ec1276f947675492824439edb460d5",
+    "stage_sha256": "1a6dcef71faaa6017902d9bd9995615179ec1276f947675492824439edb460d5",
+    "match": true
+  },
+  {
+    "file": "plugins/wpforms-lite/vendor_prefixed/symfony/css-selector/XPath/Translator.php",
+    "remote_sha256": "3b549a61709b065bb400452759f09416fc9c2e32ad620ab55e8dc2ab8673e2dd",
+    "stage_sha256": "3b549a61709b065bb400452759f09416fc9c2e32ad620ab55e8dc2ab8673e2dd",
+    "match": true
+  },
+  {
+    "file": "plugins/wpforms-lite/vendor_prefixed/symfony/css-selector/Parser/Parser.php",
+    "remote_sha256": "ef91a0604a75f0fc7170bb6223641b0bb99c28a8d6368eaeb0a57113efa1ad06",
+    "stage_sha256": "ef91a0604a75f0fc7170bb6223641b0bb99c28a8d6368eaeb0a57113efa1ad06",
+    "match": true
+  },
+  {
+    "file": "plugins/wpforms-lite/vendor_prefixed/symfony/css-selector/Node/ElementNode.php",
+    "remote_sha256": "12d8fdcbae5c51d9801bd87f7f8bc1adf0a6dbc08add7b34dc20b90f8cdc00ca",
+    "stage_sha256": "12d8fdcbae5c51d9801bd87f7f8bc1adf0a6dbc08add7b34dc20b90f8cdc00ca",
+    "match": true
+  },
+  {
+    "file": "plugins/wpforms-lite/vendor_prefixed/symfony/css-selector/Node/SelectorNode.php",
+    "remote_sha256": "5e74eebadd637462ca87827b2ff6e37d9c8800cb0a13d2a145816e4f2a9a1b55",
+    "stage_sha256": "5e74eebadd637462ca87827b2ff6e37d9c8800cb0a13d2a145816e4f2a9a1b55",
+    "match": true
+  },
+  {
+    "file": "plugins/wpforms-lite/vendor_prefixed/tijsverkoyen/css-to-inline-styles/src/Css/Property/Processor.php",
+    "remote_sha256": "ca832f02139ecb7383bfb8154edd1b7737787c203651d999ed6ee3a55618dfed",
+    "stage_sha256": "ca832f02139ecb7383bfb8154edd1b7737787c203651d999ed6ee3a55618dfed",
+    "match": true
+  },
+  {
+    "file": "plugins/wpforms-lite/vendor_prefixed/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php",
+    "remote_sha256": "cddb6219ca64f2ca5e02ebf3ebc0f16948fb011c08b183b8de6013149b41c941",
+    "stage_sha256": "cddb6219ca64f2ca5e02ebf3ebc0f16948fb011c08b183b8de6013149b41c941",
+    "match": true
+  },
+  {
+    "file": "plugins/mw-wp-form/classes/abstract/class.validation-rule.php",
+    "remote_sha256": "4ba50ddae4a34c9884e04015a7bc2f62c6296a778bf2760200923fc4abcecec5",
+    "stage_sha256": "4ba50ddae4a34c9884e04015a7bc2f62c6296a778bf2760200923fc4abcecec5",
+    "match": true
+  },
+  {
+    "file": "plugins/mw-wp-form/classes/services/class.mail-parser.php",
+    "remote_sha256": "99ba1fafd79d97e71a0a3bc151e965630fd3499ee7ac8c6d4fd75666d32309de",
+    "stage_sha256": "99ba1fafd79d97e71a0a3bc151e965630fd3499ee7ac8c6d4fd75666d32309de",
+    "match": true
+  }
+]

@@ -1,0 +1,355 @@
+{
+  "plugins": [
+    {
+      "slug": "advanced-custom-fields",
+      "remote": "/logs/_migration/cms/wp-content/plugins/advanced-custom-fields/acf.php",
+      "header": {
+        "Plugin Name": "Advanced Custom Fields",
+        "Version": "6.8.5",
+        "Text Domain": "acf",
+        "Requires PHP": "7.4",
+        "Requires at least": "6.2"
+      },
+      "ok": true
+    },
+    {
+      "slug": "akismet",
+      "remote": "/logs/_migration/cms/wp-content/plugins/akismet/akismet.php",
+      "header": {
+        "Plugin Name": "Akismet Anti-spam: Spam Protection",
+        "Version": "5.7",
+        "Requires at least": "5.8",
+        "Requires PHP": "7.2",
+        "Text Domain": "akismet"
+      },
+      "ok": true
+    },
+    {
+      "slug": "all-in-one-seo-pack",
+      "remote": "/logs/_migration/cms/wp-content/plugins/all-in-one-seo-pack/all_in_one_seo_pack.php",
+      "header": {
+        "Plugin Name": "All in One SEO",
+        "Version": "4.9.10",
+        "Text Domain": "all-in-one-seo-pack"
+      },
+      "ok": true
+    },
+    {
+      "slug": "all-in-one-wp-migration",
+      "remote": "/logs/_migration/cms/wp-content/plugins/all-in-one-wp-migration/all-in-one-wp-migration.php",
+      "header": {
+        "Plugin Name": "All-in-One WP Migration and Backup",
+        "Version": "7.106",
+        "Text Domain": "all-in-one-wp-migration"
+      },
+      "ok": true
+    },
+    {
+      "slug": "all-in-one-wp-migration-file-extension",
+      "remote": "/logs/_migration/cms/wp-content/plugins/all-in-one-wp-migration-file-extension/all-in-one-wp-migration-file-extension.php",
+      "header": {
+        "Plugin Name": "All-in-One WP Migration File Extension",
+        "Version": "1.5",
+        "Text Domain": "all-in-one-wp-migration-file-extension"
+      },
+      "ok": true
+    },
+    {
+      "slug": "classic-editor",
+      "remote": "/logs/_migration/cms/wp-content/plugins/classic-editor/classic-editor.php",
+      "header": {
+        "Plugin Name": "Classic Editor",
+        "Version": "1.7.0",
+        "Text Domain": "classic-editor",
+        "Requires at least": "4.9",
+        "Requires PHP": "5.2.4"
+      },
+      "ok": true
+    },
+    {
+      "slug": "custom-field-suite",
+      "remote": "/logs/_migration/cms/wp-content/plugins/custom-field-suite/cfs.php",
+      "header": {
+        "Plugin Name": "Custom Field Suite",
+        "Version": "2.5.16",
+        "Text Domain": "cfs"
+      },
+      "ok": true
+    },
+    {
+      "slug": "duplicate-post",
+      "remote": "/logs/_migration/cms/wp-content/plugins/duplicate-post/duplicate-post.php",
+      "header": {
+        "Plugin Name": "Yoast Duplicate Post",
+        "Version": "4.7",
+        "Text Domain": "duplicate-post",
+        "Requires at least": "6.8",
+        "Requires PHP": "7.4"
+      },
+      "ok": true
+    },
+    {
+      "slug": "google-analytics-for-wordpress",
+      "remote": "/logs/_migration/cms/wp-content/plugins/google-analytics-for-wordpress/googleanalytics.php",
+      "header": {
+        "Plugin Name": "Google Analytics for WordPress by MonsterInsights",
+        "Version": "10.2.2",
+        "Requires at least": "5.6.0",
+        "Requires PHP": "7.2",
+        "Text Domain": "google-analytics-for-wordpress"
+      },
+      "ok": true
+    },
+    {
+      "slug": "hello",
+      "remote": "/logs/_migration/cms/wp-content/plugins/hello.php",
+      "header": {
+        "Plugin Name": "Hello Dolly",
+        "Version": "1.7.2"
+      },
+      "ok": true
+    },
+    {
+      "slug": "limit-login-attempts",
+      "remote": "/logs/_migration/cms/wp-content/plugins/limit-login-attempts/limit-login-attempts.php",
+      "header": {
+        "Plugin Name": "Limit Login Attempts",
+        "Text Domain": "limit-login-attempts",
+        "Version": "1.7.2"
+      },
+      "ok": true
+    },
+    {
+      "slug": "mw-wp-form",
+      "remote": "/logs/_migration/cms/wp-content/plugins/mw-wp-form/mw-wp-form.php",
+      "header": {
+        "Plugin Name": "MW WP Form",
+        "Version": "5.1.4",
+        "Requires at least": "6.0",
+        "Requires PHP": "8.0",
+        "Text Domain": "mw-wp-form"
+      },
+      "ok": true
+    },
+    {
+      "slug": "optinmonster",
+      "remote": "/logs/_migration/cms/wp-content/plugins/optinmonster/optin-monster-wp-api.php",
+      "header": {
+        "Plugin Name": "OptinMonster",
+        "Version": "2.16.24",
+        "Text Domain": "optin-monster-api",
+        "Requires at least": "5.0",
+        "Requires PHP": "7.2"
+      },
+      "ok": true
+    },
+    {
+      "slug": "siteguard",
+      "remote": "/logs/_migration/cms/wp-content/plugins/siteguard/siteguard.php",
+      "header": {
+        "Plugin Name": "SiteGuard WP Plugin",
+        "Text Domain": "siteguard",
+        "Version": "1.8.7"
+      },
+      "ok": true
+    },
+    {
+      "slug": "tinymce-advanced",
+      "remote": "/logs/_migration/cms/wp-content/plugins/tinymce-advanced/tinymce-advanced.php",
+      "header": {
+        "Plugin Name": "Advanced Editor Tools",
+        "Version": "5.9.2",
+        "Requires at least": "5.9",
+        "Requires PHP": "5.6",
+        "Text Domain": "tinymce-advanced"
+      },
+      "ok": true
+    },
+    {
+      "slug": "userfeedback-lite",
+      "remote": "/logs/_migration/cms/wp-content/plugins/userfeedback-lite/userfeedback.php",
+      "header": {
+        "Plugin Name": "UserFeedback Lite",
+        "Version": "1.11.2",
+        "Requires PHP": "7.4",
+        "Requires at least": "5.9.0",
+        "Text Domain": "userfeedback"
+      },
+      "ok": true
+    },
+    {
+      "slug": "wp-multibyte-patch",
+      "remote": "/logs/_migration/cms/wp-content/plugins/wp-multibyte-patch/wp-multibyte-patch.php",
+      "header": {
+        "Plugin Name": "WP Multibyte Patch",
+        "Version": "2.9.3",
+        "Text Domain": "wp-multibyte-patch"
+      },
+      "ok": true
+    },
+    {
+      "slug": "wpforms-lite",
+      "remote": "/logs/_migration/cms/wp-content/plugins/wpforms-lite/wpforms.php",
+      "header": {
+        "Plugin Name": "WPForms Lite",
+        "Requires at least": "5.5",
+        "Requires PHP": "7.2",
+        "Version": "1.10.2.1",
+        "Text Domain": "wpforms-lite"
+      },
+      "ok": true
+    },
+    {
+      "slug": "wpfront-scroll-top",
+      "remote": "/logs/_migration/cms/wp-content/plugins/wpfront-scroll-top/wpfront-scroll-top.php",
+      "header": {
+        "Plugin Name": "WPFront Scroll Top",
+        "Version": "3.0.1",
+        "Requires at least": "5.3",
+        "Requires PHP": "7.2"
+      },
+      "ok": true
+    },
+    {
+      "slug": "zipaddr-jp",
+      "remote": "/logs/_migration/cms/wp-content/plugins/zipaddr-jp/zipaddr-jp.php",
+      "header": {
+        "Plugin Name": "zipaddr-jp",
+        "Version": "1.43"
+      },
+      "ok": true
+    }
+  ],
+  "themes": [
+    {
+      "slug": "lightning",
+      "remote": "/logs/_migration/cms/wp-content/themes/lightning/style.css",
+      "header": {
+        "Theme Name": "Lightning",
+        "Text Domain": "lightning",
+        "Version": "15.37.1",
+        "Requires at least": "6.5",
+        "Requires PHP": "7.4"
+      },
+      "ok": true
+    },
+    {
+      "slug": "lightning_for_miki",
+      "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/style.css",
+      "header": {
+        "Theme Name": "Lightning for 三基食品株式会社",
+        "Template": "lightning",
+        "Version": "1.0.0"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentyfifteen",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentyfifteen/style.css",
+      "header": {
+        "Theme Name": "Twenty Fifteen",
+        "Version": "4.2",
+        "Requires at least": "4.1",
+        "Requires PHP": "5.2.4",
+        "Text Domain": "twentyfifteen"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentynineteen",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentynineteen/style.css",
+      "header": {
+        "Theme Name": "Twenty Nineteen",
+        "Requires at least": "4.7",
+        "Requires PHP": "5.2.4",
+        "Version": "3.3",
+        "Text Domain": "twentynineteen"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentyseventeen",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentyseventeen/style.css",
+      "header": {
+        "Theme Name": "Twenty Seventeen",
+        "Version": "4.1",
+        "Requires at least": "4.7",
+        "Requires PHP": "5.2.4",
+        "Text Domain": "twentyseventeen"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentysixteen",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentysixteen/style.css",
+      "header": {
+        "Theme Name": "Twenty Sixteen",
+        "Version": "3.8",
+        "Requires at least": "4.4",
+        "Requires PHP": "5.2.4",
+        "Text Domain": "twentysixteen"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentytwenty",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentytwenty/style.css",
+      "header": {
+        "Theme Name": "Twenty Twenty",
+        "Text Domain": "twentytwenty",
+        "Version": "3.1",
+        "Requires at least": "4.7",
+        "Requires PHP": "5.2.4"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentytwentyfive",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentytwentyfive/style.css",
+      "header": {
+        "Theme Name": "Twenty Twenty-Five",
+        "Requires at least": "6.7",
+        "Requires PHP": "7.2",
+        "Version": "1.5",
+        "Text Domain": "twentytwentyfive"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentytwentyfour",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentytwentyfour/style.css",
+      "header": {
+        "Theme Name": "Twenty Twenty-Four",
+        "Requires at least": "6.4",
+        "Requires PHP": "7.0",
+        "Version": "1.5",
+        "Text Domain": "twentytwentyfour"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentytwentythree",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentytwentythree/style.css",
+      "header": {
+        "Theme Name": "Twenty Twenty-Three",
+        "Requires at least": "6.1",
+        "Requires PHP": "5.6",
+        "Version": "1.6",
+        "Text Domain": "twentytwentythree"
+      },
+      "ok": true
+    },
+    {
+      "slug": "twentytwentytwo",
+      "remote": "/logs/_migration/cms/wp-content/themes/twentytwentytwo/style.css",
+      "header": {
+        "Theme Name": "Twenty Twenty-Two",
+        "Requires at least": "5.9",
+        "Requires PHP": "5.6",
+        "Version": "2.1",
+        "Text Domain": "twentytwentytwo"
+      },
+      "ok": true
+    }
+  ]
+}

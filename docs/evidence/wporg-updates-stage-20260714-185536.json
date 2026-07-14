@@ -1,0 +1,191 @@
+[
+  {
+    "kind": "plugins",
+    "slug": "advanced-custom-fields",
+    "version": "6.8.5",
+    "source": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.8.5.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/advanced-custom-fields"
+  },
+  {
+    "kind": "plugins",
+    "slug": "akismet",
+    "version": "5.7",
+    "source": "https://downloads.wordpress.org/plugin/akismet.5.7.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/akismet"
+  },
+  {
+    "kind": "plugins",
+    "slug": "all-in-one-seo-pack",
+    "version": "4.9.10",
+    "source": "https://downloads.wordpress.org/plugin/all-in-one-seo-pack.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/all-in-one-seo-pack"
+  },
+  {
+    "kind": "plugins",
+    "slug": "all-in-one-wp-migration",
+    "version": "7.106",
+    "source": "https://downloads.wordpress.org/plugin/all-in-one-wp-migration.7.106.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/all-in-one-wp-migration"
+  },
+  {
+    "kind": "plugins",
+    "slug": "classic-editor",
+    "version": "1.7.0",
+    "source": "https://downloads.wordpress.org/plugin/classic-editor.1.7.0.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/classic-editor"
+  },
+  {
+    "kind": "plugins",
+    "slug": "duplicate-post",
+    "version": "4.7",
+    "source": "https://downloads.wordpress.org/plugin/duplicate-post.4.7.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/duplicate-post"
+  },
+  {
+    "kind": "plugins",
+    "slug": "google-analytics-for-wordpress",
+    "version": "10.2.2",
+    "source": "https://downloads.wordpress.org/plugin/google-analytics-for-wordpress.10.2.2.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/google-analytics-for-wordpress"
+  },
+  {
+    "kind": "plugins",
+    "slug": "limit-login-attempts",
+    "version": "1.7.2",
+    "source": "https://downloads.wordpress.org/plugin/limit-login-attempts.1.7.2.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/limit-login-attempts"
+  },
+  {
+    "kind": "plugins",
+    "slug": "mw-wp-form",
+    "version": "5.1.4",
+    "source": "https://downloads.wordpress.org/plugin/mw-wp-form.5.1.4.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/mw-wp-form"
+  },
+  {
+    "kind": "plugins",
+    "slug": "optinmonster",
+    "version": "2.16.24",
+    "source": "https://downloads.wordpress.org/plugin/optinmonster.2.16.24.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/optinmonster"
+  },
+  {
+    "kind": "plugins",
+    "slug": "siteguard",
+    "version": "1.8.7",
+    "source": "https://downloads.wordpress.org/plugin/siteguard.1.8.7.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/siteguard"
+  },
+  {
+    "kind": "plugins",
+    "slug": "tinymce-advanced",
+    "version": "5.9.2",
+    "source": "https://downloads.wordpress.org/plugin/tinymce-advanced.5.9.2.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/tinymce-advanced"
+  },
+  {
+    "kind": "plugins",
+    "slug": "userfeedback-lite",
+    "version": "1.11.2",
+    "source": "https://downloads.wordpress.org/plugin/userfeedback-lite.1.11.2.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/userfeedback-lite"
+  },
+  {
+    "kind": "plugins",
+    "slug": "wp-multibyte-patch",
+    "version": "2.9.3",
+    "source": "https://downloads.wordpress.org/plugin/wp-multibyte-patch.2.9.3.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/wp-multibyte-patch"
+  },
+  {
+    "kind": "plugins",
+    "slug": "wpforms-lite",
+    "version": "1.10.2.1",
+    "source": "https://downloads.wordpress.org/plugin/wpforms-lite.1.10.2.1.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/wpforms-lite"
+  },
+  {
+    "kind": "plugins",
+    "slug": "wpfront-scroll-top",
+    "version": "3.0.1",
+    "source": "https://downloads.wordpress.org/plugin/wpfront-scroll-top.3.0.1.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/wpfront-scroll-top"
+  },
+  {
+    "kind": "plugins",
+    "slug": "zipaddr-jp",
+    "version": "1.43",
+    "source": "https://downloads.wordpress.org/plugin/zipaddr-jp.1.43.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/plugins/zipaddr-jp"
+  },
+  {
+    "kind": "themes",
+    "slug": "lightning",
+    "version": "15.37.1",
+    "source": "https://downloads.wordpress.org/theme/lightning.15.37.1.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/lightning"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentyfifteen",
+    "version": "4.2",
+    "source": "https://downloads.wordpress.org/theme/twentyfifteen.4.2.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentyfifteen"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentynineteen",
+    "version": "3.3",
+    "source": "https://downloads.wordpress.org/theme/twentynineteen.3.3.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentynineteen"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentyseventeen",
+    "version": "4.1",
+    "source": "https://downloads.wordpress.org/theme/twentyseventeen.4.1.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentyseventeen"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentysixteen",
+    "version": "3.8",
+    "source": "https://downloads.wordpress.org/theme/twentysixteen.3.8.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentysixteen"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwenty",
+    "version": "3.1",
+    "source": "https://downloads.wordpress.org/theme/twentytwenty.3.1.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentytwenty"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwentyfive",
+    "version": "1.5",
+    "source": "https://downloads.wordpress.org/theme/twentytwentyfive.1.5.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentytwentyfive"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwentyfour",
+    "version": "1.5",
+    "source": "https://downloads.wordpress.org/theme/twentytwentyfour.1.5.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentytwentyfour"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwentythree",
+    "version": "1.6",
+    "source": "https://downloads.wordpress.org/theme/twentytwentythree.1.6.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentytwentythree"
+  },
+  {
+    "kind": "themes",
+    "slug": "twentytwentytwo",
+    "version": "2.1",
+    "source": "https://downloads.wordpress.org/theme/twentytwentytwo.2.1.zip",
+    "path": "work/wporg-updates-stage-20260714-185536/themes/twentytwentytwo"
+  }
+]
