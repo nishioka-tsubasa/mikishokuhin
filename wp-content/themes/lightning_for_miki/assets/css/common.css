@@ -303,6 +303,124 @@ header.siteHeader .sub-menu li a {
   color: #fff;
 }
 
+@media screen and (min-width: 992px) {
+  header.siteHeader {
+    height: 56px;
+  }
+  header.siteHeader .siteHeadContainer.container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between;
+    height: 56px;
+    min-height: 56px;
+    padding: 0 !important;
+  }
+  header.siteHeader .siteHeadContainer.container .navbar-header {
+    display: flex !important;
+    align-items: center;
+    flex: 0 0 auto;
+    float: none !important;
+    width: auto !important;
+    height: 56px;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  header.siteHeader .siteHeader_logo {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    line-height: 1;
+    margin: 0 0 0 1em !important;
+    padding: 0;
+  }
+  header.siteHeader div#gMenu_outer {
+    clear: none !important;
+    position: static !important;
+    top: auto !important;
+    display: flex;
+    align-items: stretch;
+    flex: 0 0 auto;
+    height: 56px;
+    min-height: 56px;
+    margin: 0 !important;
+    border-top: 0;
+    background: transparent;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+  header.siteHeader div#gMenu_outer nav {
+    width: auto !important;
+    height: 56px;
+    margin: 0;
+    padding: 0;
+  }
+  header.siteHeader div#gMenu_outer nav ul {
+    height: 56px;
+  }
+  header.siteHeader .gMenu {
+    display: flex;
+    align-items: stretch;
+    height: 56px;
+    float: none;
+  }
+  header.siteHeader .gMenu > li {
+    align-items: stretch;
+    height: 56px;
+    margin-bottom: 0;
+    line-height: 1.4;
+  }
+  header.siteHeader .gMenu > li > a {
+    display: flex !important;
+    align-items: center !important;
+    height: 56px !important;
+    line-height: 1 !important;
+    overflow: visible !important;
+  }
+  header.siteHeader .gMenu > li > a strong {
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+    font-weight: inherit;
+  }
+  header.siteHeader li.company a strong:before,
+  header.siteHeader li.business a strong:before,
+  header.siteHeader li.recruit a strong:before,
+  header.siteHeader li.contact a strong:before {
+    flex: 0 0 auto;
+    align-self: center !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+    background-position: center;
+  }
+  body.header_scrolled header.siteHeader {
+    animation: none !important;
+  }
+  body.header_scrolled header.siteHeader .siteHeadContainer.container {
+    height: 56px !important;
+    min-height: 56px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  body.header_scrolled header.siteHeader .gMenu_outer,
+  body.header_scrolled header.siteHeader div#gMenu_outer {
+    position: static !important;
+    top: auto !important;
+    width: auto !important;
+    height: 56px !important;
+    min-height: 56px !important;
+  }
+  body.header_scrolled header.siteHeader .gMenu {
+    width: auto !important;
+    height: 56px !important;
+  }
+  body.header_scrolled header.siteHeader .navbar-header {
+    height: 56px !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
 header.siteHeader li.company a strong:before {
   content: '';
   background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/menu_company.png);

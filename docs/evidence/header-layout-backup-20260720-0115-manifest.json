@@ -1,0 +1,12 @@
+[
+  {
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.css",
+    "backup": "work/header-layout-backup-20260720-0115/common.css",
+    "sha256": "35d414897138f0a112037b53d4347c9cda14e6bcbb15d421d1706b99dc7d6150"
+  },
+  {
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.scss",
+    "backup": "work/header-layout-backup-20260720-0115/common.scss",
+    "sha256": "5e2753a38120188d1ee30297fb5a917f5b50a9e24b98ef5e68586ad60f6c9fa9"
+  }
+]
