@@ -134,6 +134,26 @@ Right alignment backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-right-align-backup-20260720-0216/`
 
+## Normal Row Adjustment
+
+The right alignment was improved, but the pre-scroll menu flowed onto the next row over the hero image. A sixth adjustment was applied:
+
+- made `.siteHeadContainer` the positioning context with `position:relative`;
+- positioned `#gMenu_outer` absolutely at `top:0; right:0` inside the header container;
+- kept the existing right alignment and label/icon vertical offsets unchanged.
+
+Validation:
+
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-normal-row-upload-verify-20260720-0319.json`
+
+Normal row backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-normal-row-backup-20260720-0319/`
+
 ## Rollback
 
 Restore the backed-up files to:

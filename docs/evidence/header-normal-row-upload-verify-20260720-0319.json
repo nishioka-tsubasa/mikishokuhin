@@ -1,0 +1,18 @@
+[
+  {
+    "file": "assets/css/common.css",
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.css",
+    "backup_sha256": "f72f72e250bcbb62499aaee6a939ebd5672196c131833c67ea87abeab0e937f0",
+    "local_sha256": "fb426ff7e7a4a9367c7b7caa3756c7f2754692d8611c25ab9acd4c2ce91ba7ea",
+    "remote_sha256": "fb426ff7e7a4a9367c7b7caa3756c7f2754692d8611c25ab9acd4c2ce91ba7ea",
+    "match": true
+  },
+  {
+    "file": "assets/css/common.scss",
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.scss",
+    "backup_sha256": "22817b4f9ea83ae2b4198b676e51ee295cdecf8345478fc8e84e119661c910fd",
+    "local_sha256": "a8ddd3f71ed836810da6960a23b586dc0b227d01a6eb9cb1ebec10ff437c0f18",
+    "remote_sha256": "a8ddd3f71ed836810da6960a23b586dc0b227d01a6eb9cb1ebec10ff437c0f18",
+    "match": true
+  }
+]

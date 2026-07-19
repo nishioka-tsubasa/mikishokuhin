@@ -1177,6 +1177,7 @@ footer.siteFooter {
   body.device-pc header.siteHeader > .siteHeadContainer.container,
   body.device-pc.header_scrolled header.siteHeader > .siteHeadContainer.container {
     display: block !important;
+    position: relative !important;
     height: 56px !important;
     min-height: 56px !important;
     padding: 0 !important;
@@ -1208,7 +1209,9 @@ footer.siteFooter {
   body.device-pc header.siteHeader #gMenu_outer.gMenu_outer,
   body.device-pc.header_scrolled header.siteHeader #gMenu_outer.gMenu_outer {
     clear: none !important;
-    position: static !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
     display: block !important;
     width: auto !important;
     min-height: auto !important;
