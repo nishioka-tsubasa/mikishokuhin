@@ -584,6 +584,28 @@ header.siteHeader div#gMenu_outer nav ul.sub-menu {
       margin: 0;
       float: right;
     }
+
+    .gMenu > li > a {
+      display: flex !important;
+      align-items: center !important;
+      height: 56px !important;
+      line-height: 1 !important;
+      overflow: visible !important;
+    }
+
+    .gMenu > li > a strong {
+      display: flex !important;
+      align-items: center !important;
+      line-height: 1 !important;
+      transform: translateY(2px);
+    }
+
+    li.company a strong:before,
+    li.business a strong:before,
+    li.recruit a strong:before,
+    li.contact a strong:before {
+      transform: translateY(-2px);
+    }
   }
 }
 

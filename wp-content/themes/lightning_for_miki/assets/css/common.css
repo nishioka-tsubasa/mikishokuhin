@@ -498,6 +498,25 @@ header.siteHeader div#gMenu_outer nav ul.sub-menu {
     margin: 0;
     float: right;
   }
+  header.siteHeader .gMenu > li > a {
+    display: flex !important;
+    align-items: center !important;
+    height: 56px !important;
+    line-height: 1 !important;
+    overflow: visible !important;
+  }
+  header.siteHeader .gMenu > li > a strong {
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+    transform: translateY(2px);
+  }
+  header.siteHeader li.company a strong:before,
+  header.siteHeader li.business a strong:before,
+  header.siteHeader li.recruit a strong:before,
+  header.siteHeader li.contact a strong:before {
+    transform: translateY(-2px);
+  }
 }
 
 /*

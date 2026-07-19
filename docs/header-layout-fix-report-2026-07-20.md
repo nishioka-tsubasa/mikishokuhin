@@ -53,6 +53,22 @@ Evidence:
 - `php -l` passed for `header.php`; no PHP file was modified in this fix.
 - Browser visual QA still needs confirmation in the user's Firefox private window after a hard reload, because the private proxy window cannot be reliably controlled from Codex without macOS Accessibility permission.
 
+## Follow-up Adjustment
+
+After user review, the menu labels still appeared slightly higher than the menu icons. A second desktop-only CSS adjustment was applied:
+
+- restored the final `display:flex` / `align-items:center` override after the later `.device-pc .gMenu > li > a` rule;
+- moved the menu label group down by `2px`;
+- moved the pseudo-element menu icons up by `2px` so the icon/text pair visually centers together.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-menu-text-upload-verify-20260720-0150b.json`
+
+Second backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-menu-text-backup-20260720-0150b/`
+
 ## Rollback
 
 Restore the two backed-up files to:
