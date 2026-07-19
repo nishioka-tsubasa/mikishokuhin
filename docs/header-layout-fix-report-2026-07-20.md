@@ -69,9 +69,32 @@ Second backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-menu-text-backup-20260720-0150b/`
 
+## Final Adjustment
+
+The user confirmed the visible issue remained in both normal and scrolled states. A third adjustment was applied:
+
+- added a high-specificity desktop-only override at the end of `common.css` and `common.scss` so it is evaluated after the existing child theme header rules;
+- forced the desktop header, logo row, and global menu to remain in the same 56px flex row in both normal and `body.header_scrolled` states;
+- increased the label-only visual offset to `6px` while counter-offsetting the pseudo-element icons so the text aligns lower without pushing the icons down;
+- added `filemtime()` cache busting to the `common.css` link in `header.php`, because the existing hardcoded CSS URL had no version parameter and could be held by Firefox or the proxy cache.
+
+Validation:
+
+- `php -l wp-content/themes/lightning_for_miki/header.php` passed.
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-final-fix-upload-verify-20260720-0205.json`
+
+Final backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-final-fix-backup-20260720-0205/`
+
 ## Rollback
 
-Restore the two backed-up files to:
+Restore the backed-up files to:
 
+- `/logs/_migration/cms/wp-content/themes/lightning_for_miki/header.php`
 - `/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.css`
 - `/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.scss`

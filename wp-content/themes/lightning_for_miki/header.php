@@ -19,9 +19,14 @@ if ( function_exists( 'wp_body_open' ) ) {
 	do_action( 'wp_body_open' );
 }
 do_action( 'lightning_header_before' );
+$common_css_path = get_stylesheet_directory() . '/assets/css/common.css';
+$common_css_url  = get_stylesheet_directory_uri() . '/assets/css/common.css';
+if ( file_exists( $common_css_path ) ) {
+	$common_css_url = add_query_arg( 'ver', filemtime( $common_css_path ), $common_css_url );
+}
 ?>
 <header class="<?php lightning_the_class_name( 'header' ); ?>">
-	<link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/assets/css/common.css' type='text/css' media='all' />
+		<link rel='stylesheet' href='<?php echo esc_url( $common_css_url ); ?>' type='text/css' media='all' />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/slick.css" media="all" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/slick-theme.css" media="all" />
 	<?php do_action( 'lightning_header_prepend' ); ?>
