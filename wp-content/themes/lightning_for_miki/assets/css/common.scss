@@ -755,13 +755,7 @@ footer.siteFooter {
         padding: 60px 0 0;
         height: auto;
         border: none;
-
-        &::after {
-          content: '';
-          display: block;
-          height: 44px;
-          background-color: #E0704F;
-        }
+        background-color: #E0704F;
       }
 
       height: auto;
@@ -799,6 +793,7 @@ footer.siteFooter {
           font-size: 1.1em;
           padding: .7em 1.5em;
           color: #E0704F;
+          background-color: #fff;
         }
 
         &:nth-last-child(2) a {
@@ -1033,7 +1028,7 @@ footer.siteFooter {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px 0 47px 0;
+      padding: 20px 0 33px 0;
     }
   }
 

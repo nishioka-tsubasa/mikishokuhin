@@ -233,6 +233,28 @@ Mobile contact alignment backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-contact-align-backup-20260720-0406/`
 
+## Mobile Menu Trailing Gap Adjustment
+
+The orange `::after` filler created an extra orange band after a white gap. The mobile-only styling was adjusted again:
+
+- removed the `::after` filler from `.vk-mobile-nav.vk-mobile-nav-open`;
+- set the open mobile nav background itself to `#E0704F`;
+- set normal mobile menu links to white background so the first three rows remain white;
+- reduced the contact link bottom padding from `47px` to `33px`;
+- kept the desktop `min-width: 992px` header overrides untouched.
+
+Validation:
+
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-trailing-gap-upload-verify-20260720-0410.json`
+
+Trailing gap backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-trailing-gap-backup-20260720-0410/`
+
 ## Rollback
 
 Restore the backed-up files to:

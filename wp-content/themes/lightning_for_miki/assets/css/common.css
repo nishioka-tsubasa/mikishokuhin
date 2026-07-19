@@ -653,11 +653,6 @@ footer.siteFooter .companyInfo-copyright > p {
     padding: 60px 0 0;
     height: auto;
     border: none;
-  }
-  body div.vk-mobile-nav.vk-mobile-nav-open::after {
-    content: '';
-    display: block;
-    height: 44px;
     background-color: #E0704F;
   }
   body div.vk-mobile-nav-menu-btn {
@@ -685,6 +680,7 @@ footer.siteFooter .companyInfo-copyright > p {
     font-size: 1.1em;
     padding: .7em 1.5em;
     color: #E0704F;
+    background-color: #fff;
   }
   body div.vk-mobile-nav nav ul li:nth-last-child(2) a {
     border-bottom: none;
@@ -870,7 +866,7 @@ footer.siteFooter .companyInfo-copyright > p {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 0 47px 0;
+    padding: 20px 0 33px 0;
   }
   li.company a::before {
     width: 3.6em;
