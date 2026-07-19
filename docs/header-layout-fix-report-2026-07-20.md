@@ -154,10 +154,30 @@ Normal row backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-normal-row-backup-20260720-0319/`
 
+## Mobile Navigation Hook Adjustment
+
+The hamburger menu did not open after the Lightning update. The updated Lightning mobile navigation can output its button/menu HTML on the `lightning_site_footer_after` hook, while the child theme footer only exposed the older `lightning_footer_after` hook. A compatibility hook was added:
+
+- kept the existing `do_action( 'lightning_footer_after' )`;
+- added `do_action( 'lightning_site_footer_after' )` before `wp_footer()`.
+
+Validation:
+
+- `php -l wp-content/themes/lightning_for_miki/footer.php` passed.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-nav-footer-hook-clean-upload-verify-20260720-0330.json`
+
+Footer hook backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-nav-footer-hook-clean-backup-20260720-0330/`
+
 ## Rollback
 
 Restore the backed-up files to:
 
 - `/logs/_migration/cms/wp-content/themes/lightning_for_miki/header.php`
+- `/logs/_migration/cms/wp-content/themes/lightning_for_miki/footer.php`
 - `/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.css`
 - `/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.scss`

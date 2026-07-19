@@ -57,6 +57,7 @@ if ( is_active_sidebar( 'footer-upper-widget-1' ) ) : ?>
 
 </footer>
 <?php do_action( 'lightning_footer_after' ); ?>
+<?php do_action( 'lightning_site_footer_after' ); ?>
 <?php wp_footer(); ?>
 </body>
 </html>

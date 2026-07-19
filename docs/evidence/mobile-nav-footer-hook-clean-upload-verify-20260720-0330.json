@@ -1,0 +1,10 @@
+[
+  {
+    "file": "footer.php",
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/footer.php",
+    "backup_sha256": "43d6a0afb91fde6e54a6c96aa9b5a06bd85941537548beaf09744cbf00a47ff1",
+    "local_sha256": "bf1a04469642d010589f8ed6fb626f103c108c61d59b3f29614790b9ecb363fb",
+    "remote_sha256": "bf1a04469642d010589f8ed6fb626f103c108c61d59b3f29614790b9ecb363fb",
+    "match": true
+  }
+]
