@@ -173,6 +173,25 @@ Footer hook backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-nav-footer-hook-clean-backup-20260720-0330/`
 
+## Mobile Menu Spacing Adjustment
+
+The hamburger menu opened, but the open-state menu content was shifted too high: the area above "会社情報" was cramped and a white gap appeared below "お問い合わせ". A mobile-only spacing adjustment was applied:
+
+- changed `body div.vk-mobile-nav.vk-mobile-nav-open` from `padding: 45px 0 0` to `padding: 85px 0 0`;
+- kept the desktop `min-width: 992px` header overrides untouched.
+
+Validation:
+
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-spacing-upload-verify-20260720-0344.json`
+
+Mobile menu spacing backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-spacing-backup-20260720-0344/`
+
 ## Rollback
 
 Restore the backed-up files to:
