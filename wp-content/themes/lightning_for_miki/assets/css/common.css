@@ -650,7 +650,7 @@ footer.siteFooter .companyInfo-copyright > p {
   }
   body div.vk-mobile-nav.vk-mobile-nav-open {
     top: 15px;
-    padding: 85px 0 0;
+    padding: 60px 0 0;
     height: auto;
     border: none;
   }
@@ -861,7 +861,7 @@ footer.siteFooter .companyInfo-copyright > p {
     padding-left: 27%;
   }
   body div.vk-mobile-nav nav .contact a {
-    padding: 20px 0 23px 0;
+    padding: 20px 0 47px 0;
   }
   li.company a::before {
     width: 3.6em;

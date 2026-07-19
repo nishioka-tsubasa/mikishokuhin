@@ -192,6 +192,26 @@ Mobile menu spacing backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-spacing-backup-20260720-0344/`
 
+## Mobile Menu Spacing Rebalance
+
+The previous mobile spacing adjustment moved the menu content too far down while the gap below "お問い合わせ" remained. The spacing was rebalanced:
+
+- changed `body div.vk-mobile-nav.vk-mobile-nav-open` from `padding: 85px 0 0` to `padding: 60px 0 0`;
+- changed the mobile contact menu link from `padding: 20px 0 23px 0` to `padding: 20px 0 47px 0`;
+- kept the desktop `min-width: 992px` header overrides untouched.
+
+Validation:
+
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-spacing-balance-upload-verify-20260720-0350.json`
+
+Mobile menu spacing rebalance backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-spacing-balance-backup-20260720-0350/`
+
 ## Rollback
 
 Restore the backed-up files to:
