@@ -1177,7 +1177,6 @@ footer.siteFooter {
   body.device-pc header.siteHeader > .siteHeadContainer.container,
   body.device-pc.header_scrolled header.siteHeader > .siteHeadContainer.container {
     display: flex !important;
-    flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: space-between !important;
     height: 56px !important;
@@ -1186,65 +1185,47 @@ footer.siteFooter {
   }
 
   body.device-pc header.siteHeader .navbar-header,
-  body.device-pc.header_scrolled header.siteHeader .navbar-header {
-    display: flex !important;
-    align-items: center !important;
-    flex: 0 0 auto !important;
-    float: none !important;
-    width: auto !important;
-    height: 56px !important;
-    min-height: 56px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
+  body.device-pc.header_scrolled header.siteHeader .navbar-header,
   body.device-pc header.siteHeader .siteHeader_logo,
   body.device-pc.header_scrolled header.siteHeader .siteHeader_logo {
-    display: flex !important;
-    align-items: center !important;
     height: 56px !important;
     min-height: 56px !important;
-    margin: 0 0 0 1em !important;
-    padding: 0 !important;
-    line-height: 1 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   body.device-pc header.siteHeader #gMenu_outer.gMenu_outer,
   body.device-pc.header_scrolled header.siteHeader #gMenu_outer.gMenu_outer {
     clear: none !important;
     position: static !important;
-    top: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    display: flex !important;
-    align-items: center !important;
+    display: block !important;
     align-self: stretch !important;
-    flex: 0 0 auto !important;
-    float: none !important;
     width: auto !important;
+    min-height: auto !important;
     height: 56px !important;
-    min-height: 56px !important;
     margin: 0 !important;
     padding: 0 !important;
     border-top: 0 !important;
-    background: transparent !important;
     box-shadow: none !important;
-    transform: none !important;
   }
 
   body.device-pc header.siteHeader #gMenu_outer.gMenu_outer nav,
   body.device-pc.header_scrolled header.siteHeader #gMenu_outer.gMenu_outer nav,
   body.device-pc header.siteHeader #gMenu_outer.gMenu_outer nav > ul,
-  body.device-pc.header_scrolled header.siteHeader #gMenu_outer.gMenu_outer nav > ul,
+  body.device-pc.header_scrolled header.siteHeader #gMenu_outer.gMenu_outer nav > ul {
+    height: 56px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   body.device-pc header.siteHeader .gMenu,
   body.device-pc.header_scrolled header.siteHeader .gMenu {
-    display: flex !important;
-    align-items: stretch !important;
-    float: none !important;
+    display: block !important;
+    float: right !important;
+    right: 0 !important;
     width: auto !important;
     height: 56px !important;
-    min-height: 56px !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -1254,22 +1235,14 @@ footer.siteFooter {
     display: flex !important;
     align-items: center !important;
     height: 56px !important;
-    min-height: 56px !important;
     margin: 0 !important;
-    line-height: 1 !important;
   }
 
   body.device-pc header.siteHeader .gMenu > li > a,
   body.device-pc.header_scrolled header.siteHeader .gMenu > li > a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
     height: 56px !important;
-    min-height: 56px !important;
     padding: 0 1em !important;
-    line-height: 1 !important;
     overflow: visible !important;
-    transform: none !important;
   }
 
   body.device-pc header.siteHeader .gMenu > li > a strong,
@@ -1278,7 +1251,7 @@ footer.siteFooter {
     align-items: center !important;
     line-height: 1 !important;
     white-space: nowrap !important;
-    transform: translateY(6px) !important;
+    transform: translateY(2px) !important;
   }
 
   body.device-pc header.siteHeader li.company a strong:before,
@@ -1290,11 +1263,9 @@ footer.siteFooter {
   body.device-pc.header_scrolled header.siteHeader li.recruit a strong:before,
   body.device-pc.header_scrolled header.siteHeader li.contact a strong:before {
     display: inline-block !important;
-    flex: 0 0 auto !important;
-    align-self: center !important;
     padding: 0 !important;
     vertical-align: middle !important;
     background-position: center !important;
-    transform: translateY(-6px) !important;
+    transform: translateY(-2px) !important;
   }
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "header.php",
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/header.php",
+    "backup_sha256": "865f095dbf513b25797a61cf5879d79050dba6425f38152b30df459826837e20",
+    "local_sha256": "865f095dbf513b25797a61cf5879d79050dba6425f38152b30df459826837e20",
+    "remote_sha256": "865f095dbf513b25797a61cf5879d79050dba6425f38152b30df459826837e20",
+    "match": true
+  },
+  {
+    "file": "assets/css/common.css",
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.css",
+    "backup_sha256": "9200cb7dc0183ffabc067ecbf4e2758a421b57bc5d785f8e613ab65d7aa3842a",
+    "local_sha256": "e314219eb942a89171b38403d9d93fc58b90dc5ca6be79437c61b98aff2c91a5",
+    "remote_sha256": "e314219eb942a89171b38403d9d93fc58b90dc5ca6be79437c61b98aff2c91a5",
+    "match": true
+  },
+  {
+    "file": "assets/css/common.scss",
+    "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.scss",
+    "backup_sha256": "638cf2adde9d972ebb94cca9e36dd28844405659ade2906ac1a82434c9f31229",
+    "local_sha256": "00d6a50a08d0dddec734d305ed90fb6f54f1ad862105c22e269a7a15755d8cd2",
+    "remote_sha256": "00d6a50a08d0dddec734d305ed90fb6f54f1ad862105c22e269a7a15755d8cd2",
+    "match": true
+  }
+]

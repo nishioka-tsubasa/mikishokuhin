@@ -91,6 +91,28 @@ Final backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-final-fix-backup-20260720-0205/`
 
+## Position Rebalance
+
+The final override was too broad: it lowered the label text too far and removed the original right-aligned menu positioning. A fourth adjustment was applied:
+
+- restored the global menu's original `display:block`, `float:right`, and `right:0` positioning so the menu stays aligned with the current production layout;
+- kept `position:static` only for the scrolled header menu wrapper to prevent the Lightning scrolled-header drop;
+- reduced the menu label offset from `6px` to `2px`, with a matching icon counter-offset;
+- left the `common.css` `filemtime()` cache busting in `header.php` unchanged.
+
+Validation:
+
+- `php -l wp-content/themes/lightning_for_miki/header.php` passed.
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-position-rebalance-upload-verify-20260720-0209.json`
+
+Rebalance backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-position-rebalance-backup-20260720-0209/`
+
 ## Rollback
 
 Restore the backed-up files to:
