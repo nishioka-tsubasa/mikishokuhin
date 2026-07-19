@@ -113,6 +113,27 @@ Rebalance backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-position-rebalance-backup-20260720-0209/`
 
+## Right Alignment Adjustment
+
+The menu labels and icons were visually improved, but the menu still stopped too far left. A fifth adjustment was applied:
+
+- changed the final desktop header override from flex-based placement back to the current site's float-based header layout;
+- restored `.navbar-header` / `.siteHeader_logo` as left-floating elements;
+- restored `.gMenu` as `display:block`, `float:right`, and `right:0`;
+- kept the `2px` label/icon vertical offset and scrolled-header `position:static` protection.
+
+Validation:
+
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-right-align-upload-verify-20260720-0216.json`
+
+Right alignment backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/header-right-align-backup-20260720-0216/`
+
 ## Rollback
 
 Restore the backed-up files to:

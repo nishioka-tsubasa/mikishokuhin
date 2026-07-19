@@ -1176,23 +1176,33 @@ footer.siteFooter {
 
   body.device-pc header.siteHeader > .siteHeadContainer.container,
   body.device-pc.header_scrolled header.siteHeader > .siteHeadContainer.container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    display: block !important;
     height: 56px !important;
     min-height: 56px !important;
     padding: 0 !important;
   }
 
   body.device-pc header.siteHeader .navbar-header,
-  body.device-pc.header_scrolled header.siteHeader .navbar-header,
-  body.device-pc header.siteHeader .siteHeader_logo,
-  body.device-pc.header_scrolled header.siteHeader .siteHeader_logo {
+  body.device-pc.header_scrolled header.siteHeader .navbar-header {
+    display: block !important;
+    float: left !important;
+    width: auto !important;
     height: 56px !important;
     min-height: 56px !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.device-pc header.siteHeader .siteHeader_logo,
+  body.device-pc.header_scrolled header.siteHeader .siteHeader_logo {
+    display: block !important;
+    float: left !important;
+    width: auto !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    margin: 0 0 0 1em !important;
+    padding: 0 !important;
+    line-height: 1 !important;
   }
 
   body.device-pc header.siteHeader #gMenu_outer.gMenu_outer,
@@ -1200,7 +1210,6 @@ footer.siteFooter {
     clear: none !important;
     position: static !important;
     display: block !important;
-    align-self: stretch !important;
     width: auto !important;
     min-height: auto !important;
     height: 56px !important;
