@@ -866,7 +866,7 @@ footer.siteFooter .companyInfo-copyright > p {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 0 33px 0;
+    padding: 20px 0 23px 0;
   }
   li.company a::before {
     width: 3.6em;

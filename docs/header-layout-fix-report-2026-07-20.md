@@ -255,6 +255,26 @@ Trailing gap backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-trailing-gap-backup-20260720-0410/`
 
+## Mobile Contact Height Adjustment
+
+The "お問い合わせ" row was taller than the other mobile menu rows. A mobile-only adjustment was applied:
+
+- changed the mobile contact link padding from `20px 0 33px 0` back to `20px 0 23px 0`;
+- kept the mobile contact icon/text flex alignment and trailing-gap background fix;
+- kept the desktop `min-width: 992px` header overrides untouched.
+
+Validation:
+
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-contact-height-upload-verify-20260720-0416.json`
+
+Mobile contact height backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-contact-height-backup-20260720-0416/`
+
 ## Rollback
 
 Restore the backed-up files to:
