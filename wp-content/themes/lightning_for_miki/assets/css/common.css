@@ -654,6 +654,12 @@ footer.siteFooter .companyInfo-copyright > p {
     height: auto;
     border: none;
   }
+  body div.vk-mobile-nav.vk-mobile-nav-open::after {
+    content: '';
+    display: block;
+    height: 44px;
+    background-color: #E0704F;
+  }
   body div.vk-mobile-nav-menu-btn {
     right: calc(1vw + 2.5%);
     left: auto;
@@ -861,6 +867,9 @@ footer.siteFooter .companyInfo-copyright > p {
     padding-left: 27%;
   }
   body div.vk-mobile-nav nav .contact a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px 0 47px 0;
   }
   li.company a::before {
@@ -882,10 +891,14 @@ footer.siteFooter .companyInfo-copyright > p {
     left: 10%;
   }
   body div.vk-mobile-nav nav ul li.contact > a:before {
-    width: 19.2em;
+    width: 3em;
     height: 2em;
-    bottom: 14px;
-    left: 24.5%;
+    position: static;
+    bottom: auto;
+    left: auto;
+    flex: 0 0 auto;
+    margin-right: 0.8em;
+    vertical-align: middle;
   }
   body div.vk-mobile-nav nav ul.sub-menu li a {
     padding-left: 34%;

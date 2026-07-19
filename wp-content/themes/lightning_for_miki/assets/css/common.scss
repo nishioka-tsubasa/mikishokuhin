@@ -755,6 +755,13 @@ footer.siteFooter {
         padding: 60px 0 0;
         height: auto;
         border: none;
+
+        &::after {
+          content: '';
+          display: block;
+          height: 44px;
+          background-color: #E0704F;
+        }
       }
 
       height: auto;
@@ -1023,6 +1030,9 @@ footer.siteFooter {
     }
 
     .contact a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 20px 0 47px 0;
     }
   }
@@ -1052,10 +1062,14 @@ footer.siteFooter {
 
   body div.vk-mobile-nav nav ul {
     li.contact > a:before {
-      width: 19.2em;
+      width: 3em;
       height: 2em;
-      bottom: 14px;
-      left: 24.5%;
+      position: static;
+      bottom: auto;
+      left: auto;
+      flex: 0 0 auto;
+      margin-right: 0.8em;
+      vertical-align: middle;
     }
 
     &.sub-menu li a {

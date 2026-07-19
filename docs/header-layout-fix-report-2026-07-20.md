@@ -212,6 +212,27 @@ Mobile menu spacing rebalance backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-spacing-balance-backup-20260720-0350/`
 
+## Mobile Contact Alignment Adjustment
+
+The white gap below "お問い合わせ" still appeared, and the contact icon/text were vertically misaligned. A mobile-only adjustment was applied:
+
+- added an orange `::after` block to `.vk-mobile-nav.vk-mobile-nav-open` to cover the trailing white background;
+- changed the mobile contact link to flexbox center alignment;
+- changed the contact icon pseudo-element from absolute positioning to normal flex flow with `margin-right: 0.8em`;
+- kept the desktop `min-width: 992px` header overrides untouched.
+
+Validation:
+
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-contact-align-upload-verify-20260720-0406.json`
+
+Mobile contact alignment backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-contact-align-backup-20260720-0406/`
+
 ## Rollback
 
 Restore the backed-up files to:
