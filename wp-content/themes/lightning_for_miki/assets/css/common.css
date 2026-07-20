@@ -653,7 +653,7 @@ footer.siteFooter .companyInfo-copyright > p {
     padding: 60px 0 0;
     height: auto;
     border: none;
-    background-color: #E0704F;
+    background-color: #fff;
   }
   body div.vk-mobile-nav-menu-btn {
     right: calc(1vw + 2.5%);
@@ -667,6 +667,9 @@ footer.siteFooter .companyInfo-copyright > p {
     overflow: hidden;
   }
   body div.vk-mobile-nav .global-nav {
+    margin-bottom: 0;
+  }
+  body div.vk-mobile-nav .vk-mobile-nav-menu-outer {
     margin-bottom: 0;
   }
   body div.vk-mobile-nav .widget_nav_menu ul li a {

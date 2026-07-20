@@ -755,7 +755,7 @@ footer.siteFooter {
         padding: 60px 0 0;
         height: auto;
         border: none;
-        background-color: #E0704F;
+        background-color: #fff;
       }
 
       height: auto;
@@ -777,6 +777,10 @@ footer.siteFooter {
       }
 
       .global-nav {
+        margin-bottom: 0;
+      }
+
+      .vk-mobile-nav-menu-outer {
         margin-bottom: 0;
       }
 

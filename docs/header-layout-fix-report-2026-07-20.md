@@ -275,6 +275,29 @@ Mobile contact height backup:
 
 - `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-contact-height-backup-20260720-0416/`
 
+## Mobile Menu Outer Margin Adjustment
+
+The orange area below "お問い合わせ" was caused by the mobile menu outer container's remaining bottom margin. A mobile-only adjustment was applied:
+
+- set `.vk-mobile-nav-menu-outer` bottom margin to `0`;
+- changed the open mobile nav background back to `#fff`;
+- kept the contact row itself orange with the existing flex alignment;
+- kept the desktop `min-width: 992px` header overrides untouched.
+
+Validation:
+
+- Static CSS brace validation passed for `common.css` and `common.scss`.
+- Remote upload hashes matched the local files after upload.
+
+Upload verification:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-outer-margin-backup-20260720-203411/upload-verify.json`
+- `docs/evidence/mobile-menu-outer-margin-upload-verify-20260720-203411.json`
+
+Mobile menu outer margin backup:
+
+- `/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-outer-margin-backup-20260720-203411/`
+
 ## Rollback
 
 Restore the backed-up files to:

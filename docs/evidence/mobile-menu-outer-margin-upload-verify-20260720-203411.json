@@ -1,0 +1,33 @@
+{
+  "timestamp": "20260720-203411",
+  "host": "www.mikishokuhin.co.jp",
+  "connection": "FTP_TLS",
+  "remote_base": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css",
+  "backup_dir": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-outer-margin-backup-20260720-203411",
+  "files": [
+    {
+      "file": "wp-content/themes/lightning_for_miki/assets/css/common.css",
+      "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.css",
+      "backup": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-outer-margin-backup-20260720-203411/common.css",
+      "before_size": 24433,
+      "before_sha256": "220f8c1974ae63503188801953190ec9071d614cb9309e5ce3daf09f2f06e41a",
+      "local_size": 24509,
+      "local_sha256": "feaf79e0bf38a5e36ad60d585a76904519d8e13f1eb4305a5b6862bab23e4f57",
+      "after_size": 24509,
+      "after_sha256": "feaf79e0bf38a5e36ad60d585a76904519d8e13f1eb4305a5b6862bab23e4f57",
+      "uploaded_matches_local": true
+    },
+    {
+      "file": "wp-content/themes/lightning_for_miki/assets/css/common.scss",
+      "remote": "/logs/_migration/cms/wp-content/themes/lightning_for_miki/assets/css/common.scss",
+      "backup": "/Users/n.tsubasa/Documents/Codex/2026-07-14/wordpress-wordpress-php-github-php-warning/work/mobile-menu-outer-margin-backup-20260720-203411/common.scss",
+      "before_size": 24916,
+      "before_sha256": "435f40bc5918b43db64ea8a8e10d6237f300886656df2556e49f1c10b66ba71f",
+      "local_size": 24982,
+      "local_sha256": "e38411eecd9980d4bfe319faba21b163447c76a6cddb864b579dbefb13f15e40",
+      "after_size": 24982,
+      "after_sha256": "e38411eecd9980d4bfe319faba21b163447c76a6cddb864b579dbefb13f15e40",
+      "uploaded_matches_local": true
+    }
+  ]
+}
