@@ -66,6 +66,15 @@
   - `mw-wp-form/classes/abstract/class.validation-rule.php`
 - Existing child theme PHP compatibility fixes from the prior pass remain in place.
 
+## 2026-07-21 Admin Timeout Follow-up
+
+- User-side proxy/private-window testing showed `POST /cms/codex-post-test.php` returned `POST OK`; POST routing itself was not the timeout cause.
+- Temporary trace logs on the migration copy showed `GET /cms/wp-admin/` delaying around 112 seconds between `init` and completion of `admin_init`, then eventually shutting down much later. The strongest current suspect is admin-side update checks or other external-call work triggered during `admin_init`.
+- Added temporary MU plugin `/logs/_migration/cms/wp-content/mu-plugins/codex-admin-timeout-mitigation.php` to remove WordPress core/plugin/theme update checks from `admin_init` while diagnosing the migration admin timeout. This is a migration-admin mitigation and should be removed or replaced with a permanent server/network fix before final production operation.
+- Removed temporary POST test endpoint `/logs/_migration/cms/codex-post-test.php` after user confirmed `POST OK`.
+- Patched PHP 8.4 dynamic-property deprecation in `/logs/_migration/cms/wp-content/plugins/custom-field-suite/includes/fields/loop.php` by declaring `public $values = array();` on `class cfs_loop`.
+- Backup before the CFS patch: `/logs/_migration/cms/wp-content/plugins/custom-field-suite/includes/fields/loop.php.bak-20260721-173927`.
+
 ## Verification
 
 - Staged plugin/theme PHP lint completed with local PHP 8.5.1.
@@ -87,4 +96,3 @@
 2. Upload it back to the matching path under `/logs/_migration/cms/wp-content/plugins` or `/logs/_migration/cms/wp-content/themes`.
 3. Re-run PHP lint locally on the restored directory if further edits are made.
 4. Re-check remote headers and clear any temporary swap directories.
-
