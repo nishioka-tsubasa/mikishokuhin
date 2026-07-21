@@ -1,0 +1,63 @@
+{
+  "target": "/logs/_migration/cms/wp-admin/",
+  "verified_via": "Firefox private window through the user-side migration proxy",
+  "before": {
+    "elapsed_seconds": 616.628,
+    "result": "Gateway Timeout",
+    "observed_http_requests": [
+      {
+        "host": "plugin-cdn.monsterinsights.com",
+        "path": "/notifications.json",
+        "elapsed_seconds": 56.0582,
+        "result": "http_request_failed"
+      },
+      {
+        "host": "wpformsapi.com",
+        "path": "/feeds/v1/splash/",
+        "elapsed_seconds": 56.0335,
+        "result": "http_request_failed"
+      },
+      {
+        "host": "api.wordpress.org",
+        "path": "/core/browse-happy/1.1/",
+        "elapsed_seconds": 56.0457,
+        "result": "http_request_failed"
+      },
+      {
+        "host": "api.wordpress.org",
+        "path": "/core/serve-happy/1.0/",
+        "elapsed_seconds": 56.0424,
+        "result": "http_request_failed"
+      },
+      {
+        "host": "mikishokuhin.co.jp",
+        "path": "/cms/wp-admin/admin-ajax.php",
+        "elapsed_seconds": 56.0434,
+        "result": "no_response"
+      },
+      {
+        "host": "mikishokuhin.co.jp",
+        "path": "/cms/wp-cron.php",
+        "elapsed_seconds": 56.0483,
+        "result": "no_response"
+      }
+    ]
+  },
+  "recovery": {
+    "file": "/logs/_migration/cms/wp-content/mu-plugins/miki-admin-network-compat.php",
+    "scope": "GET /cms/wp-admin/ and GET /cms/wp-admin/index.php only",
+    "applies_to_public_frontend": false,
+    "applies_to_dedicated_plugin_admin_pages": false,
+    "applies_to_update_pages": false
+  },
+  "after": {
+    "elapsed_seconds": 0.3652,
+    "result": "dashboard displayed",
+    "confirmed_by_user": true
+  },
+  "temporary_cleanup": {
+    "removed_files": 7,
+    "remaining_codex_files_under_wp_content": 0
+  },
+  "residual_risk": "The server-level outbound name-resolution or network path remains unavailable and must be fixed before production cutover."
+}

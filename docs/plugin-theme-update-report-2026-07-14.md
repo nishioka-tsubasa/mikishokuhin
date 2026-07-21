@@ -69,11 +69,18 @@
 ## 2026-07-21 Admin Timeout Follow-up
 
 - User-side proxy/private-window testing showed `POST /cms/codex-post-test.php` returned `POST OK`; POST routing itself was not the timeout cause.
-- Temporary trace logs on the migration copy showed `GET /cms/wp-admin/` delaying around 112 seconds between `init` and completion of `admin_init`, then eventually shutting down much later. The strongest current suspect is admin-side update checks or other external-call work triggered during `admin_init`.
-- Added temporary MU plugin `/logs/_migration/cms/wp-content/mu-plugins/codex-admin-timeout-mitigation.php` to remove WordPress core/plugin/theme update checks from `admin_init` while diagnosing the migration admin timeout. This is a migration-admin mitigation and should be removed or replaced with a permanent server/network fix before final production operation.
+- Temporary timing traces measured `GET /cms/wp-admin/` at 616.628 seconds before recovery. Every observed outbound request took about 56 seconds and failed, including requests to MonsterInsights, WPForms, WordPress.org, and the site's own `admin-ajax.php` / `wp-cron.php` endpoints.
+- The evidence indicates a server-level outbound name-resolution or network-path problem rather than slow PHP application logic. WordPress-requested timeouts of 5 or 10 seconds were not honored by the underlying connection path.
+- Added `wp-content/mu-plugins/miki-admin-network-compat.php`. It applies only to a GET request for `/cms/wp-admin/` or `/cms/wp-admin/index.php`, omits five remote-dashboard plugins from that request in memory, short-circuits dashboard HTTP calls, and skips update checks on that dashboard request only.
+- Public pages, form submissions, dedicated plugin administration pages, and update pages are outside the workaround's scope.
+- After the change, the user confirmed that the dashboard displayed successfully. Server timing dropped from 616.628 seconds to 0.365 seconds.
+- Removed the superseded `codex-admin-timeout-mitigation.php`, all three diagnostic MU plugins, all diagnostic logs, and the earlier POST-test log. A directory check found no remaining `codex` temporary files under migration `wp-content` or `mu-plugins`.
 - Removed temporary POST test endpoint `/logs/_migration/cms/codex-post-test.php` after user confirmed `POST OK`.
 - Patched PHP 8.4 dynamic-property deprecation in `/logs/_migration/cms/wp-content/plugins/custom-field-suite/includes/fields/loop.php` by declaring `public $values = array();` on `class cfs_loop`.
 - Backup before the CFS patch: `/logs/_migration/cms/wp-content/plugins/custom-field-suite/includes/fields/loop.php.bak-20260721-173927`.
+- Patched the next PHP 8.4 dynamic-property deprecation in `/logs/_migration/cms/wp-content/plugins/custom-field-suite/includes/fields/select.php` by declaring `public $select2_inserted = false;` on `class cfs_select`.
+- Backup before the CFS select patch: `/logs/_migration/cms/wp-content/plugins/custom-field-suite/includes/fields/select.php.bak-20260721-212837`.
+- Redacted timing and cleanup evidence: `docs/evidence/admin-timeout-recovery-20260721.json`.
 
 ## Verification
 
@@ -88,6 +95,8 @@
 - `custom-field-suite` remains at 2.5.16 because it is no longer available from the WordPress.org update API. This remains the largest residual risk and should be replaced or removed after confirming field usage.
 - `all-in-one-wp-migration-file-extension` remains at 1.5 because it is a non-WordPress.org extension and no official update package was available in this environment.
 - `hello.php` remains unchanged because it is inactive/demo-style code and not part of the functional site stack.
+- The migration server's underlying outbound DNS/HTTP path remains broken. Plugin/core update checks, remote integrations, loopback requests, and WP-Cron can still fail or stall outside the recovered dashboard route. Hosting/network configuration must be corrected before production cutover.
+- `miki-admin-network-compat.php` is a narrowly scoped recovery measure, not a replacement for restoring outbound connectivity. Remove it after the server fix and re-test the dashboard, update screen, Site Health, loopback requests, and WP-Cron.
 - Runtime browser QA for `/logs/_migration/cms/` could not be completed from here because the migration URL returns HTTP 403. Public `/cms` was intentionally not edited.
 
 ## Rollback
@@ -96,3 +105,4 @@
 2. Upload it back to the matching path under `/logs/_migration/cms/wp-content/plugins` or `/logs/_migration/cms/wp-content/themes`.
 3. Re-run PHP lint locally on the restored directory if further edits are made.
 4. Re-check remote headers and clear any temporary swap directories.
+5. To roll back the dashboard workaround, remove `/logs/_migration/cms/wp-content/mu-plugins/miki-admin-network-compat.php`. Until outbound connectivity is fixed, doing so will restore the Gateway Timeout behavior.
