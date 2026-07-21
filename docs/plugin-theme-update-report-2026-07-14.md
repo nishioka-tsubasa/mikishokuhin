@@ -71,9 +71,12 @@
 - User-side proxy/private-window testing showed `POST /cms/codex-post-test.php` returned `POST OK`; POST routing itself was not the timeout cause.
 - Temporary timing traces measured `GET /cms/wp-admin/` at 616.628 seconds before recovery. Every observed outbound request took about 56 seconds and failed, including requests to MonsterInsights, WPForms, WordPress.org, and the site's own `admin-ajax.php` / `wp-cron.php` endpoints.
 - The evidence indicates a server-level outbound name-resolution or network-path problem rather than slow PHP application logic. WordPress-requested timeouts of 5 or 10 seconds were not honored by the underlying connection path.
-- Added `wp-content/mu-plugins/miki-admin-network-compat.php`. It applies only to a GET request for `/cms/wp-admin/` or `/cms/wp-admin/index.php`, omits five remote-dashboard plugins from that request in memory, short-circuits dashboard HTTP calls, and skips update checks on that dashboard request only.
+- Added `wp-content/mu-plugins/miki-admin-network-compat.php`. Version 1.0.0 applied only to a GET request for `/cms/wp-admin/` or `/cms/wp-admin/index.php`, omitted five remote-dashboard plugins from that request in memory, short-circuited dashboard HTTP calls, and skipped update checks on that dashboard request only.
 - Public pages, form submissions, dedicated plugin administration pages, and update pages are outside the workaround's scope.
 - After the change, the user confirmed that the dashboard displayed successfully. Server timing dropped from 616.628 seconds to 0.365 seconds.
+- A later Firefox private-window check confirmed that `/cms/wp-admin/site-health.php` still returned Gateway Timeout because version 1.0.0 covered only the dashboard. Version 1.1.0 extends the same fail-fast handling to the Site Health page, its REST tests, and its `health-check-*` AJAX requests.
+- After version 1.1.0 was uploaded, Site Health loaded without a gateway error and completed its asynchronous checks with the visible status `改善が必要`. Tests that require the unavailable network path now report errors instead of blocking the entire page.
+- Backup before the Site Health scope change: `work/site-health-compat-backup-20260721-2307/miki-admin-network-compat.php`.
 - Removed the superseded `codex-admin-timeout-mitigation.php`, all three diagnostic MU plugins, all diagnostic logs, and the earlier POST-test log. A directory check found no remaining `codex` temporary files under migration `wp-content` or `mu-plugins`.
 - Removed temporary POST test endpoint `/logs/_migration/cms/codex-post-test.php` after user confirmed `POST OK`.
 - Patched PHP 8.4 dynamic-property deprecation in `/logs/_migration/cms/wp-content/plugins/custom-field-suite/includes/fields/loop.php` by declaring `public $values = array();` on `class cfs_loop`.
@@ -95,8 +98,8 @@
 - `custom-field-suite` remains at 2.5.16 because it is no longer available from the WordPress.org update API. This remains the largest residual risk and should be replaced or removed after confirming field usage.
 - `all-in-one-wp-migration-file-extension` remains at 1.5 because it is a non-WordPress.org extension and no official update package was available in this environment.
 - `hello.php` remains unchanged because it is inactive/demo-style code and not part of the functional site stack.
-- The migration server's underlying outbound DNS/HTTP path remains broken. Plugin/core update checks, remote integrations, loopback requests, and WP-Cron can still fail or stall outside the recovered dashboard route. Hosting/network configuration must be corrected before production cutover.
-- `miki-admin-network-compat.php` is a narrowly scoped recovery measure, not a replacement for restoring outbound connectivity. Remove it after the server fix and re-test the dashboard, update screen, Site Health, loopback requests, and WP-Cron.
+- The migration server's underlying outbound DNS/HTTP path remains broken. Plugin/core update checks, remote integrations, loopback requests, and WP-Cron can still fail or stall outside the recovered dashboard and Site Health routes. Hosting/network configuration must be corrected before production cutover.
+- `miki-admin-network-compat.php` is a narrowly scoped recovery measure for the dashboard and Site Health, not a replacement for restoring outbound connectivity. Remove it after the server fix and re-test the dashboard, update screen, Site Health, loopback requests, and WP-Cron.
 - Runtime browser QA for `/logs/_migration/cms/` could not be completed from here because the migration URL returns HTTP 403. Public `/cms` was intentionally not edited.
 
 ## Rollback

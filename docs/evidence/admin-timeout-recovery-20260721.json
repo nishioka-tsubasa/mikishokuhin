@@ -45,7 +45,8 @@
   },
   "recovery": {
     "file": "/logs/_migration/cms/wp-content/mu-plugins/miki-admin-network-compat.php",
-    "scope": "GET /cms/wp-admin/ and GET /cms/wp-admin/index.php only",
+    "version": "1.1.0",
+    "scope": "Dashboard GET, Site Health GET, Site Health REST tests, and health-check AJAX requests",
     "applies_to_public_frontend": false,
     "applies_to_dedicated_plugin_admin_pages": false,
     "applies_to_update_pages": false
@@ -54,6 +55,12 @@
     "elapsed_seconds": 0.3652,
     "result": "dashboard displayed",
     "confirmed_by_user": true
+  },
+  "site_health": {
+    "before": "Gateway Timeout",
+    "after": "page displayed and asynchronous checks completed with status 改善が必要",
+    "verified_in_firefox_private_window": true,
+    "external_checks": "return errors without blocking the page while outbound connectivity is unavailable"
   },
   "temporary_cleanup": {
     "removed_files": 7,
