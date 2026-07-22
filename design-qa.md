@@ -1,70 +1,62 @@
-# Design QA: 社員の声一覧・社員の声詳細
+# Design QA Report
 
-- Source visual truth: `/var/folders/mv/8jg0c4px65d1pnpzczwqqfn40000gp/T/TemporaryItems/NSIRD_screencaptureui_ET0UNv/スクリーンショット 2026-07-23 1.07.30.png`
-- Implementation URL: `https://mikishokuhin.wiz-services.com/recruit/voices/?review=qa-final-20260723`
-- Implementation screenshot: `design-qa-assets/implementation-voices-card-view.png`
-- Source pixels: 662 × 600 px (user-supplied cropped mobile issue capture; device density metadata unavailable)
-- Implementation pixels / CSS viewport: 723 × 755 px at 1× capture density
-- Density normalization: the source card is approximately 656 physical pixels wide and is treated as a roughly 328 CSS-pixel card at 2×; the implementation card is 328 CSS pixels wide at 1×. Comparison therefore uses the card width as the normalization anchor rather than the surrounding browser frame.
-- State: published employee list, first employee card and first row; logged-in test environment. Responsive behavior was additionally measured at 375 × 812 CSS pixels.
+## Source of truth
 
-## Full-view comparison evidence
+- Detail spacing reference: `/var/folders/mv/8jg0c4px65d1pnpzczwqqfn40000gp/T/TemporaryItems/NSIRD_screencaptureui_bfQ3lX/スクリーンショット 2026-07-23 2.10.27.png` (2656 × 1142)
+- Hero spacing reference: `/var/folders/mv/8jg0c4px65d1pnpzczwqqfn40000gp/T/TemporaryItems/NSIRD_screencaptureui_3Yd0In/スクリーンショット 2026-07-23 2.10.40.png` (1678 × 1322)
+- Implementation:
+  - `https://mikishokuhin.wiz-services.com/recruit/kitamura/`
+  - `https://mikishokuhin.wiz-services.com/recruit/voices/`
 
-The source issue capture shows the affiliation bubble inside the card body, creating a large empty band before the name. In the post-fix implementation, the affiliation graphic is overlaid on the lower-right of the existing portrait, the full portrait keeps its original 400 × 514 ratio, and the body becomes a compact text block. The page-title section border is removed.
+## Test conditions
 
-At 375 px CSS width, the list resolves to one 335 px column with no horizontal overflow. The portrait is 335 × 430 px, the affiliation graphic is 127 × 92 px, and the catch-copy line height is 19.53 px.
+- Desktop viewport: 1678 × 1000
+- Mobile viewport: 375 × 812
+- States checked: employee detail, employee list, desktop, mobile
+- Rendered implementation screenshot: unavailable because the in-app browser screenshot API timed out repeatedly on both the implementation pages and a blank page.
 
-## Focused region comparison evidence
+## Comparison status
 
-Focused comparison was required because the source is a cropped card-body screenshot rather than a complete page. The first-card measurements after the fix at the normalized 328 px card width are:
+- Full-page visual comparison: blocked (rendered implementation screenshot unavailable)
+- Focused comparison of the hero, Message section, and mobile employee card: blocked (rendered implementation screenshot unavailable)
+- Browser DOM and computed-style inspection: completed
 
-- portrait: 328 × 421 px, intrinsic ratio preserved, top visible;
-- affiliation graphic: 132 × 96 px, overlaid on the portrait and no longer participating in body layout;
-- body: 328 × 248 px;
-- page-title underline: 0 px.
+## Quantitative checks
 
-The implementation uses the existing site serif/sans typography, green/plum/gold tokens, original employee and affiliation assets, and the source copy without replacement assets.
+### Employee detail, desktop
 
-## Required fidelity surfaces
+- Hero title: 174 px high, line-height 58 px
+- Hero lead: 86 px high, line-height 28.8 px
+- Message title: 65 px high, line-height 32.48 px
+- Message body: 86 px high, line-height 28.8 px
+- Message section: 407 px high
+- Repeated `<br>` elements in the hero and Message CFS text were removed.
 
-- Fonts and typography: existing site font families and weights retained; catch-copy line height reduced to 1.55 to remove the loose rhythm in the issue capture.
-- Spacing and layout rhythm: bubble removed from document flow, fixed body minimum height removed, and link placement handled by flex layout. No horizontal overflow at 375 px.
-- Colors and visual tokens: existing green, plum, gold, ivory, and line tokens retained; page-title underline removed as requested.
-- Image quality and asset fidelity: original 400 × 514 employee images and original 255 × 185 affiliation graphics are used. No CSS or generated replacement assets were introduced.
-- Copy and content: all six published employee-detail links and their existing names/catch copy are preserved.
+### Employee list, desktop
 
-## Comparison history
+- First card: 351 × 535 px
+- Visual area: 351 × 263 px (4:3)
+- Portrait: 351 × 263 px, `object-position: center top`
+- Affiliation bubble: 112 × 81 px
 
-1. Initial findings:
-   - P2: affiliation graphic occupied a 70 px body row and created excessive whitespace.
-   - P2: fixed-height thumbnail treatment reduced useful portrait visibility.
-   - P2: catch-copy vertical rhythm was too loose in the cropped mobile card.
-2. Fixes:
-   - moved the affiliation graphic onto the portrait and enlarged it for legibility;
-   - removed fixed thumbnail height and absolute crop, preserving natural image ratio with top-aligned content;
-   - removed the card-body minimum height and tightened catch-copy line height;
-   - removed the page-title section underline.
-3. Post-fix evidence:
-   - affiliation graphic is 132 × 96 px at the normalized card width and does not add body whitespace;
-   - portrait is full-ratio and the face is visible;
-   - body is 248 px high at tablet card width and 233 px at 375 px mobile width;
-   - no broken images, PHP error text, browser console errors, or mobile horizontal overflow were found.
+### Employee list, mobile
 
-## Functional QA
+- First card: 335 × 210 px
+- Layout: 127 px left thumbnail / 208 px right content
+- Portrait: 127 × 210 px, aligned to the top
+- Affiliation bubble: 84 × 61 px
+- Horizontal overflow: none
 
-- Six published recruit child pages render; the `voices` page itself is excluded.
-- Detail links match `kitamura`, `adachi`, `matsushita_m`, `matsushita_k`, `maeda_a`, and `ofiji`.
-- Pagination is configured at twelve items per page and remains hidden until a thirteenth published child page is added.
-- The Kitamura detail FV loads the same `kitamura.png` used by the list.
-- The detail editor contains 17 CFS loop headers; zero headers and zero bodies are open on initial load.
-- Browser console errors: none.
+## Findings and fixes
 
-## Findings
+- P1: CFS rich text contained repeated line breaks that doubled the visual spacing. Fixed by normalizing `<br>` elements and repeated newlines before output.
+- P1: Detail hero and Message typography used excessive line-height and section padding. Fixed with tighter line-height, margins, and vertical padding.
+- P1: Employee card visual area was too tall. Fixed with a desktop 4:3 visual ratio.
+- P1: Mobile employee cards did not prioritize the portrait. Fixed with a left-thumbnail/right-content layout and a constrained affiliation bubble.
+- No PHP error text, broken card images, console errors, or horizontal overflow were found in browser inspection.
 
-No actionable P0, P1, or P2 findings remain.
+## Remaining blocker
 
-## Follow-up polish
+The browser remained interactive for DOM inspection, but screenshot capture failed consistently. A final pixel-level comparison against the supplied references could therefore not be completed in this run.
 
-None required for this scope.
-
-final result: passed
+final result: blocked

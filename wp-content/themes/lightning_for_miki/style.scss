@@ -3770,7 +3770,7 @@ p.recruitment-info-block-about br {
   color: var(--interview-green);
   font-size: 2.9em;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.25;
   letter-spacing: .03em;
 }
 
@@ -3781,10 +3781,10 @@ p.recruitment-info-block-about br {
 
 .miki-interview-hero__lead {
   max-width: 630px;
-  margin: 34px 0 0;
+  margin: 28px 0 0;
   color: var(--interview-ink-soft);
   font-size: 1em;
-  line-height: 2.15;
+  line-height: 1.8;
 }
 
 .miki-interview-scroll {
@@ -4220,7 +4220,7 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-message {
-  padding: 76px 24px 80px;
+  padding: 64px 24px 68px;
   background: #fbfaf1;
   text-align: center;
 }
@@ -4240,7 +4240,7 @@ p.recruitment-info-block-about br {
   color: var(--interview-green);
   font-size: 1.4em;
   font-weight: 700;
-  line-height: 1.65;
+  line-height: 1.45;
   letter-spacing: .03em;
 }
 
@@ -4251,14 +4251,14 @@ p.recruitment-info-block-about br {
 
 .miki-interview-message__body {
   max-width: 680px;
-  margin: 24px auto 0;
+  margin: 20px auto 0;
   color: var(--interview-ink-soft);
   font-size: 1em;
-  line-height: 2.15;
+  line-height: 1.8;
 }
 
 .miki-interview-message__signature {
-  margin: 28px 0 0;
+  margin: 22px 0 0;
   color: var(--interview-ink);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.2em;
@@ -4415,7 +4415,7 @@ p.recruitment-info-block-about br {
   .miki-interview-hero__lead {
     margin-top: 24px;
     font-size: 1em;
-    line-height: 2;
+    line-height: 1.8;
   }
 
   .miki-interview-profile {
@@ -4517,7 +4517,7 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-message {
-    padding: 56px 20px 60px;
+    padding: 50px 20px 54px;
   }
 
   .miki-interview-cta {
@@ -4615,7 +4615,7 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-message {
-    padding: 50px 18px 54px;
+    padding: 46px 18px 50px;
   }
 
   .miki-interview-cta {
@@ -4783,6 +4783,7 @@ p.recruitment-info-block-about br {
 
 .miki-voices-card__visual {
   position: relative;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #f7f5ef;
 }
@@ -4790,7 +4791,9 @@ p.recruitment-info-block-about br {
 .miki-voices-card__portrait {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .miki-voices-card__body {
@@ -4819,9 +4822,9 @@ p.recruitment-info-block-about br {
   right: 18px;
   bottom: 18px;
   z-index: 2;
-  width: auto;
-  max-width: 44%;
-  height: 96px;
+  width: 112px;
+  max-width: 38%;
+  height: auto;
   object-fit: contain;
   object-position: right bottom;
   filter: drop-shadow(0 3px 8px rgba(42, 37, 32, .18));
@@ -5004,13 +5007,54 @@ p.recruitment-info-block-about br {
     gap: 24px;
   }
 
+  .miki-voices-card > a {
+    display: grid;
+    grid-template-columns: 38% minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .miki-voices-card__visual {
+    min-height: 210px;
+    aspect-ratio: auto;
+  }
+
+  .miki-voices-card__portrait {
+    position: absolute;
+    inset: 0;
+  }
+
   .miki-voices-card__body {
-    padding: 24px;
+    min-width: 0;
+    padding: 18px 16px;
+  }
+
+  .miki-voices-card__number {
+    font-size: .58em;
+    letter-spacing: .14em;
+  }
+
+  .miki-voices-card__body h2 {
+    margin-top: 12px;
+    font-size: 1.08em;
+    line-height: 1.4;
+  }
+
+  .miki-voices-card__catch {
+    margin-top: 10px;
+    font-size: .78em;
+    line-height: 1.5;
+  }
+
+  .miki-voices-card__more {
+    padding-top: 18px;
+    font-size: .68em;
+    letter-spacing: .04em;
   }
 
   .miki-voices-card__belongs {
-    right: 14px;
-    bottom: 14px;
-    height: 92px;
+    right: 6px;
+    bottom: 6px;
+    width: 84px;
+    max-width: 72%;
   }
 }

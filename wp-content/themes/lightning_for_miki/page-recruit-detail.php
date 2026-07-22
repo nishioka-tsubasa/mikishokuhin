@@ -48,7 +48,11 @@ $image_url = static function ( $image ) {
 
 $plain_text = static function ( $value ) {
 	$value = preg_replace( '#<br\s*/?>#i', "\n", (string) $value );
-	return trim( wp_strip_all_tags( html_entity_decode( $value, ENT_QUOTES, 'UTF-8' ) ) );
+	$value = wp_strip_all_tags( html_entity_decode( $value, ENT_QUOTES, 'UTF-8' ) );
+	$value = preg_replace( "/\r\n|\r/", "\n", $value );
+	$value = preg_replace( "/[ \t]*\n[ \t]*/", "\n", $value );
+	$value = preg_replace( "/\n{2,}/", "\n", $value );
+	return trim( $value );
 };
 
 $interviews = miki_get_cfs_loop( 'interview' );
