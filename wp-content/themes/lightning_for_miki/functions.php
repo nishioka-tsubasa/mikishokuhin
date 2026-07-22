@@ -67,6 +67,7 @@ module_loop_★ポストタイプ名★.php
 function add_wp_head_custom(){ ?>
     <meta name="format-detection" content="telephone=no">
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <?php }
 add_action( 'wp_head', 'add_wp_head_custom',1);
 

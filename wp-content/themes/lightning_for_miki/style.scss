@@ -3696,3 +3696,913 @@ p.recruitment-info-block-about br {
 }
 
 /* モバイル対応ここまで */
+/* ---------------------------------
+    採用情報 / 社員インタビュー 2026
+--------------------------------- */
+
+.miki-interview {
+  --interview-green: #2c5e3f;
+  --interview-green-light: #e8efe6;
+  --interview-ivory: #faf6ec;
+  --interview-plum: #6e3957;
+  --interview-gold: #c9a961;
+  --interview-ink: #2a2520;
+  --interview-ink-soft: #5a524a;
+  --interview-line: #d9d1bc;
+  color: var(--interview-ink);
+  background: #fff;
+}
+
+.miki-interview *,
+.miki-interview *::before,
+.miki-interview *::after {
+  box-sizing: border-box;
+}
+
+.miki-interview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.miki-interview-hero {
+  min-height: 900px;
+  padding: 135px 32px 150px;
+  background-color: var(--interview-ivory);
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/sub_background.jpg);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 960px auto;
+  border-bottom: 1px solid var(--interview-line);
+}
+
+.miki-interview-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr);
+  gap: 110px;
+  align-items: center;
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.miki-interview-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 28px;
+  color: var(--interview-green);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .26em;
+}
+
+.miki-interview-eyebrow::before {
+  display: block;
+  width: 38px;
+  height: 1px;
+  background: var(--interview-green);
+  content: "";
+}
+
+.miki-interview-hero__title {
+  margin: 0;
+  color: var(--interview-green);
+  font-size: clamp(44px, 4vw, 66px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .03em;
+}
+
+.miki-interview-hero__title span {
+  display: block;
+  color: var(--interview-plum);
+}
+
+.miki-interview-hero__lead {
+  max-width: 630px;
+  margin: 42px 0 0;
+  color: var(--interview-ink-soft);
+  font-size: 16px;
+  line-height: 2.15;
+}
+
+.miki-interview-scroll {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 200px;
+  margin: 56px 0 0;
+  color: var(--interview-gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 12px;
+  letter-spacing: .5em;
+}
+
+.miki-interview-scroll::before,
+.miki-interview-scroll::after {
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: var(--interview-gold);
+  opacity: .65;
+  content: "";
+}
+
+.miki-interview-profile {
+  position: relative;
+  width: 100%;
+  max-width: 410px;
+  margin-left: auto;
+  padding: 34px 34px 32px;
+  background: #fff;
+  border: 1px solid var(--interview-line);
+  border-radius: 4px;
+  box-shadow: 0 12px 38px rgba(44, 94, 63, .09);
+}
+
+.miki-interview-profile__label {
+  position: absolute;
+  top: -15px;
+  left: 34px;
+  z-index: 2;
+  margin: 0;
+  padding: 7px 18px;
+  color: #fff;
+  background: var(--interview-plum);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: .25em;
+}
+
+.miki-interview-profile__photo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  aspect-ratio: 1.12 / 1;
+  overflow: hidden;
+  background: #fbfbfa;
+}
+
+.miki-interview-profile__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.miki-interview-profile__name {
+  margin: 20px 0 0;
+  color: var(--interview-green);
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.miki-interview-profile__name-en {
+  margin: 5px 0 0;
+  color: var(--interview-ink-soft);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 13px;
+  letter-spacing: .18em;
+}
+
+.miki-interview-profile__meta {
+  margin: 22px 0 0;
+}
+
+.miki-interview-profile__meta dt {
+  margin: 13px 0 2px;
+  color: var(--interview-plum);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.miki-interview-profile__meta dd {
+  margin: 0;
+  color: var(--interview-ink);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.miki-interview-questions {
+  background: #fff;
+}
+
+.miki-interview-section-heading {
+  padding: 115px 24px 75px;
+  text-align: center;
+}
+
+.miki-interview-section-heading h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--interview-green);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(44px, 4vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .06em;
+}
+
+.miki-interview-section-heading h2::before,
+.miki-interview-section-heading h2::after {
+  display: none;
+}
+
+.miki-interview-section-heading p {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px 0 0;
+  color: var(--interview-ink-soft);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: .36em;
+}
+
+.miki-interview-section-heading p::before,
+.miki-interview-section-heading p::after {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--interview-gold);
+  content: "";
+}
+
+.miki-interview-question {
+  position: relative;
+  padding: 100px 32px;
+  background: #fff;
+}
+
+.miki-interview-question.is-standard,
+.miki-interview-question.is-standard-image {
+  background-color: #fbfaf3;
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/sub_background.jpg);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 960px auto;
+}
+
+.miki-interview-question.is-standard-image::after,
+.miki-interview-question.is-image::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/detail/subdetail-bg.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  pointer-events: none;
+  content: "";
+}
+
+.miki-interview-question__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.miki-interview-question__interrupt {
+  max-width: 980px;
+  margin: 0 auto 50px;
+  color: var(--interview-plum);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.miki-interview-question__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
+  gap: 95px;
+  align-items: center;
+}
+
+.miki-interview-question.is-text_r .miki-interview-question__media {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.miki-interview-question.is-text_r .miki-interview-question__content {
+  grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr);
+}
+
+.miki-interview-question.is-text_r .miki-interview-question__text {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.miki-interview-question.has-no-image .miki-interview-question__content {
+  display: block;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.miki-interview-question__text h3 {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+  margin: 0 0 26px;
+  padding: 0 0 0 84px;
+  border: 0;
+  color: #795a49;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.miki-interview-question__text h3::before,
+.miki-interview-question__text h3::after {
+  display: none;
+}
+
+.miki-interview-question__text h3 span {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 57px;
+  margin-left: -84px;
+  padding-bottom: 4px;
+  color: #fff;
+  background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/recruitment/detail/h3-before.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 2px 4px #412a50;
+}
+
+.miki-interview-question__answer {
+  color: var(--interview-ink);
+  font-size: 16px;
+  line-height: 2.15;
+  text-align: left;
+}
+
+.miki-interview-question__answer p {
+  margin: 0 0 1.6em;
+}
+
+.miki-interview-question__answer p:last-child {
+  margin-bottom: 0;
+}
+
+.miki-interview-question__media {
+  margin: 0;
+}
+
+.miki-interview-question__media img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(42, 37, 32, .16);
+}
+
+.miki-interview-question.is-first .miki-interview-question__media img {
+  max-height: none;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.miki-interview-question__media figcaption {
+  margin-top: 14px;
+  color: var(--interview-ink-soft);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.miki-interview-schedule {
+  padding: 110px 32px 140px;
+  background: var(--interview-ivory);
+}
+
+.miki-interview-schedule__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.miki-interview-schedule .miki-interview-section-heading {
+  padding: 0 0 70px;
+}
+
+.miki-interview-timeline {
+  position: relative;
+}
+
+.miki-interview-timeline::before {
+  position: absolute;
+  top: 34px;
+  bottom: 34px;
+  left: 132px;
+  border-left: 2px dashed var(--interview-green);
+  opacity: .72;
+  content: "";
+}
+
+.miki-interview-timeline__item {
+  display: grid;
+  position: relative;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+  padding: 28px 0;
+}
+
+.miki-interview-timeline__time {
+  padding: 14px 34px 0 0;
+  text-align: right;
+}
+
+.miki-interview-timeline__time time {
+  display: block;
+  color: var(--interview-green);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.miki-interview-timeline__time span {
+  display: block;
+  margin-top: 7px;
+  color: var(--interview-ink-soft);
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: .28em;
+}
+
+.miki-interview-timeline__dot {
+  position: absolute;
+  top: 50px;
+  left: 132px;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  background: var(--interview-ivory);
+  border: 3px solid var(--interview-green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 7px var(--interview-ivory);
+  transform: translateX(-8px);
+}
+
+.miki-interview-timeline__item.is-accent .miki-interview-timeline__dot {
+  background: var(--interview-plum);
+  border-color: var(--interview-plum);
+  box-shadow: 0 0 0 7px var(--interview-ivory), 0 0 0 10px rgba(110, 57, 87, .14);
+}
+
+.miki-interview-timeline__card {
+  padding: 31px 34px;
+  background: #fff;
+  border: 1px solid var(--interview-line);
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(44, 94, 63, .09);
+}
+
+.miki-interview-timeline__card h3 {
+  margin: 0 0 13px;
+  padding: 0;
+  border: 0;
+  color: var(--interview-green);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.miki-interview-timeline__card h3::before,
+.miki-interview-timeline__card h3::after {
+  display: none;
+}
+
+.miki-interview-timeline__description {
+  color: var(--interview-ink);
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.miki-interview-timeline__description p {
+  margin: 0;
+}
+
+.miki-interview-timeline__note {
+  margin: 18px 0 0;
+  padding: 14px 18px;
+  color: var(--interview-ink-soft);
+  background: var(--interview-green-light);
+  border-left: 3px solid var(--interview-plum);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.miki-interview-message {
+  padding: 130px 24px 140px;
+  background: #fbfaf1;
+  text-align: center;
+}
+
+.miki-interview-message__label {
+  margin: 0 0 22px;
+  color: var(--interview-plum);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 17px;
+  letter-spacing: .38em;
+}
+
+.miki-interview-message h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--interview-green);
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.65;
+  letter-spacing: .03em;
+}
+
+.miki-interview-message h2::before,
+.miki-interview-message h2::after {
+  display: none;
+}
+
+.miki-interview-message__body {
+  max-width: 680px;
+  margin: 28px auto 0;
+  color: var(--interview-ink-soft);
+  font-size: 15px;
+  line-height: 2.15;
+}
+
+.miki-interview-message__signature {
+  margin: 34px 0 0;
+  color: var(--interview-ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 20px;
+  letter-spacing: .18em;
+}
+
+.miki-interview-cta {
+  padding: 76px 32px;
+  color: #fff;
+  background: var(--interview-green);
+}
+
+.miki-interview-cta__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 70px;
+  align-items: center;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.miki-interview-cta__copy h2 {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.miki-interview-cta__copy h2::before,
+.miki-interview-cta__copy h2::after {
+  display: none;
+}
+
+.miki-interview-cta__copy p {
+  max-width: 610px;
+  margin: 0;
+  color: rgba(255, 255, 255, .82);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.miki-interview-cta__links {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+}
+
+.miki-interview-cta__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  min-height: 54px;
+  padding: 15px 24px;
+  border: 1px solid transparent;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .08em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.miki-interview-cta__link:hover,
+.miki-interview-cta__link:focus {
+  text-decoration: none;
+}
+
+.miki-interview-cta__link.is-primary {
+  color: var(--interview-green);
+  background: var(--interview-gold);
+}
+
+.miki-interview-cta__link.is-primary:hover,
+.miki-interview-cta__link.is-primary:focus {
+  color: var(--interview-green);
+  background: #ddbe7a;
+}
+
+.miki-interview-cta__link.is-ghost {
+  border-color: rgba(255, 255, 255, .6);
+  background: transparent;
+}
+
+.miki-interview-cta__link.is-ghost:hover,
+.miki-interview-cta__link.is-ghost:focus {
+  color: var(--interview-green);
+  background: #fff;
+  border-color: #fff;
+}
+
+@media (max-width: 991px) {
+  .miki-interview-hero {
+    min-height: 0;
+    padding: 100px 28px 110px;
+  }
+
+  .miki-interview-hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .72fr);
+    gap: 55px;
+  }
+
+  .miki-interview-hero__title {
+    font-size: 47px;
+  }
+
+  .miki-interview-profile {
+    padding: 28px;
+  }
+
+  .miki-interview-question {
+    padding: 85px 28px;
+  }
+
+  .miki-interview-question__content {
+    grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr);
+    gap: 55px;
+  }
+
+  .miki-interview-question.is-text_r .miki-interview-question__content {
+    grid-template-columns: minmax(250px, .75fr) minmax(0, 1.25fr);
+  }
+
+  .miki-interview-question__answer {
+    font-size: 15px;
+  }
+
+  .miki-interview-cta__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .miki-interview-cta__links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 767px) {
+  .miki-interview-hero {
+    padding: 78px 22px 90px;
+  }
+
+  .miki-interview-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 58px;
+  }
+
+  .miki-interview-hero__title {
+    font-size: clamp(35px, 10vw, 48px);
+  }
+
+  .miki-interview-hero__lead {
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .miki-interview-profile {
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  .miki-interview-section-heading {
+    padding: 82px 20px 55px;
+  }
+
+  .miki-interview-question {
+    padding: 68px 22px;
+  }
+
+  .miki-interview-question__content,
+  .miki-interview-question.is-text_r .miki-interview-question__content {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+  }
+
+  .miki-interview-question.is-text_r .miki-interview-question__media,
+  .miki-interview-question.is-text_r .miki-interview-question__text {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .miki-interview-question__text {
+    width: 100%;
+  }
+
+  .miki-interview-question__text h3 {
+    min-height: 55px;
+    padding-left: 72px;
+    font-size: 19px;
+  }
+
+  .miki-interview-question__text h3 span {
+    width: 60px;
+    height: 51px;
+    margin-left: -72px;
+    font-size: 21px;
+  }
+
+  .miki-interview-question__answer {
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .miki-interview-question__media {
+    width: min(100%, 500px);
+    margin: 0 auto;
+  }
+
+  .miki-interview-schedule {
+    padding: 82px 20px 100px;
+  }
+
+  .miki-interview-schedule .miki-interview-section-heading {
+    padding-bottom: 52px;
+  }
+
+  .miki-interview-timeline::before {
+    left: 74px;
+  }
+
+  .miki-interview-timeline__item {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 20px;
+    padding: 22px 0;
+  }
+
+  .miki-interview-timeline__time {
+    padding: 11px 15px 0 0;
+  }
+
+  .miki-interview-timeline__time time {
+    font-size: 29px;
+  }
+
+  .miki-interview-timeline__time span {
+    font-size: 8px;
+    letter-spacing: .15em;
+  }
+
+  .miki-interview-timeline__dot {
+    top: 37px;
+    left: 74px;
+  }
+
+  .miki-interview-timeline__card {
+    padding: 24px 22px;
+  }
+
+  .miki-interview-timeline__card h3 {
+    font-size: 18px;
+  }
+
+  .miki-interview-message {
+    padding: 90px 22px 100px;
+  }
+
+  .miki-interview-cta {
+    padding: 62px 22px;
+  }
+
+  .miki-interview-cta__links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 425px) {
+  .miki-interview-eyebrow {
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: .18em;
+  }
+
+  .miki-interview-eyebrow::before {
+    width: 24px;
+  }
+
+  .miki-interview-hero__title {
+    font-size: 34px;
+  }
+
+  .miki-interview-profile {
+    padding: 24px 20px;
+  }
+
+  .miki-interview-section-heading h2 {
+    font-size: 40px;
+  }
+
+  .miki-interview-section-heading p {
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: .22em;
+  }
+
+  .miki-interview-question__text h3 {
+    align-items: flex-start;
+    min-height: 51px;
+    padding-top: 8px;
+    font-size: 17px;
+  }
+
+  .miki-interview-timeline::before {
+    left: 57px;
+  }
+
+  .miki-interview-timeline__item {
+    grid-template-columns: 57px minmax(0, 1fr);
+    gap: 15px;
+  }
+
+  .miki-interview-timeline__time {
+    padding-right: 8px;
+  }
+
+  .miki-interview-timeline__time time {
+    font-size: 24px;
+  }
+
+  .miki-interview-timeline__time span {
+    overflow-wrap: anywhere;
+    font-size: 7px;
+  }
+
+  .miki-interview-timeline__dot {
+    left: 57px;
+    width: 14px;
+    height: 14px;
+    transform: translateX(-7px);
+  }
+
+  .miki-interview-timeline__card {
+    padding: 21px 18px;
+  }
+
+  .miki-interview-timeline__description,
+  .miki-interview-timeline__note {
+    font-size: 12px;
+  }
+
+  .miki-interview-cta__copy h2 {
+    font-size: 23px;
+  }
+}
