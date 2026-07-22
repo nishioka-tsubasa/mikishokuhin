@@ -1,0 +1,52 @@
+{
+  "target": "https://mikishokuhin.wiz-services.com/",
+  "checked_at_utc": "2026-07-22T08:55:25Z",
+  "target_before": {
+    "http_status": 404,
+    "server": "LiteSpeed",
+    "cdn": "CloudFront",
+    "body_bytes": 19268,
+    "body_sha256": "cdaf289919b2096b4c936a3e249bba227791b88ae4417467fa54585c799394b4"
+  },
+  "source": {
+    "home_url": "https://mikishokuhin.co.jp/",
+    "site_url": "https://mikishokuhin.co.jp/cms/",
+    "wordpress": "7.0.2",
+    "php": "8.4.2",
+    "active_plugin_count": 11,
+    "theme": "lightning_for_miki",
+    "parent_theme": "lightning"
+  },
+  "file_archive": {
+    "name": "wiz-deploy-source-20260722-b0b290fb.zip",
+    "bytes": 328532408,
+    "uncompressed_bytes": 496880757,
+    "file_count": 16875,
+    "sha256": "510569e56ad934d2ca0db8652b95aa1f5dc5fc44d2f89983baa67174bd676d65",
+    "zip_test": "passed"
+  },
+  "database_archive": {
+    "name": "wiz-deploy-source-20260722-b0b290fb.sql.gz",
+    "bytes": 411396,
+    "table_count": 32,
+    "sha256": "695347ade8113156c9def325e5e3c6c204d39b3c3a161bcbdf31f1f9644bc807",
+    "gzip_test": "passed"
+  },
+  "one_time_packaging_helper": {
+    "removed_from_source": true,
+    "remote_absence_verified": true
+  },
+  "deployment_guard": {
+    "omit_mu_plugin": "cms/wp-content/mu-plugins/miki-admin-network-compat.php",
+    "reason": "Alpha migration proxy and local cURL routing are not portable to WIZ"
+  },
+  "target_access": {
+    "status": "waiting",
+    "required": [
+      "FTP/SFTP or SSH endpoint and credentials",
+      "document root",
+      "database host, name, user, and password or hosting control-panel access",
+      "CloudFront cache invalidation access or automatic purge confirmation"
+    ]
+  }
+}
