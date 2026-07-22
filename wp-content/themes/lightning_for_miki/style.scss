@@ -3726,8 +3726,8 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-hero {
-  min-height: 900px;
-  padding: 135px 32px 150px;
+  min-height: 820px;
+  padding: 112px 40px 124px;
   background-color: var(--interview-ivory);
   background-image: url(/cms/wp-content/themes/lightning_for_miki/assets/img/sub_background.jpg);
   background-position: center;
@@ -3739,7 +3739,7 @@ p.recruitment-info-block-about br {
 .miki-interview-hero__inner {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr);
-  gap: 110px;
+  gap: 80px;
   align-items: center;
   width: 100%;
   max-width: 1260px;
@@ -3750,7 +3750,7 @@ p.recruitment-info-block-about br {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin: 0 0 28px;
+  margin: 0 0 24px;
   color: var(--interview-green);
   font-size: 13px;
   font-weight: 700;
@@ -3781,7 +3781,7 @@ p.recruitment-info-block-about br {
 
 .miki-interview-hero__lead {
   max-width: 630px;
-  margin: 42px 0 0;
+  margin: 34px 0 0;
   color: var(--interview-ink-soft);
   font-size: 16px;
   line-height: 2.15;
@@ -3792,7 +3792,7 @@ p.recruitment-info-block-about br {
   align-items: center;
   gap: 16px;
   width: 200px;
-  margin: 56px 0 0;
+  margin: 46px 0 0;
   color: var(--interview-gold);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 12px;
@@ -3814,7 +3814,7 @@ p.recruitment-info-block-about br {
   width: 100%;
   max-width: 410px;
   margin-left: auto;
-  padding: 34px 34px 32px;
+  padding: 30px 30px 28px;
   background: #fff;
   border: 1px solid var(--interview-line);
   border-radius: 4px;
@@ -3824,7 +3824,7 @@ p.recruitment-info-block-about br {
 .miki-interview-profile__label {
   position: absolute;
   top: -15px;
-  left: 34px;
+  left: 30px;
   z-index: 2;
   margin: 0;
   padding: 7px 18px;
@@ -3853,7 +3853,7 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-profile__name {
-  margin: 20px 0 0;
+  margin: 18px 0 0;
   color: var(--interview-green);
   font-size: 27px;
   font-weight: 700;
@@ -3869,11 +3869,11 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-profile__meta {
-  margin: 22px 0 0;
+  margin: 18px 0 0;
 }
 
 .miki-interview-profile__meta dt {
-  margin: 13px 0 2px;
+  margin: 11px 0 2px;
   color: var(--interview-plum);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 10px;
@@ -3895,7 +3895,7 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-section-heading {
-  padding: 115px 24px 75px;
+  padding: 96px 24px 62px;
   text-align: center;
 }
 
@@ -3920,7 +3920,7 @@ p.recruitment-info-block-about br {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  margin: 18px 0 0;
+  margin: 16px 0 0;
   color: var(--interview-ink-soft);
   font-size: 12px;
   font-weight: 500;
@@ -3939,7 +3939,7 @@ p.recruitment-info-block-about br {
 
 .miki-interview-question {
   position: relative;
-  padding: 100px 32px;
+  padding: 82px 40px;
   background: #fff;
 }
 
@@ -3977,7 +3977,7 @@ p.recruitment-info-block-about br {
 
 .miki-interview-question__interrupt {
   max-width: 980px;
-  margin: 0 auto 50px;
+  margin: 0 auto 40px;
   color: var(--interview-plum);
   font-size: 24px;
   font-weight: 700;
@@ -3988,7 +3988,7 @@ p.recruitment-info-block-about br {
 .miki-interview-question__content {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
-  gap: 95px;
+  gap: 72px;
   align-items: center;
 }
 
@@ -4016,7 +4016,7 @@ p.recruitment-info-block-about br {
   display: flex;
   align-items: center;
   min-height: 62px;
-  margin: 0 0 26px;
+  margin: 0 0 22px;
   padding: 0 0 0 84px;
   border: 0;
   color: #795a49;
@@ -4059,7 +4059,7 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-question__answer p {
-  margin: 0 0 1.6em;
+  margin: 0 0 1.35em;
 }
 
 .miki-interview-question__answer p:last-child {
@@ -4086,14 +4086,14 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-question__media figcaption {
-  margin-top: 14px;
+  margin-top: 12px;
   color: var(--interview-ink-soft);
   font-size: 12px;
   line-height: 1.8;
 }
 
 .miki-interview-schedule {
-  padding: 110px 32px 140px;
+  padding: 96px 40px 118px;
   background: var(--interview-ivory);
 }
 
@@ -4103,7 +4103,7 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-schedule .miki-interview-section-heading {
-  padding: 0 0 70px;
+  padding: 0 0 60px;
 }
 
 .miki-interview-timeline {
@@ -4126,7 +4126,7 @@ p.recruitment-info-block-about br {
   grid-template-columns: 132px minmax(0, 1fr);
   gap: 42px;
   align-items: start;
-  padding: 28px 0;
+  padding: 24px 0;
 }
 
 .miki-interview-timeline__time {
@@ -4158,7 +4158,7 @@ p.recruitment-info-block-about br {
 
 .miki-interview-timeline__dot {
   position: absolute;
-  top: 50px;
+  top: 46px;
   left: 132px;
   z-index: 2;
   width: 16px;
@@ -4177,7 +4177,7 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-timeline__card {
-  padding: 31px 34px;
+  padding: 28px 30px;
   background: #fff;
   border: 1px solid var(--interview-line);
   border-radius: 4px;
@@ -4185,7 +4185,7 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-timeline__card h3 {
-  margin: 0 0 13px;
+  margin: 0 0 12px;
   padding: 0;
   border: 0;
   color: var(--interview-green);
@@ -4210,8 +4210,8 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-timeline__note {
-  margin: 18px 0 0;
-  padding: 14px 18px;
+  margin: 16px 0 0;
+  padding: 13px 16px;
   color: var(--interview-ink-soft);
   background: var(--interview-green-light);
   border-left: 3px solid var(--interview-plum);
@@ -4220,13 +4220,13 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-message {
-  padding: 130px 24px 140px;
+  padding: 108px 24px 116px;
   background: #fbfaf1;
   text-align: center;
 }
 
 .miki-interview-message__label {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   color: var(--interview-plum);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 17px;
@@ -4251,14 +4251,14 @@ p.recruitment-info-block-about br {
 
 .miki-interview-message__body {
   max-width: 680px;
-  margin: 28px auto 0;
+  margin: 24px auto 0;
   color: var(--interview-ink-soft);
   font-size: 15px;
   line-height: 2.15;
 }
 
 .miki-interview-message__signature {
-  margin: 34px 0 0;
+  margin: 28px 0 0;
   color: var(--interview-ink);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 20px;
@@ -4266,7 +4266,7 @@ p.recruitment-info-block-about br {
 }
 
 .miki-interview-cta {
-  padding: 76px 32px;
+  padding: 64px 40px;
   color: #fff;
   background: var(--interview-green);
 }
@@ -4274,14 +4274,14 @@ p.recruitment-info-block-about br {
 .miki-interview-cta__inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 70px;
+  gap: 56px;
   align-items: center;
   max-width: 1260px;
   margin: 0 auto;
 }
 
 .miki-interview-cta__copy h2 {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   padding: 0;
   border: 0;
   color: #fff;
@@ -4305,7 +4305,7 @@ p.recruitment-info-block-about br {
 
 .miki-interview-cta__links {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   justify-content: flex-end;
 }
 
@@ -4315,7 +4315,7 @@ p.recruitment-info-block-about br {
   justify-content: center;
   min-width: 190px;
   min-height: 54px;
-  padding: 15px 24px;
+  padding: 14px 22px;
   border: 1px solid transparent;
   color: #fff;
   font-size: 13px;
@@ -4358,12 +4358,12 @@ p.recruitment-info-block-about br {
 @media (max-width: 991px) {
   .miki-interview-hero {
     min-height: 0;
-    padding: 100px 28px 110px;
+    padding: 88px 28px 98px;
   }
 
   .miki-interview-hero__inner {
     grid-template-columns: minmax(0, 1fr) minmax(300px, .72fr);
-    gap: 55px;
+    gap: 48px;
   }
 
   .miki-interview-hero__title {
@@ -4371,16 +4371,16 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-profile {
-    padding: 28px;
+    padding: 26px;
   }
 
   .miki-interview-question {
-    padding: 85px 28px;
+    padding: 72px 28px;
   }
 
   .miki-interview-question__content {
     grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr);
-    gap: 55px;
+    gap: 44px;
   }
 
   .miki-interview-question.is-text_r .miki-interview-question__content {
@@ -4393,7 +4393,7 @@ p.recruitment-info-block-about br {
 
   .miki-interview-cta__inner {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
 
   .miki-interview-cta__links {
@@ -4403,12 +4403,12 @@ p.recruitment-info-block-about br {
 
 @media (max-width: 767px) {
   .miki-interview-hero {
-    padding: 78px 22px 90px;
+    padding: 56px 20px 72px;
   }
 
   .miki-interview-hero__inner {
     grid-template-columns: 1fr;
-    gap: 58px;
+    gap: 38px;
   }
 
   .miki-interview-hero__title {
@@ -4416,7 +4416,7 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-hero__lead {
-    margin-top: 30px;
+    margin-top: 24px;
     font-size: 14px;
     line-height: 2;
   }
@@ -4427,18 +4427,18 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-section-heading {
-    padding: 82px 20px 55px;
+    padding: 64px 20px 44px;
   }
 
   .miki-interview-question {
-    padding: 68px 22px;
+    padding: 52px 20px;
   }
 
   .miki-interview-question__content,
   .miki-interview-question.is-text_r .miki-interview-question__content {
     display: flex;
     flex-direction: column;
-    gap: 38px;
+    gap: 28px;
   }
 
   .miki-interview-question.is-text_r .miki-interview-question__media,
@@ -4453,6 +4453,7 @@ p.recruitment-info-block-about br {
 
   .miki-interview-question__text h3 {
     min-height: 55px;
+    margin-bottom: 20px;
     padding-left: 72px;
     font-size: 19px;
   }
@@ -4475,11 +4476,11 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-schedule {
-    padding: 82px 20px 100px;
+    padding: 64px 20px 76px;
   }
 
   .miki-interview-schedule .miki-interview-section-heading {
-    padding-bottom: 52px;
+    padding-bottom: 44px;
   }
 
   .miki-interview-timeline::before {
@@ -4489,7 +4490,7 @@ p.recruitment-info-block-about br {
   .miki-interview-timeline__item {
     grid-template-columns: 96px minmax(0, 1fr);
     gap: 20px;
-    padding: 22px 0;
+    padding: 18px 0;
   }
 
   .miki-interview-timeline__time {
@@ -4506,12 +4507,12 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-timeline__dot {
-    top: 37px;
+    top: 33px;
     left: 96px;
   }
 
   .miki-interview-timeline__card {
-    padding: 24px 22px;
+    padding: 22px 20px;
   }
 
   .miki-interview-timeline__card h3 {
@@ -4519,11 +4520,11 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-message {
-    padding: 90px 22px 100px;
+    padding: 72px 20px 78px;
   }
 
   .miki-interview-cta {
-    padding: 62px 22px;
+    padding: 52px 20px;
   }
 
   .miki-interview-cta__links {
@@ -4533,6 +4534,10 @@ p.recruitment-info-block-about br {
 }
 
 @media (max-width: 425px) {
+  .miki-interview-hero {
+    padding: 48px 18px 62px;
+  }
+
   .miki-interview-eyebrow {
     gap: 10px;
     font-size: 10px;
@@ -4548,7 +4553,11 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-profile {
-    padding: 24px 20px;
+    padding: 22px 18px;
+  }
+
+  .miki-interview-section-heading {
+    padding: 56px 18px 38px;
   }
 
   .miki-interview-section-heading h2 {
@@ -4568,6 +4577,14 @@ p.recruitment-info-block-about br {
     font-size: 17px;
   }
 
+  .miki-interview-question {
+    padding: 48px 18px;
+  }
+
+  .miki-interview-schedule {
+    padding: 56px 18px 64px;
+  }
+
   .miki-interview-timeline::before {
     left: 78px;
   }
@@ -4575,6 +4592,7 @@ p.recruitment-info-block-about br {
   .miki-interview-timeline__item {
     grid-template-columns: 78px minmax(0, 1fr);
     gap: 15px;
+    padding: 16px 0;
   }
 
   .miki-interview-timeline__time {
@@ -4598,12 +4616,20 @@ p.recruitment-info-block-about br {
   }
 
   .miki-interview-timeline__card {
-    padding: 21px 18px;
+    padding: 20px 17px;
   }
 
   .miki-interview-timeline__description,
   .miki-interview-timeline__note {
     font-size: 12px;
+  }
+
+  .miki-interview-message {
+    padding: 64px 18px 70px;
+  }
+
+  .miki-interview-cta {
+    padding: 48px 18px;
   }
 
   .miki-interview-cta__copy h2 {
