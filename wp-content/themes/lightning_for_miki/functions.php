@@ -255,6 +255,7 @@ if ( class_exists( 'MW_WP_Form_Abstract_Validation_Rule' ) ) {
 /*-------------------------------------------*/
 function my_mwform_inquiry_data_columns_157( $columns ) {
 	$columns = array(
+        'inquiry_type' => 'お問い合わせ種別',
         'company_name' => '法人名',
 		'facility_name' => '施設名',
         'zip_code' => '郵便番号',

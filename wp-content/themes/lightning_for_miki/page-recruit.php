@@ -78,49 +78,8 @@ get_header(); ?>
             <?php endforeach; ?>
             </div>
         </div>
-        <div class="employee-link_list">       
-            <div class="employee-link">
-                <a href="/recruit/kitamura">
-                    <div class="employee-link__name">
-                        喜多村 高雅さんを見る<span>→</span>
-                    </div>
-                </a>
-            </div>
-            <div class="employee-link">
-                <a href="/recruit/adachi">
-                    <div class="employee-link__name">
-                        足立 祐介さん<br>足立 翔さんを見る<span>→</span>
-                    </div>
-                </a>
-            </div>
-            <div class="employee-link">
-                <a href="/recruit/matsushita_m">
-                    <div class="employee-link__name">
-                        松下 光咲さんを見る<span>→</span>
-                    </div>
-                </a>
-            </div>
-            <div class="employee-link">
-                <a href="/recruit/matsushita_k">
-                    <div class="employee-link__name">
-                        松下 知樹さんを見る<span>→</span>
-                    </div>
-                </a>
-            </div>
-            <div class="employee-link">
-                <a href="/recruit/maeda_a">
-                    <div class="employee-link__name">
-                        前田 綾子さんを見る<span>→</span>
-                    </div>
-                </a>
-            </div>
-            <div class="employee-link">
-                <a href="/recruit/ofiji">
-                    <div class="employee-link__name">
-                        大藤 直也さんを見る<span>→</span>
-                    </div>
-                </a>
-            </div>
+        <div class="employee-voices-index-link">
+            <a href="<?php echo esc_url( home_url( '/recruit/voices/' ) ); ?>">社員の声一覧へ<span aria-hidden="true">→</span></a>
         </div>
     </div><!-- [ /.container ] -->
 </div><!-- [ /.siteContent ] -->

@@ -2,6 +2,15 @@
     // 入力画面: 住所自動入力用
     $('.mw_wp_form_input form').addClass('h-adr');
 
+    // 採用導線から遷移した場合はお問い合わせ種別を採用に切り替える
+    var $inquiryType = $('input[name="inquiry_type"]');
+    if ($('.mw_wp_form_input').length && $inquiryType.length) {
+        var inquiryType = new URLSearchParams(window.location.search).get('inquiry_type');
+        var isRecruitInquiry = inquiryType === 'recruit' || window.location.hash === '#recruit';
+        var selectedValue = isRecruitInquiry ? '採用に関するお問い合わせ' : 'お問い合わせ';
+        $inquiryType.filter('[value="' + selectedValue + '"]').prop('checked', true);
+    }
+
     // 確認画面: 入力画面専用の案内を非表示
     if ($('.mw_wp_form_confirm').length) {
         $('.contact-form-wrap').hide();

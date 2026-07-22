@@ -163,16 +163,21 @@ if ( empty( $cta_links ) ) {
 	$cta_links = array(
 		array(
 			'interview_cta_link_label' => '他の社員紹介を見る',
-			'interview_cta_link_url'   => home_url( '/recruit/#slick' ),
+			'interview_cta_link_url'   => home_url( '/recruit/voices/' ),
 			'interview_cta_link_style' => 'primary',
 		),
 		array(
 			'interview_cta_link_label' => '採用エントリー',
-			'interview_cta_link_url'   => home_url( '/recruit/' ),
+			'interview_cta_link_url'   => home_url( '/contact/#recruit' ),
 			'interview_cta_link_style' => 'ghost',
 		),
 	);
 }
+
+$cta_body = $plain_text( $field_value( 'interview_cta_body', '他の社員のインタビューや、新卒・中途採用の最新情報をご覧いただけます。あなたの“一日”を、私たちと一緒に。' ) );
+$cta_body = str_replace( '他の社員のインタビューや、', "他の社員のインタビューや、\n", $cta_body );
+$voices_url = home_url( '/recruit/voices/' );
+$recruit_contact_url = home_url( '/contact/#recruit' );
 ?>
 
 <main class="miki-interview">
@@ -324,7 +329,7 @@ if ( empty( $cta_links ) ) {
 		<div class="miki-interview-cta__inner">
 			<div class="miki-interview-cta__copy">
 				<h2><?php echo esc_html( (string) $field_value( 'interview_cta_heading', 'もっと、三基食品で働く人を知る。' ) ); ?></h2>
-				<p><?php echo nl2br( esc_html( $plain_text( $field_value( 'interview_cta_body', '他の社員のインタビューや、新卒・中途採用の最新情報をご覧いただけます。あなたの“一日”を、私たちと一緒に。' ) ) ) ); ?></p>
+				<p><?php echo nl2br( esc_html( $cta_body ) ); ?></p>
 			</div>
 			<div class="miki-interview-cta__links">
 				<?php foreach ( $cta_links as $cta_link ) : ?>
@@ -333,6 +338,11 @@ if ( empty( $cta_links ) ) {
 					$link_url   = (string) miki_array_value( $cta_link, 'interview_cta_link_url' );
 					$link_style = miki_choice_value( miki_array_value( $cta_link, 'interview_cta_link_style', 'primary' ) );
 					$link_style = in_array( $link_style, array( 'primary', 'ghost' ), true ) ? $link_style : 'primary';
+					if ( false !== strpos( $link_label, '社員' ) ) {
+						$link_url = $voices_url;
+					} elseif ( false !== strpos( $link_label, '採用' ) ) {
+						$link_url = $recruit_contact_url;
+					}
 					if ( '' === $link_label || '' === $link_url ) {
 						continue;
 					}
