@@ -9,20 +9,18 @@ $recruit_page = get_page_by_path( 'recruit' );
 $recruit_id   = $recruit_page instanceof WP_Post ? $recruit_page->ID : 0;
 $employees    = array();
 
-if ( $recruit_id && function_exists( 'get_field' ) ) {
-	$employee_field = get_field( 'employee_list', $recruit_id );
+global $cfs;
+if ( $recruit_id && is_object( $cfs ) && method_exists( $cfs, 'get' ) ) {
+	$employee_field = $cfs->get( 'employee_list', $recruit_id );
 	if ( is_array( $employee_field ) ) {
 		$employees = $employee_field;
 	}
 }
 
-if ( empty( $employees ) ) {
-	global $cfs;
-	if ( $recruit_id && is_object( $cfs ) && method_exists( $cfs, 'get' ) ) {
-		$employee_field = $cfs->get( 'employee_list', $recruit_id );
-		if ( is_array( $employee_field ) ) {
-			$employees = $employee_field;
-		}
+if ( empty( $employees ) && $recruit_id && function_exists( 'get_field' ) ) {
+	$employee_field = get_field( 'employee_list', $recruit_id );
+	if ( is_array( $employee_field ) ) {
+		$employees = $employee_field;
 	}
 }
 

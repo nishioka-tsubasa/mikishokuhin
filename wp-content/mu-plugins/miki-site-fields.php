@@ -13,6 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Register site fields after Secure Custom Fields has initialized.
  */
 function miki_register_site_fields() {
+	// These groups replace legacy CFS groups only while CFS is unavailable.
+	// When CFS is restored, registering the same fields in ACF would create
+	// duplicate edit boxes backed by a different storage format.
+	if ( function_exists( 'CFS' ) ) {
+		return;
+	}
+
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
 	}

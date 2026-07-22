@@ -123,6 +123,14 @@ if ( ! function_exists( 'miki_get_acf_image_alt' ) ) {
 
 if ( ! function_exists( 'miki_get_cfs_loop' ) ) {
 	function miki_get_cfs_loop( $field_name ) {
+		global $cfs;
+		if ( is_object( $cfs ) && method_exists( $cfs, 'get' ) ) {
+			$value = $cfs->get( $field_name );
+			if ( is_array( $value ) ) {
+				return $value;
+			}
+		}
+
 		if ( function_exists( 'get_field' ) ) {
 			$value = get_field( $field_name );
 			if ( is_array( $value ) ) {
@@ -130,17 +138,20 @@ if ( ! function_exists( 'miki_get_cfs_loop' ) ) {
 			}
 		}
 
-		global $cfs;
-		if ( ! is_object( $cfs ) || ! method_exists( $cfs, 'get' ) ) {
-			return array();
-		}
-		$value = $cfs->get( $field_name );
-		return is_array( $value ) ? $value : array();
+		return array();
 	}
 }
 
 if ( ! function_exists( 'miki_get_cfs_value' ) ) {
 	function miki_get_cfs_value( $field_name, $default = '' ) {
+		global $cfs;
+		if ( is_object( $cfs ) && method_exists( $cfs, 'get' ) ) {
+			$value = $cfs->get( $field_name );
+			if ( null !== $value && false !== $value ) {
+				return $value;
+			}
+		}
+
 		if ( function_exists( 'get_field' ) ) {
 			$value = get_field( $field_name );
 			if ( null !== $value && false !== $value ) {
@@ -148,12 +159,7 @@ if ( ! function_exists( 'miki_get_cfs_value' ) ) {
 			}
 		}
 
-		global $cfs;
-		if ( ! is_object( $cfs ) || ! method_exists( $cfs, 'get' ) ) {
-			return $default;
-		}
-		$value = $cfs->get( $field_name );
-		return null === $value || false === $value ? $default : $value;
+		return $default;
 	}
 }
 
