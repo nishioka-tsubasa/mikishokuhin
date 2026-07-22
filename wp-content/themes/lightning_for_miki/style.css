@@ -3778,11 +3778,15 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
 
 .miki-interview-timeline__time time {
   display: block;
+  white-space: nowrap;
   color: var(--interview-green);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 42px;
-  font-weight: 600;
+  font-weight: 700;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
   line-height: 1;
+  letter-spacing: .01em;
 }
 
 .miki-interview-timeline__time span {
@@ -4121,21 +4125,21 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
   }
 
   .miki-interview-timeline::before {
-    left: 74px;
+    left: 96px;
   }
 
   .miki-interview-timeline__item {
-    grid-template-columns: 74px minmax(0, 1fr);
+    grid-template-columns: 96px minmax(0, 1fr);
     gap: 20px;
     padding: 22px 0;
   }
 
   .miki-interview-timeline__time {
-    padding: 11px 15px 0 0;
+    padding: 11px 20px 0 0;
   }
 
   .miki-interview-timeline__time time {
-    font-size: 29px;
+    font-size: 30px;
   }
 
   .miki-interview-timeline__time span {
@@ -4145,7 +4149,7 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
 
   .miki-interview-timeline__dot {
     top: 37px;
-    left: 74px;
+    left: 96px;
   }
 
   .miki-interview-timeline__card {
@@ -4207,16 +4211,16 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
   }
 
   .miki-interview-timeline::before {
-    left: 57px;
+    left: 78px;
   }
 
   .miki-interview-timeline__item {
-    grid-template-columns: 57px minmax(0, 1fr);
+    grid-template-columns: 78px minmax(0, 1fr);
     gap: 15px;
   }
 
   .miki-interview-timeline__time {
-    padding-right: 8px;
+    padding-right: 14px;
   }
 
   .miki-interview-timeline__time time {
@@ -4229,7 +4233,7 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
   }
 
   .miki-interview-timeline__dot {
-    left: 57px;
+    left: 78px;
     width: 14px;
     height: 14px;
     transform: translateX(-7px);
