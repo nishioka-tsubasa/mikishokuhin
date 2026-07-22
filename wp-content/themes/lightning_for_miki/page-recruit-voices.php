@@ -37,9 +37,27 @@ $image_url = static function ( $image ) {
 	return is_string( $image ) ? $image : '';
 };
 
+$image_alt = static function ( $image, $fallback = '' ) {
+	if ( is_array( $image ) && isset( $image['alt'] ) && '' !== trim( (string) $image['alt'] ) ) {
+		return (string) $image['alt'];
+	}
+	$attachment_id = is_numeric( $image ) ? (int) $image : attachment_url_to_postid( (string) $image );
+	if ( $attachment_id ) {
+		$alt = trim( (string) get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) );
+		if ( '' !== $alt ) {
+			return $alt;
+		}
+	}
+	return $fallback;
+};
+
 $plain_text = static function ( $value ) {
 	$value = preg_replace( '#<br\s*/?>#i', "\n", (string) $value );
-	return trim( wp_strip_all_tags( html_entity_decode( $value, ENT_QUOTES, 'UTF-8' ) ) );
+	$value = wp_strip_all_tags( html_entity_decode( $value, ENT_QUOTES, 'UTF-8' ) );
+	$value = preg_replace( "/\r\n|\r/", "\n", $value );
+	$value = preg_replace( "/[ \t]*\n[ \t]*/", "\n", $value );
+	$value = preg_replace( "/\n{2,}/", "\n", $value );
+	return trim( $value );
 };
 
 $page_intro = '';
@@ -75,8 +93,11 @@ if ( have_posts() ) {
 						$employee_slug    = trim( (string) miki_array_value( $employee, 'employee_link' ), '/' );
 						$employee_name    = $plain_text( miki_array_value( $employee, 'employee_name' ) );
 						$employee_catch   = $plain_text( miki_array_value( $employee, 'employee_catch' ) );
-						$employee_image   = $image_url( miki_array_value( $employee, 'employee_img' ) );
-						$employee_belongs = $image_url( miki_array_value( $employee, 'employee_belongs' ) );
+						$employee_image_field   = miki_array_value( $employee, 'employee_img' );
+						$employee_belongs_field = miki_array_value( $employee, 'employee_belongs' );
+						$employee_image         = $image_url( $employee_image_field );
+						$employee_belongs       = $image_url( $employee_belongs_field );
+						$employee_belongs_alt   = $image_alt( $employee_belongs_field, '所属' );
 						if ( '' === $employee_slug || '' === $employee_name ) {
 							continue;
 						}
@@ -85,15 +106,17 @@ if ( have_posts() ) {
 						<article class="miki-voices-card">
 							<a href="<?php echo esc_url( $employee_url ); ?>">
 								<div class="miki-voices-card__visual">
-									<?php if ( '' !== $employee_belongs ) : ?>
-										<img class="miki-voices-card__belongs" src="<?php echo esc_url( $employee_belongs ); ?>" alt="">
-									<?php endif; ?>
 									<?php if ( '' !== $employee_image ) : ?>
 										<img class="miki-voices-card__portrait" src="<?php echo esc_url( $employee_image ); ?>" alt="<?php echo esc_attr( $employee_name ); ?>">
 									<?php endif; ?>
 								</div>
 								<div class="miki-voices-card__body">
-									<p class="miki-voices-card__number">EMPLOYEE VOICE</p>
+									<div class="miki-voices-card__meta">
+										<p class="miki-voices-card__number">EMPLOYEE VOICE</p>
+										<?php if ( '' !== $employee_belongs ) : ?>
+											<img class="miki-voices-card__belongs" src="<?php echo esc_url( $employee_belongs ); ?>" alt="<?php echo esc_attr( $employee_belongs_alt ); ?>">
+										<?php endif; ?>
+									</div>
 									<h2><?php echo nl2br( esc_html( $employee_name ) ); ?></h2>
 									<?php if ( '' !== $employee_catch ) : ?>
 										<p class="miki-voices-card__catch"><?php echo nl2br( esc_html( $employee_catch ) ); ?></p>
