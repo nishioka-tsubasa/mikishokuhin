@@ -61,6 +61,13 @@ WordPressの更新APIによる最終確認では、WordPress本体、プラグ�
 - CFS 2.5.16は無効化し、Webルート外へ退避した。CFSのDBテーブルと投稿はロールバック用に保持したが、実行コードは公開領域に存在しない。
 - 競合を避けるため、非アクティブだったAdvanced Custom Fields 6.8.5もWebルート外へ退避した。既存ACFフィールドグループはSCFが継続して扱う。
 
+### Inactive Plugin Hardening
+
+- 非アクティブだった7プラグインディレクトリと`hello.php`をWebルート外へ退避した。
+- 公開プラグイン領域は有効11本と`index.php`だけになった。
+- 退避後のプラグイン画面で「すべて11 / 使用中11」を確認した。
+- 退避物は削除しておらず、必要なプラグインだけ個別に復元できる。
+
 ### MW WP Form
 
 - MW WP Form本体は公式5.1.4へ戻し、プラグインファイルの直接改修を廃止した。
@@ -103,6 +110,15 @@ WordPressの更新APIによる最終確認では、WordPress本体、プラグ�
   - SHA-256: `0f8b91a5a3982f6bc66f7cd9d00724f8daa0dca80ed846b1c58effc31677f2dc`
 - CFS archive: `/logs/_migration/logs/_migration/plugins/custom-field-suite-2.5.16-20260722-1235`
 - Inactive ACF archive: `/logs/_migration/logs/_migration/plugins/advanced-custom-fields-6.8.5-inactive-20260722-1305`
+- Other inactive plugins: `/logs/_migration/logs/_migration/plugins/inactive-unused-20260722-1430`
+  - `akismet`
+  - `all-in-one-seo-pack`
+  - `all-in-one-wp-migration-file-extension`
+  - `hello.php`
+  - `limit-login-attempts`
+  - `siteguard`
+  - `wp-multibyte-patch`
+  - `zipaddr-jp`
 
 ### Final Theme Fixes
 
@@ -117,6 +133,7 @@ WordPressの更新APIによる最終確認では、WordPress本体、プラグ�
 - HTML: all 17 pages completed through `</html>`; no visible Fatal / Warning / Deprecated / Notice.
 - Content comparison: original 10 pagesはscript/style差分を除く本文DOMが更新前と一致し、`<br>`数も一致した。
 - Admin browser: Dashboard, Site Health, Updates, Plugins, MW WP Form edit pageをFirefox private windowで正常表示した。
+- Plugin inventory after hardening: すべて11 / 使用中11。非アクティブコードの残存0件。
 - Site Health: REST API `good`、WordPress.org通信`good`、loopback requests `good`。
 - Network: home loopback 200、REST 200、WP-Cron HTTP 200、WordPress.org 200。
 - WP-Cron: 実イベント登録、HTTP起動、callback発火、nonce一致、イベント消去を確認した。
@@ -163,5 +180,6 @@ Core and plugin package updates are present in the migration server but are not 
 3. Restore WordPress 6.9.4 from the core backup and restore affected plugin ZIPs, or restore the full pre-update `/cms` backup.
 4. Restore CFS from its protected archive and the pre-CFS database only if rolling back the SCF migration; do not run CFS and SCF field editing concurrently.
 5. Restore the child-theme/MU files from the Git commit before this work or the focused local backups.
-6. Remove `.maintenance`, clear caches, and verify login, top, company, product, recruit, notice and contact pages.
-7. Confirm form delivery and logs before reopening traffic.
+6. Restore an archived inactive plugin from `inactive-unused-20260722-1430` only if its former functionality is explicitly required.
+7. Remove `.maintenance`, clear caches, and verify login, top, company, product, recruit, notice and contact pages.
+8. Confirm form delivery and logs before reopening traffic.

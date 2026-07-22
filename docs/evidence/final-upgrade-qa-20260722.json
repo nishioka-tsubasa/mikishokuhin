@@ -64,6 +64,13 @@
     "affected_posts_verified": 9,
     "legacy_database_retained_for_rollback": true
   },
+  "inactive_plugin_hardening": {
+    "archived_count": 8,
+    "webroot_inactive_count": 0,
+    "installed_plugins_after": 11,
+    "active_plugins_after": 11,
+    "archive": "/logs/_migration/logs/_migration/plugins/inactive-unused-20260722-1430"
+  },
   "visual": {
     "desktop_header": "pass",
     "desktop_sticky_header": "pass",

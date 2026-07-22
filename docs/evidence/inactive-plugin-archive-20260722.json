@@ -1,0 +1,23 @@
+{
+  "created_jst": "2026-07-22T14:30:00+09:00",
+  "source": "/logs/_migration/cms/wp-content/plugins",
+  "archive": "/logs/_migration/logs/_migration/plugins/inactive-unused-20260722-1430",
+  "production_deployed": false,
+  "archived": [
+    "akismet",
+    "all-in-one-seo-pack",
+    "all-in-one-wp-migration-file-extension",
+    "hello.php",
+    "limit-login-attempts",
+    "siteguard",
+    "wp-multibyte-patch",
+    "zipaddr-jp"
+  ],
+  "verification": {
+    "archive_entries": 8,
+    "webroot_inactive_entries": 0,
+    "wordpress_plugins_screen_total": 11,
+    "wordpress_plugins_screen_active": 11,
+    "plugins_screen_timeout": false
+  }
+}
