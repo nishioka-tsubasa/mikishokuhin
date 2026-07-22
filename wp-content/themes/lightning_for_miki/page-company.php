@@ -135,7 +135,7 @@ get_header(); ?>
         			</div>
         	        <h3>企業理念</h3>
         	        <div class="block">
-        				<?php echo get_field( 'corporate-philosophy', $post_id,false ); ?>
+					<?php echo get_field( 'corporate-philosophy', get_queried_object_id(), false ); ?>
 					</div>
 					<div class="mikishokuhin-history">
         	        	<h3>会社沿革</h3>

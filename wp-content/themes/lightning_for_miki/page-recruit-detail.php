@@ -44,7 +44,7 @@ get_header(); ?>
             foreach( miki_get_cfs_loop( 'interview' ) as $interview ) :
                 $interview_detail_number = $interview_detail_number + 1;
         ?>
-                <div class="recruit-interview-block <?php echo miki_first_array_key( miki_array_value( $interview, 'bg', array() ) ); ?> <?php echo miki_first_array_key( miki_array_value( $interview, 'position', array() ) ); ?>">
+                <div class="recruit-interview-block <?php echo miki_choice_value( miki_array_value( $interview, 'bg', array() ) ); ?> <?php echo miki_choice_value( miki_array_value( $interview, 'position', array() ) ); ?>">
                     <div class="container">
                         <?php if ( miki_array_value( $interview, 'interrupt' ) ) : ?>
                             <h2><?php echo miki_array_value( $interview, 'interrupt' ); ?></h2>

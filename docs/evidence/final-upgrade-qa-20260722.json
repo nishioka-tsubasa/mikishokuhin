@@ -1,0 +1,76 @@
+{
+  "created_utc": "2026-07-22T05:25:57+00:00",
+  "scope": "/logs/_migration/cms",
+  "production_deployed": false,
+  "versions": {
+    "php": "8.4.2",
+    "wordpress": "7.0.2",
+    "active_plugins": 11,
+    "plugin_updates": 0,
+    "theme_updates": 0
+  },
+  "http": {
+    "home_loopback": { "status": 200, "seconds": 0.092 },
+    "rest": { "status": 200, "seconds": 0.0639 },
+    "wp_cron": { "status": 200, "seconds": 0.0091 },
+    "wordpress_org": { "status": 200, "seconds": 0.5715 }
+  },
+  "site_health": {
+    "rest_availability": "good",
+    "dotorg_communication": "good",
+    "loopback_requests": "good"
+  },
+  "admin_render_seconds": {
+    "dashboard": 0.0783,
+    "plugins": 0.0633,
+    "site_health": 0.1108,
+    "update_core": 1.9932,
+    "mw_form_edit": 0.4077
+  },
+  "wp_cron_event": {
+    "http_status": 200,
+    "callback_fired": true,
+    "nonce_verified": true,
+    "still_scheduled": false,
+    "seconds": 1.2729
+  },
+  "public_pages": {
+    "total": 17,
+    "http_200": 17,
+    "failures": 0,
+    "max_seconds": 0.1063,
+    "content_dom_matches_pre_update": 10
+  },
+  "mw_wp_form_157": {
+    "destination_configured": true,
+    "destination_changed": false,
+    "admin_mail_created": true,
+    "reply_mail_created": true,
+    "mail_payloads": 2,
+    "delivery_intercepted": true,
+    "settings_unchanged": true,
+    "generated_posts_remaining": 0
+  },
+  "runtime_php_issues": {
+    "fatal": 0,
+    "warning": 0,
+    "deprecated": 0,
+    "notice": 0
+  },
+  "custom_field_suite": {
+    "plugin_active": false,
+    "plugin_inside_webroot": false,
+    "replacement": "Secure Custom Fields 6.9.2",
+    "affected_posts_verified": 9,
+    "legacy_database_retained_for_rollback": true
+  },
+  "visual": {
+    "desktop_header": "pass",
+    "desktop_sticky_header": "pass",
+    "mobile_header": "pass",
+    "mobile_menu_open": "pass",
+    "mobile_menu_close": "pass",
+    "slider": "pass"
+  },
+  "temporary_web_files_remaining": 0
+}

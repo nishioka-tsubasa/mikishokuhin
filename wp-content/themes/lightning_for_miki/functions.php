@@ -108,6 +108,13 @@ if ( ! function_exists( 'miki_get_acf_image_alt' ) ) {
 
 if ( ! function_exists( 'miki_get_cfs_loop' ) ) {
 	function miki_get_cfs_loop( $field_name ) {
+		if ( function_exists( 'get_field' ) ) {
+			$value = get_field( $field_name );
+			if ( is_array( $value ) ) {
+				return $value;
+			}
+		}
+
 		global $cfs;
 		if ( ! is_object( $cfs ) || ! method_exists( $cfs, 'get' ) ) {
 			return array();
@@ -119,12 +126,31 @@ if ( ! function_exists( 'miki_get_cfs_loop' ) ) {
 
 if ( ! function_exists( 'miki_get_cfs_value' ) ) {
 	function miki_get_cfs_value( $field_name, $default = '' ) {
+		if ( function_exists( 'get_field' ) ) {
+			$value = get_field( $field_name );
+			if ( null !== $value && false !== $value ) {
+				return $value;
+			}
+		}
+
 		global $cfs;
 		if ( ! is_object( $cfs ) || ! method_exists( $cfs, 'get' ) ) {
 			return $default;
 		}
 		$value = $cfs->get( $field_name );
 		return null === $value || false === $value ? $default : $value;
+	}
+}
+
+if ( ! function_exists( 'miki_choice_value' ) ) {
+	function miki_choice_value( $value ) {
+		if ( is_array( $value ) ) {
+			if ( isset( $value['value'] ) ) {
+				return (string) $value['value'];
+			}
+			return (string) miki_first_array_key( $value );
+		}
+		return is_scalar( $value ) ? (string) $value : '';
 	}
 }
 
@@ -248,15 +274,29 @@ function my_mwform_response_statuses( $response_statuses ) {
 add_filter( 'mwform_response_statuses_mwf_200', 'my_mwform_response_statuses' );
 
 /*-------------------------------------------*/
-/*  MW WP FORM 
-/*  class.mail-parser.php カスタマイズの為更新通知無効
+/*  MW WP FORM 問い合わせ一覧の件名を担当者名にする
 /*-------------------------------------------*/
-function my_mwform_version_check($data) {
-    if (isset($data->response['mw-wp-form/mw-wp-form.php'])) {
-        unset($data->response['mw-wp-form/mw-wp-form.php']);
-    }
-    return $data;
+function miki_set_mwform_inquiry_title_157( $post_id ) {
+	if ( 'mwf_157' !== get_post_type( $post_id ) ) {
+		return;
+	}
+
+	$name = get_post_meta( $post_id, 'name', true );
+	if ( is_array( $name ) ) {
+		$name = implode( ' ', array_map( 'strval', $name ) );
+	}
+	$name = sanitize_text_field( (string) $name );
+	if ( '' === $name ) {
+		return;
+	}
+
+	wp_update_post(
+		array(
+			'ID'         => $post_id,
+			'post_title' => $name,
+		)
+	);
 }
-add_filter('site_option__site_transient_update_plugins', 'my_mwform_version_check');
+add_action( 'mwform_contact_data_save-mwf_157', 'miki_set_mwform_inquiry_title_157' );
 
 remove_filter('the_content', 'wpautop'); // 記事の自動整形を無効にする

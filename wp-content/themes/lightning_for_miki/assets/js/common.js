@@ -2,6 +2,30 @@
     jQuery('body.error404 .contact-header p').text('404 Not Found');
 })(jQuery);;
 
+document.addEventListener('DOMContentLoaded', function () {
+    var menuButton = document.getElementById('vk-mobile-nav-menu-btn');
+    var mobileMenu = document.getElementById('vk-mobile-nav');
+
+    if (!menuButton || !mobileMenu) {
+        return;
+    }
+
+    menuButton.addEventListener('click', function () {
+        var wasOpen = mobileMenu.classList.contains('vk-mobile-nav-open');
+
+        window.setTimeout(function () {
+            var isOpen = mobileMenu.classList.contains('vk-mobile-nav-open');
+            if (isOpen !== wasOpen) {
+                menuButton.classList.toggle('menu-open', isOpen);
+                return;
+            }
+
+            menuButton.classList.toggle('menu-open', !wasOpen);
+            mobileMenu.classList.toggle('vk-mobile-nav-open', !wasOpen);
+        }, 0);
+    }, true);
+});
+
 jQuery(function ($) {
   
     /*-------------------------------------------*/
@@ -51,6 +75,5 @@ jQuery(function ($) {
       .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
         $('.current').text(nextSlide + 1);
       });
-  
+
   }); //jQuery(function ($)
-  

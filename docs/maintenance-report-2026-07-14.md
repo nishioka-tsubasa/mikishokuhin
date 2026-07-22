@@ -1,5 +1,7 @@
 # WordPress/PHP/Plugin Upgrade Investigation
 
+> Final-state note (2026-07-22): this is the pre-update investigation. See `docs/upgrade-completion-report-2026-07-22.md` for the completed migration-environment work and QA results.
+
 Date: 2026-07-14 JST
 Site: https://mikishokuhin.co.jp/
 

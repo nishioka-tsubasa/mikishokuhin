@@ -1,5 +1,7 @@
 # Plugin and Theme Update Report - 2026-07-14
 
+> Final-state note (2026-07-22): the CFS replacement and migration-network issues described as remaining below have since been resolved. See `docs/upgrade-completion-report-2026-07-22.md` for the current tested state.
+
 ## Scope
 
 - Target: `/logs/_migration/cms/wp-content/plugins` and `/logs/_migration/cms/wp-content/themes`
