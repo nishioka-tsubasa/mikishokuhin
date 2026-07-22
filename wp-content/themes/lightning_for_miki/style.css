@@ -4434,8 +4434,8 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center top;
+  object-fit: cover;
+  object-position: top;
 }
 
 .miki-voices-card__body {
@@ -4652,12 +4652,13 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
   .miki-voices-card > a {
     display: grid;
     grid-template-columns: 34% minmax(0, 1fr);
-    align-items: start;
+    height: 135px;
+    align-items: stretch;
   }
 
   .miki-voices-card__visual {
     min-height: 0;
-    height: 160px;
+    height: 135px;
     aspect-ratio: auto;
   }
 
@@ -4669,8 +4670,9 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
 
   .miki-voices-card__body {
     min-width: 0;
-    min-height: 160px;
-    padding: 14px;
+    min-height: 0;
+    height: 135px;
+    padding: 9px 11px;
   }
 
   .miki-voices-card__number {
@@ -4679,25 +4681,25 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
 
   .miki-voices-card__body h2 {
     margin-top: 0;
-    font-size: 1em;
-    line-height: 1.35;
+    font-size: .92em;
+    line-height: 1.25;
   }
 
   .miki-voices-card__department {
-    margin-top: 5px;
-    font-size: .62em;
-    line-height: 1.4;
+    margin-top: 3px;
+    font-size: .58em;
+    line-height: 1.25;
   }
 
   .miki-voices-card__catch {
-    margin-top: 8px;
-    font-size: .74em;
-    line-height: 1.4;
+    margin-top: 4px;
+    font-size: .62em;
+    line-height: 1.25;
   }
 
   .miki-voices-card__more {
-    padding-top: 12px;
-    font-size: .64em;
+    padding-top: 5px;
+    font-size: .6em;
     letter-spacing: .04em;
   }
 }

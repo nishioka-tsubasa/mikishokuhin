@@ -188,6 +188,76 @@ function miki_cfs_install_extended_interview_group() {
 add_action( 'cfs_init', 'miki_cfs_install_extended_interview_group', 20 );
 
 /**
+ * Add an editable text department field to the existing employee-list loop.
+ */
+function miki_cfs_install_employee_department_field() {
+	if ( ! function_exists( 'CFS' ) || 1 <= (int) get_option( 'miki_cfs_employee_list_department_field_version', 0 ) ) {
+		return;
+	}
+
+	$group_ids = get_posts(
+		array(
+			'post_type'      => 'cfs',
+			'post_status'    => array( 'publish', 'draft', 'private' ),
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	$installed = false;
+
+	foreach ( $group_ids as $group_id ) {
+		$fields = get_post_meta( $group_id, 'cfs_fields', true );
+		if ( ! is_array( $fields ) ) {
+			continue;
+		}
+
+		$loop_id   = 0;
+		$max_id    = 0;
+		$has_field = false;
+		foreach ( $fields as $field ) {
+			$field_id = (int) miki_array_value( $field, 'id' );
+			$max_id   = max( $max_id, $field_id );
+			if ( 'employee_list' === (string) miki_array_value( $field, 'name' ) && 'loop' === (string) miki_array_value( $field, 'type' ) ) {
+				$loop_id = $field_id;
+			}
+		}
+		if ( ! $loop_id ) {
+			continue;
+		}
+
+		foreach ( $fields as $field ) {
+			if ( 'employee_department' === (string) miki_array_value( $field, 'name' ) && $loop_id === (int) miki_array_value( $field, 'parent_id' ) ) {
+				$has_field = true;
+				break;
+			}
+		}
+
+		if ( ! $has_field ) {
+			$fields[] = array(
+				'id'        => $max_id + 1,
+				'name'      => 'employee_department',
+				'label'     => '所属（一覧表示・文字）',
+				'type'      => 'textarea',
+				'notes'     => '社員の声一覧に表示します。',
+				'parent_id' => $loop_id,
+				'weight'    => count( $fields ),
+				'options'   => array( 'default_value' => '', 'formatting' => 'auto_br', 'required' => '0' ),
+			);
+			update_post_meta( $group_id, 'cfs_fields', $fields );
+		}
+		$installed = true;
+	}
+
+	if ( $installed ) {
+		if ( is_object( CFS()->field_group ) ) {
+			CFS()->field_group->cache = array();
+		}
+		update_option( 'miki_cfs_employee_list_department_field_version', 1 );
+	}
+}
+add_action( 'cfs_init', 'miki_cfs_install_employee_department_field', 25 );
+
+/**
  * Keep saved loop data untouched while making every CFS row collapsed on load.
  */
 function miki_cfs_collapse_loop_rows_by_default() {
@@ -285,7 +355,7 @@ function miki_cfs_collect_scf_data( $post_id, $template ) {
 	}
 
 	if ( 'page-recruit.php' === $template ) {
-		miki_cfs_add_raw_repeater( $post_id, 'employee_list', array( 'employee_img', 'employee_belongs', 'employee_name', 'employee_catch', 'employee_link' ), $data );
+		miki_cfs_add_raw_repeater( $post_id, 'employee_list', array( 'employee_img', 'employee_belongs', 'employee_department', 'employee_name', 'employee_catch', 'employee_link' ), $data );
 	}
 
 	if ( 'page-recruit-detail.php' === $template ) {
@@ -570,3 +640,79 @@ function miki_cfs_seed_employee_departments() {
 	}
 }
 add_action( 'init', 'miki_cfs_seed_employee_departments', 35 );
+
+/**
+ * Seed the new employee-list department field from the legacy bubble copy.
+ */
+function miki_cfs_seed_employee_list_departments() {
+	if ( ! function_exists( 'CFS' ) || 1 <= (int) get_option( 'miki_cfs_employee_list_department_version', 0 ) ) {
+		return;
+	}
+
+	$page = get_page_by_path( 'recruit' );
+	if ( ! $page instanceof WP_Post ) {
+		return;
+	}
+
+	$departments = array(
+		'kitamura'     => '山南工場 製造課',
+		'adachi'       => "西宮工場 製造課\n山南工場 製造課",
+		'matsushita_m' => "品質管理グループ\n食品課",
+		'matsushita_k' => '西宮工場 包装１課',
+		'maeda_a'      => '総務部人事課',
+		'ofiji'        => "品質管理グループ\n食品課",
+	);
+	$post_id     = $page->ID;
+	CFS()->api->cache[ $post_id ] = null;
+	$current = CFS()->get( false, $post_id, array( 'format' => 'raw' ) );
+	$rows    = isset( $current['employee_list'] ) && is_array( $current['employee_list'] )
+		? $current['employee_list']
+		: array();
+
+	if ( empty( $rows ) ) {
+		return;
+	}
+
+	$changed = false;
+	foreach ( $rows as &$row ) {
+		$link = trim( (string) miki_array_value( $row, 'employee_link' ) );
+		$path = wp_parse_url( $link, PHP_URL_PATH );
+		if ( is_string( $path ) && '' !== $path ) {
+			$link = $path;
+		}
+		$slug = sanitize_title( basename( untrailingslashit( $link ) ) );
+		if ( '' === trim( (string) miki_array_value( $row, 'employee_department' ) ) && isset( $departments[ $slug ] ) ) {
+			$row['employee_department'] = $departments[ $slug ];
+			$changed                    = true;
+		}
+	}
+	unset( $row );
+
+	if ( $changed ) {
+		CFS()->save( array( 'employee_list' => $rows ), array( 'ID' => $post_id ), array( 'format' => 'api' ) );
+		CFS()->api->cache[ $post_id ] = null;
+	}
+
+	$stored      = CFS()->get( false, $post_id, array( 'format' => 'raw' ) );
+	$stored_rows = isset( $stored['employee_list'] ) && is_array( $stored['employee_list'] )
+		? $stored['employee_list']
+		: array();
+	$verified    = ! empty( $stored_rows );
+	foreach ( $stored_rows as $stored_row ) {
+		$link = trim( (string) miki_array_value( $stored_row, 'employee_link' ) );
+		$path = wp_parse_url( $link, PHP_URL_PATH );
+		if ( is_string( $path ) && '' !== $path ) {
+			$link = $path;
+		}
+		$slug = sanitize_title( basename( untrailingslashit( $link ) ) );
+		if ( isset( $departments[ $slug ] ) && '' === trim( (string) miki_array_value( $stored_row, 'employee_department' ) ) ) {
+			$verified = false;
+			break;
+		}
+	}
+
+	if ( $verified ) {
+		update_option( 'miki_cfs_employee_list_department_version', 1 );
+	}
+}
+add_action( 'init', 'miki_cfs_seed_employee_list_departments', 36 );

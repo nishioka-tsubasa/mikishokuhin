@@ -26,28 +26,28 @@ Blocked for the same reason. DOM geometry, computed styles, intrinsic image dime
 
 - [P1] Desktop portrait cropped to the face only.
   - Before: 327.5 × 245.625 px visual with `object-fit: cover`; only about 300 of the source image's 514 vertical pixels were visible.
-  - Fix: changed the visual to a 327.5 × 327.5 px square and used `object-fit: contain`, preserving the full 400 × 514 employee portrait inside the compact square.
+  - Fix: changed the visual to a 327.5 × 327.5 px square and applied the requested `object-fit: cover; object-position: top;` treatment.
 - [P1] Affiliation bubble competed with the portrait.
   - Before: 112 × 81.25 px raster bubble overlaid on the employee's face/shoulder area.
   - Fix: removed the bubble image from the list card and rendered editable CFS department text in the card body.
 - [P1] Mobile left thumbnail was too tall.
   - Before: 210 px high.
-  - Fix: reduced to 160 px, kept the card at 160 px, and verified all six cards' names, department text, catch copy, and links stay inside the card.
+  - Fix: reduced to 135 px, kept the card at 135 px, and verified all six cards' names, department text, catch copy, and links stay inside the card.
 
 ## Required fidelity surfaces
 
-- Fonts and typography: existing site families, weights, colors, and hierarchy retained; mobile text was tightened only as needed to fit the 160 px card.
-- Spacing and layout rhythm: desktop visual is square; mobile uses 34% thumbnail and 66% text with 14 px body padding.
+- Fonts and typography: existing site families, weights, colors, and hierarchy retained; mobile text was tightened only as needed to fit the 135 px card.
+- Spacing and layout rhythm: desktop visual is square; mobile uses 34% thumbnail and 66% text with 9 px × 11 px body padding.
 - Colors and visual tokens: existing green, plum, gold, white, and text tokens retained. No new decorative color treatment was introduced.
-- Image quality and asset fidelity: original employee photos are reused. Desktop shows the complete portrait without enlargement crop; mobile uses a near-native portrait ratio with only slight horizontal cropping.
-- Copy and content: affiliation text for all six employees was migrated from the old bubble assets into editable CFS profile rows and is rendered as text.
+- Image quality and asset fidelity: original employee photos are reused with top-aligned cover cropping on desktop and mobile.
+- Copy and content: affiliation text for all six employees was added to the CFS `employee_list` loop as `employee_department` and is rendered as text.
 
 ## Functional checks
 
 - Six employee cards rendered.
 - Affiliation bubble count: 0.
 - Department text present on all six cards.
-- Mobile card and body height: 160 px for all six cards.
+- Mobile card, image, and body height: 135 px for all six cards.
 - Mobile horizontal overflow: none.
 - Mobile link text remains inside every card.
 - PHP error text: none.
@@ -56,7 +56,7 @@ Blocked for the same reason. DOM geometry, computed styles, intrinsic image dime
 ## Comparison history
 
 1. The supplied screenshot identified the 4:3 crop and bubble overlay as P1 visual issues.
-2. The portrait treatment was changed to a square contained image; the bubble was replaced with CFS text; the mobile thumbnail was reduced from 210 px to 160 px.
+2. The portrait treatment was changed to a square, top-aligned cover image; the bubble was replaced with CFS text; the mobile thumbnail was reduced from 210 px to 135 px.
 3. Post-fix DOM and computed-style checks passed, but post-fix visual evidence could not be captured because screenshot capture timed out.
 
 ## Remaining blocker

@@ -153,7 +153,7 @@ if ( have_posts() ) {
 						$employee_catch   = $plain_text( miki_array_value( $employee, 'employee_catch' ) );
 						$employee_image_field = miki_array_value( $employee, 'employee_img' );
 						$employee_image       = $image_url( $employee_image_field );
-						$employee_department  = '';
+						$employee_department  = $plain_text( miki_array_value( $employee, 'employee_department' ) );
 
 						if ( '' === $employee_name ) {
 							$employee_name = $plain_text( $page_field( 'interview_profile_name', $employee_page->ID, get_the_title( $employee_page ) ) );
@@ -181,12 +181,14 @@ if ( have_posts() ) {
 							}
 						}
 
-						$profile_rows = $page_field( 'interview_profile_meta', $employee_page->ID, array() );
-						foreach ( (array) $profile_rows as $profile_row ) {
-							$profile_label = $plain_text( miki_array_value( $profile_row, 'interview_profile_meta_label' ) );
-							if ( preg_match( '/department|所属|部署/iu', $profile_label ) ) {
-								$employee_department = $plain_text( miki_array_value( $profile_row, 'interview_profile_meta_value' ) );
-								break;
+						if ( '' === $employee_department ) {
+							$profile_rows = $page_field( 'interview_profile_meta', $employee_page->ID, array() );
+							foreach ( (array) $profile_rows as $profile_row ) {
+								$profile_label = $plain_text( miki_array_value( $profile_row, 'interview_profile_meta_label' ) );
+								if ( preg_match( '/department|所属|部署/iu', $profile_label ) ) {
+									$employee_department = $plain_text( miki_array_value( $profile_row, 'interview_profile_meta_value' ) );
+									break;
+								}
 							}
 						}
 						if ( '' === $employee_department ) {
@@ -211,7 +213,7 @@ if ( have_posts() ) {
 									</div>
 									<h2><?php echo nl2br( esc_html( $employee_name ) ); ?></h2>
 									<?php if ( '' !== $employee_department ) : ?>
-										<p class="miki-voices-card__department"><span>所属</span> <?php echo esc_html( $employee_department ); ?></p>
+										<p class="miki-voices-card__department"><span>所属</span> <?php echo nl2br( esc_html( $employee_department ) ); ?></p>
 									<?php endif; ?>
 									<?php if ( '' !== $employee_catch ) : ?>
 										<p class="miki-voices-card__catch"><?php echo nl2br( esc_html( $employee_catch ) ); ?></p>
