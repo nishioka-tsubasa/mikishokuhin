@@ -84,7 +84,24 @@ $hero_lead      = $plain_text( $field_value( 'interview_hero_lead', $hero_lead_d
 $profile_label  = (string) $field_value( 'interview_profile_label', 'PROFILE' );
 $profile_name   = (string) $field_value( 'interview_profile_name', $profile_name_default );
 $profile_name_en= (string) $field_value( 'interview_profile_name_en', $profile_en_default );
-$profile_photo  = $image_url( $field_value( 'interview_profile_image', $first_photo ) );
+$profile_photo  = '';
+
+// Use the same portrait registered for the employee list in the detail-page FV.
+$recruit_page = get_page_by_path( 'recruit' );
+global $cfs;
+if ( $recruit_page instanceof WP_Post && is_object( $cfs ) && method_exists( $cfs, 'get' ) ) {
+	$employee_rows = $cfs->get( 'employee_list', $recruit_page->ID );
+	foreach ( (array) $employee_rows as $employee_row ) {
+		$employee_link = trim( (string) miki_array_value( $employee_row, 'employee_link' ) );
+		$employee_path = wp_parse_url( $employee_link, PHP_URL_PATH );
+		$employee_slug = sanitize_title( basename( untrailingslashit( is_string( $employee_path ) && '' !== $employee_path ? $employee_path : $employee_link ) ) );
+		if ( $page_slug === $employee_slug ) {
+			$profile_photo = $image_url( miki_array_value( $employee_row, 'employee_img' ) );
+			break;
+		}
+	}
+}
+$profile_photo = '' !== $profile_photo ? $profile_photo : $image_url( $field_value( 'interview_profile_image', $first_photo ) );
 
 $profile_meta = miki_get_cfs_loop( 'interview_profile_meta' );
 if ( empty( $profile_meta ) && $is_kitamura ) {

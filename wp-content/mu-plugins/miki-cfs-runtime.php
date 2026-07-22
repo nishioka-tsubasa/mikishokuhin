@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Miki CFS Runtime
  * Description: Restores the site's ACF + CFS field stack and migrates SCF-backed CFS values without a database rollback.
- * Version: 1.0.0
+ * Version: 1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -91,7 +91,7 @@ function miki_cfs_extended_interview_fields() {
 	$image    = array( 'file_type' => 'image', 'return_value' => 'url', 'required' => '0' );
 	$loop     = function ( $row_label, $button_label ) {
 		return array(
-			'row_display' => '1',
+			'row_display' => '0',
 			'row_label'   => $row_label,
 			'button_label'=> $button_label,
 		);
@@ -186,6 +186,56 @@ function miki_cfs_install_extended_interview_group() {
 	CFS()->field_group->cache = array();
 }
 add_action( 'cfs_init', 'miki_cfs_install_extended_interview_group', 20 );
+
+/**
+ * Keep saved loop data untouched while making every CFS row collapsed on load.
+ */
+function miki_cfs_collapse_loop_rows_by_default() {
+	if ( ! function_exists( 'CFS' ) || 1 <= (int) get_option( 'miki_cfs_collapsed_loop_version', 0 ) ) {
+		return;
+	}
+
+	$group_ids = get_posts(
+		array(
+			'post_type'      => 'cfs',
+			'post_status'    => array( 'publish', 'draft', 'private' ),
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+
+	foreach ( $group_ids as $group_id ) {
+		$fields  = get_post_meta( $group_id, 'cfs_fields', true );
+		$changed = false;
+		if ( ! is_array( $fields ) ) {
+			continue;
+		}
+
+		foreach ( $fields as &$field ) {
+			if ( ! is_array( $field ) || 'loop' !== miki_array_value( $field, 'type' ) ) {
+				continue;
+			}
+			if ( ! isset( $field['options'] ) || ! is_array( $field['options'] ) ) {
+				$field['options'] = array();
+			}
+			if ( '0' !== (string) miki_array_value( $field['options'], 'row_display' ) ) {
+				$field['options']['row_display'] = '0';
+				$changed                         = true;
+			}
+		}
+		unset( $field );
+
+		if ( $changed ) {
+			update_post_meta( $group_id, 'cfs_fields', $fields );
+		}
+	}
+
+	if ( is_object( CFS()->field_group ) ) {
+		CFS()->field_group->cache = array();
+	}
+	update_option( 'miki_cfs_collapsed_loop_version', 1 );
+}
+add_action( 'cfs_init', 'miki_cfs_collapse_loop_rows_by_default', 30 );
 
 function miki_cfs_add_raw_scalars( $post_id, $names, &$data ) {
 	foreach ( $names as $name ) {

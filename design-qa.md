@@ -1,61 +1,70 @@
-# Employee Interview Design QA
+# Design QA: 社員の声一覧・社員の声詳細
 
-**Source visual truth**
+- Source visual truth: `/var/folders/mv/8jg0c4px65d1pnpzczwqqfn40000gp/T/TemporaryItems/NSIRD_screencaptureui_ET0UNv/スクリーンショット 2026-07-23 1.07.30.png`
+- Implementation URL: `https://mikishokuhin.wiz-services.com/recruit/voices/?review=qa-final-20260723`
+- Implementation screenshot: `design-qa-assets/implementation-voices-card-view.png`
+- Source pixels: 662 × 600 px (user-supplied cropped mobile issue capture; device density metadata unavailable)
+- Implementation pixels / CSS viewport: 723 × 755 px at 1× capture density
+- Density normalization: the source card is approximately 656 physical pixels wide and is treated as a roughly 328 CSS-pixel card at 2×; the implementation card is 328 CSS pixels wide at 1×. Comparison therefore uses the card width as the normalization anchor rather than the surrounding browser frame.
+- State: published employee list, first employee card and first row; logged-in test environment. Responsive behavior was additionally measured at 375 × 812 CSS pixels.
 
-- Adobe XD export: `/Users/n.tsubasa/Desktop/web案件/保守企業/ミ_三基食品/デザイン/社員の1日/三基食品社員の1日/ページイメージ_20260518.png`
-- Source pixels: `1920 × 8132` at 1× artboard density.
+## Full-view comparison evidence
 
-**Rendered implementation**
+The source issue capture shows the affiliation bubble inside the card body, creating a large empty band before the name. In the post-fix implementation, the affiliation graphic is overlaid on the lower-right of the existing portrait, the full portrait keeps its original 400 × 514 ratio, and the body becomes a compact text block. The page-title section border is removed.
 
-- Deployed route: `https://mikishokuhin.wiz-services.com/recruit/kitamura/`
-- Full-view comparison: `docs/evidence/employee-interview-design-comparison.png`
-- Desktop captures: `docs/evidence/employee-interview-desktop-hero.png`, `docs/evidence/employee-interview-desktop-q2.png`, `docs/evidence/employee-interview-desktop-schedule.png`
-- Mobile captures: `docs/evidence/employee-interview-mobile.png`, `docs/evidence/employee-interview-mobile-schedule.png`, `docs/evidence/employee-interview-mobile-cta.png`
-- Desktop viewport and screenshot pixels: `1920 × 1080`, 1× density. The deployed page measured `1920 × 7100` CSS px.
-- Mobile viewport and screenshot pixels: `390 × 844`, 1× density.
-- Full-view normalization: source and deployed page were both rendered at a `1920` px CSS width and shown at `12.5%` scale in one `800 × 1080` comparison capture.
-- State: unauthenticated, light theme, employee page `kitamura`, default page state.
+At 375 px CSS width, the list resolves to one 335 px column with no horizontal overflow. The portrait is 335 × 430 px, the affiliation graphic is 127 × 92 px, and the catch-copy line height is 19.53 px.
 
-**Findings**
+## Focused region comparison evidence
 
-- No actionable P0, P1, or P2 differences remain.
-- [P3] The deployed document is slightly more compact vertically than the static XD artboard. The WordPress implementation keeps the site's current production header/footer and uses live responsive text flow, while preserving the source section order, hierarchy, alternating interview rhythm, timeline structure, message, and CTA treatment.
+Focused comparison was required because the source is a cropped card-body screenshot rather than a complete page. The first-card measurements after the fix at the normalized 328 px card width are:
 
-**Required fidelity surfaces**
+- portrait: 328 × 421 px, intrinsic ratio preserved, top visible;
+- affiliation graphic: 132 × 96 px, overlaid on the portrait and no longer participating in body layout;
+- body: 328 × 248 px;
+- page-title underline: 0 px.
 
-- Fonts and typography: Cormorant Garamond is used for the source's editorial English headings and time labels; the existing Japanese site typeface and weights preserve the source hierarchy and wrapping.
-- Spacing and layout rhythm: hero/profile split, alternating interview grid, centered timeline, message, and CTA align with the reference. Desktop has no horizontal overflow; mobile measured `scrollWidth = 390` at a `390` px viewport.
-- Colors and tokens: green `#2C5E3F`, ivory `#FAF6EC`, plum `#6E3957`, and gold `#C9A961` map to the source palette, with matching paper texture, borders, and restrained shadows.
-- Image quality and asset fidelity: the existing CMS employee and workplace photographs are used directly. No placeholder, emoji, custom SVG, CSS illustration, or generated substitute is used for visible source imagery.
-- Copy and content: the five existing interview entries are preserved. The new hero, profile, six-item daily schedule, message, and CTA copy match the supplied design content and remain editable through Secure Custom Fields.
-- Accessibility and responsiveness: semantic headings, articles, time elements, alt text, escaped output, mobile stacking, readable line lengths, and practical CTA tap targets were checked.
+The implementation uses the existing site serif/sans typography, green/plum/gold tokens, original employee and affiliation assets, and the source copy without replacement assets.
 
-**Focused evidence**
+## Required fidelity surfaces
 
-- Hero/profile fidelity: `docs/evidence/employee-interview-desktop-hero.png`
-- Alternating image/text grid and Q marker: `docs/evidence/employee-interview-desktop-q2.png`
-- Timeline cards, time rail, accent dots, notes, and spacing: `docs/evidence/employee-interview-desktop-schedule.png`
-- Mobile hero, timeline, and CTA/footer: the three mobile captures listed above.
+- Fonts and typography: existing site font families and weights retained; catch-copy line height reduced to 1.55 to remove the loose rhythm in the issue capture.
+- Spacing and layout rhythm: bubble removed from document flow, fixed body minimum height removed, and link placement handled by flex layout. No horizontal overflow at 375 px.
+- Colors and visual tokens: existing green, plum, gold, ivory, and line tokens retained; page-title underline removed as requested.
+- Image quality and asset fidelity: original 400 × 514 employee images and original 255 × 185 affiliation graphics are used. No CSS or generated replacement assets were introduced.
+- Copy and content: all six published employee-detail links and their existing names/catch copy are preserved.
 
-**Comparison history**
+## Comparison history
 
-1. Initial local comparison found a P2 grid-ratio mismatch in right-text interview rows: Q2/Q5 imagery occupied too much width and compressed the copy.
-2. Fixed `.miki-interview-question.is-text_r .miki-interview-question__content` to use image/text tracks of `.78fr / 1.22fr` on desktop and `.75fr / 1.25fr` at the intermediate breakpoint.
-3. Re-captured Q2 and the full deployed page. Post-fix evidence is `docs/evidence/employee-interview-desktop-q2.png` and `docs/evidence/employee-interview-design-comparison.png`; no P0/P1/P2 mismatch remains.
+1. Initial findings:
+   - P2: affiliation graphic occupied a 70 px body row and created excessive whitespace.
+   - P2: fixed-height thumbnail treatment reduced useful portrait visibility.
+   - P2: catch-copy vertical rhythm was too loose in the cropped mobile card.
+2. Fixes:
+   - moved the affiliation graphic onto the portrait and enlarged it for legibility;
+   - removed fixed thumbnail height and absolute crop, preserving natural image ratio with top-aligned content;
+   - removed the card-body minimum height and tightened catch-copy line height;
+   - removed the page-title section underline.
+3. Post-fix evidence:
+   - affiliation graphic is 132 × 96 px at the normalized card width and does not add body whitespace;
+   - portrait is full-ratio and the face is visible;
+   - body is 248 px high at tablet card width and 233 px at 375 px mobile width;
+   - no broken images, PHP error text, browser console errors, or mobile horizontal overflow were found.
 
-**Primary interactions and runtime checks**
+## Functional QA
 
-- The primary CTA navigated to `https://mikishokuhin.wiz-services.com/recruit/#slick`.
-- The secondary CTA resolves to `https://mikishokuhin.wiz-services.com/recruit/`.
-- All six employee routes returned HTTP 200, complete HTML, and no visible PHP Fatal/Warning/Deprecated/Notice output.
-- Browser console errors: none. One existing third-party Adobe Launch deprecation warning was observed and is unrelated to this implementation.
+- Six published recruit child pages render; the `voices` page itself is excluded.
+- Detail links match `kitamura`, `adachi`, `matsushita_m`, `matsushita_k`, `maeda_a`, and `ofiji`.
+- Pagination is configured at six items per page and remains hidden while there is only one page.
+- The Kitamura detail FV loads the same `kitamura.png` used by the list.
+- The detail editor contains 17 CFS loop headers; zero headers and zero bodies are open on initial load.
+- Browser console errors: none.
 
-**Implementation checklist**
+## Findings
 
-- [x] Match desktop source composition and editorial styling.
-- [x] Preserve existing interview data and CMS images.
-- [x] Add editable SCF fields and repeaters for extensible sections.
-- [x] Verify desktop and mobile layouts without horizontal overflow.
-- [x] Verify deployed files, employee routes, CTAs, and browser console.
+No actionable P0, P1, or P2 findings remain.
+
+## Follow-up polish
+
+None required for this scope.
 
 final result: passed
