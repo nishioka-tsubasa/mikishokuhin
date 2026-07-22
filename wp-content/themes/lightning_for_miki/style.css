@@ -4425,16 +4425,16 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
 
 .miki-voices-card__visual {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: #f7f5ef;
+  background: #fff;
 }
 
 .miki-voices-card__portrait {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
 }
 
@@ -4442,7 +4442,7 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 28px;
+  padding: 26px;
 }
 
 .miki-voices-card__meta {
@@ -4458,20 +4458,6 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
   letter-spacing: .22em;
 }
 
-.miki-voices-card__belongs {
-  display: block;
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
-  z-index: 2;
-  width: 112px;
-  max-width: 38%;
-  height: auto;
-  object-fit: contain;
-  object-position: right bottom;
-  filter: drop-shadow(0 3px 8px rgba(42, 37, 32, .18));
-}
-
 .miki-voices-card__body h2 {
   margin: 16px 0 0;
   padding: 0;
@@ -4485,6 +4471,20 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
 .miki-voices-card__body h2::before,
 .miki-voices-card__body h2::after {
   display: none;
+}
+
+.miki-voices-card__department {
+  margin: 8px 0 0;
+  color: var(--voices-ink-soft);
+  font-size: .7em;
+  line-height: 1.5;
+}
+
+.miki-voices-card__department span {
+  margin-right: .7em;
+  color: var(--voices-plum);
+  font-weight: 700;
+  letter-spacing: .12em;
 }
 
 .miki-voices-card__catch {
@@ -4651,52 +4651,53 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
 
   .miki-voices-card > a {
     display: grid;
-    grid-template-columns: 38% minmax(0, 1fr);
-    align-items: stretch;
+    grid-template-columns: 34% minmax(0, 1fr);
+    align-items: start;
   }
 
   .miki-voices-card__visual {
-    min-height: 210px;
+    min-height: 0;
+    height: 160px;
     aspect-ratio: auto;
   }
 
   .miki-voices-card__portrait {
     position: absolute;
     inset: 0;
+    object-fit: cover;
   }
 
   .miki-voices-card__body {
     min-width: 0;
-    padding: 18px 16px;
+    min-height: 160px;
+    padding: 14px;
   }
 
   .miki-voices-card__number {
-    font-size: .58em;
-    letter-spacing: .14em;
+    display: none;
   }
 
   .miki-voices-card__body h2 {
-    margin-top: 12px;
-    font-size: 1.08em;
+    margin-top: 0;
+    font-size: 1em;
+    line-height: 1.35;
+  }
+
+  .miki-voices-card__department {
+    margin-top: 5px;
+    font-size: .62em;
     line-height: 1.4;
   }
 
   .miki-voices-card__catch {
-    margin-top: 10px;
-    font-size: .78em;
-    line-height: 1.5;
+    margin-top: 8px;
+    font-size: .74em;
+    line-height: 1.4;
   }
 
   .miki-voices-card__more {
-    padding-top: 18px;
-    font-size: .68em;
+    padding-top: 12px;
+    font-size: .64em;
     letter-spacing: .04em;
-  }
-
-  .miki-voices-card__belongs {
-    right: 6px;
-    bottom: 6px;
-    width: 84px;
-    max-width: 72%;
   }
 }

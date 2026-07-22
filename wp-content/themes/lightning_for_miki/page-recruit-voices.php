@@ -35,20 +35,6 @@ $image_url = static function ( $image ) {
 	return is_string( $image ) ? $image : '';
 };
 
-$image_alt = static function ( $image, $fallback = '' ) {
-	if ( is_array( $image ) && isset( $image['alt'] ) && '' !== trim( (string) $image['alt'] ) ) {
-		return (string) $image['alt'];
-	}
-	$attachment_id = is_numeric( $image ) ? (int) $image : attachment_url_to_postid( (string) $image );
-	if ( $attachment_id ) {
-		$alt = trim( (string) get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) );
-		if ( '' !== $alt ) {
-			return $alt;
-		}
-	}
-	return $fallback;
-};
-
 $plain_text = static function ( $value ) {
 	$value = preg_replace( '#<br\s*/?>#i', "\n", (string) $value );
 	$value = wp_strip_all_tags( html_entity_decode( $value, ENT_QUOTES, 'UTF-8' ) );
@@ -165,11 +151,9 @@ if ( have_posts() ) {
 						$employee         = isset( $employee_by_slug[ $employee_slug ] ) ? $employee_by_slug[ $employee_slug ] : array();
 						$employee_name    = $plain_text( miki_array_value( $employee, 'employee_name' ) );
 						$employee_catch   = $plain_text( miki_array_value( $employee, 'employee_catch' ) );
-						$employee_image_field   = miki_array_value( $employee, 'employee_img' );
-						$employee_belongs_field = miki_array_value( $employee, 'employee_belongs' );
-						$employee_image         = $image_url( $employee_image_field );
-						$employee_belongs       = $image_url( $employee_belongs_field );
-						$employee_belongs_alt   = $image_alt( $employee_belongs_field, '所属' );
+						$employee_image_field = miki_array_value( $employee, 'employee_img' );
+						$employee_image       = $image_url( $employee_image_field );
+						$employee_department  = '';
 
 						if ( '' === $employee_name ) {
 							$employee_name = $plain_text( $page_field( 'interview_profile_name', $employee_page->ID, get_the_title( $employee_page ) ) );
@@ -196,6 +180,22 @@ if ( have_posts() ) {
 								}
 							}
 						}
+
+						$profile_rows = $page_field( 'interview_profile_meta', $employee_page->ID, array() );
+						foreach ( (array) $profile_rows as $profile_row ) {
+							$profile_label = $plain_text( miki_array_value( $profile_row, 'interview_profile_meta_label' ) );
+							if ( preg_match( '/department|所属|部署/iu', $profile_label ) ) {
+								$employee_department = $plain_text( miki_array_value( $profile_row, 'interview_profile_meta_value' ) );
+								break;
+							}
+						}
+						if ( '' === $employee_department ) {
+							$employee_department = preg_replace(
+								'/^所属[：:]?\s*/u',
+								'',
+								$plain_text( $page_field( 'p', $employee_page->ID ) )
+							);
+						}
 						$employee_url = get_permalink( $employee_page );
 						?>
 						<article class="miki-voices-card">
@@ -204,15 +204,15 @@ if ( have_posts() ) {
 									<?php if ( '' !== $employee_image ) : ?>
 										<img class="miki-voices-card__portrait" src="<?php echo esc_url( $employee_image ); ?>" alt="<?php echo esc_attr( $employee_name ); ?>">
 									<?php endif; ?>
-									<?php if ( '' !== $employee_belongs ) : ?>
-										<img class="miki-voices-card__belongs" src="<?php echo esc_url( $employee_belongs ); ?>" alt="<?php echo esc_attr( $employee_belongs_alt ); ?>">
-									<?php endif; ?>
 								</div>
 								<div class="miki-voices-card__body">
 									<div class="miki-voices-card__meta">
 										<p class="miki-voices-card__number">EMPLOYEE VOICE</p>
 									</div>
 									<h2><?php echo nl2br( esc_html( $employee_name ) ); ?></h2>
+									<?php if ( '' !== $employee_department ) : ?>
+										<p class="miki-voices-card__department"><span>所属</span> <?php echo esc_html( $employee_department ); ?></p>
+									<?php endif; ?>
 									<?php if ( '' !== $employee_catch ) : ?>
 										<p class="miki-voices-card__catch"><?php echo nl2br( esc_html( $employee_catch ) ); ?></p>
 									<?php endif; ?>

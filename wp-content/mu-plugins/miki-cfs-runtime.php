@@ -490,3 +490,83 @@ function miki_cfs_migrate_scf_values() {
 	}
 }
 add_action( 'init', 'miki_cfs_migrate_scf_values', 30 );
+
+/**
+ * Add editable department text to every employee detail page. The original
+ * employee loop stored this copy inside a speech-bubble image, so the list
+ * page could not present it cleanly as accessible text.
+ */
+function miki_cfs_seed_employee_departments() {
+	if ( ! function_exists( 'CFS' ) || 1 <= (int) get_option( 'miki_cfs_employee_department_version', 0 ) ) {
+		return;
+	}
+
+	$departments = array(
+		'kitamura'     => '山南工場 製造課',
+		'adachi'       => "西宮工場 製造課\n山南工場 製造課",
+		'matsushita_m' => "品質管理グループ\n食品課",
+		'matsushita_k' => '西宮工場 包装１課',
+		'maeda_a'      => '総務部人事課',
+		'ofiji'        => "品質管理グループ\n食品課",
+	);
+	$failures    = array();
+
+	foreach ( $departments as $slug => $department ) {
+		$page = get_page_by_path( 'recruit/' . $slug );
+		if ( ! $page instanceof WP_Post ) {
+			$failures[] = $slug . ':not-found';
+			continue;
+		}
+
+		$post_id = $page->ID;
+		CFS()->api->cache[ $post_id ] = null;
+		$current = CFS()->get( false, $post_id, array( 'format' => 'raw' ) );
+		$rows    = isset( $current['interview_profile_meta'] ) && is_array( $current['interview_profile_meta'] )
+			? $current['interview_profile_meta']
+			: array();
+		$found   = false;
+
+		foreach ( $rows as $row ) {
+			$label = (string) miki_array_value( $row, 'interview_profile_meta_label' );
+			if ( preg_match( '/department|所属|部署/iu', $label ) ) {
+				$found = true;
+				break;
+			}
+		}
+
+		if ( ! $found ) {
+			array_unshift(
+				$rows,
+				array(
+					'interview_profile_meta_label' => 'Department',
+					'interview_profile_meta_value' => $department,
+				)
+			);
+			CFS()->save( array( 'interview_profile_meta' => $rows ), array( 'ID' => $post_id ), array( 'format' => 'api' ) );
+			CFS()->api->cache[ $post_id ] = null;
+		}
+
+		$stored     = CFS()->get( false, $post_id, array( 'format' => 'raw' ) );
+		$stored_rows = isset( $stored['interview_profile_meta'] ) && is_array( $stored['interview_profile_meta'] )
+			? $stored['interview_profile_meta']
+			: array();
+		$verified    = false;
+		foreach ( $stored_rows as $stored_row ) {
+			$label = (string) miki_array_value( $stored_row, 'interview_profile_meta_label' );
+			if ( preg_match( '/department|所属|部署/iu', $label ) && '' !== trim( (string) miki_array_value( $stored_row, 'interview_profile_meta_value' ) ) ) {
+				$verified = true;
+				break;
+			}
+		}
+		if ( ! $verified ) {
+			$failures[] = $slug . ':department';
+		}
+	}
+
+	if ( empty( $failures ) ) {
+		update_option( 'miki_cfs_employee_department_version', 1 );
+	} else {
+		error_log( 'Miki employee department seed failed: ' . implode( ', ', array_unique( $failures ) ) );
+	}
+}
+add_action( 'init', 'miki_cfs_seed_employee_departments', 35 );
