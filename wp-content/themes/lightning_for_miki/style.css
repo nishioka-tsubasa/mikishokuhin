@@ -2230,6 +2230,13 @@ a.contact-form-wrap__link {
 input.c-btn01__link.u-alpha.contact-form-btn__link.back_button.btn.btn-primary {
   background-color: #ccc39d;
   border-color: #ccc39d;
+  margin: 0 1em 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  input.c-btn01__link.u-alpha.contact-form-btn__link.back_button.btn.btn-primary {
+    margin: 1em 0;
+  }
 }
 
 .contact-form__inner.u-inner01 .prev-interview > a {

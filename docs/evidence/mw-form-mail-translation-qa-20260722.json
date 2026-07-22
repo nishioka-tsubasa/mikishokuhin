@@ -1,0 +1,64 @@
+{
+  "created_utc": "2026-07-22T07:46:48Z",
+  "scope": "/logs/_migration/cms",
+  "production_deployed": false,
+  "mw_wp_form_157": {
+    "plugin_version": "5.1.4",
+    "inline_script_blocks_removed": 1,
+    "inline_style_blocks_removed": 1,
+    "raw_markers_remaining": false,
+    "behavior_moved_to_child_theme": true,
+    "admin_reply_to_field": "your_mail01",
+    "admin_mail_payload_created": true,
+    "automatic_reply_payload_created": true,
+    "real_delivery_verified": false
+  },
+  "browser_qa": {
+    "browser": "Firefox private window",
+    "raw_source_absent": true,
+    "input_to_confirmation": "pass",
+    "confirmation_layout": "pass",
+    "back_to_input": "pass",
+    "values_preserved_after_back": true,
+    "referrer_label_toggle": "pass",
+    "final_send_clicked": false
+  },
+  "mail_transport": {
+    "php_mail_available": true,
+    "sendmail_path_available": true,
+    "postfix_queue_messages": 2,
+    "queue_review_required_before_transport_enablement": true,
+    "queue_failure": "destination MX lookup failed",
+    "smtp_dns_resolution": false,
+    "direct_smtp_25": "timeout",
+    "direct_smtp_465": "timeout",
+    "direct_smtp_587": "timeout",
+    "http_proxy_connect_465": "403 ERR_ACCESS_DENIED",
+    "http_proxy_connect_587": "403 ERR_ACCESS_DENIED",
+    "wordpress_code_fix_available_without_transport_credentials": false
+  },
+  "translation_update": {
+    "official_packages": 11,
+    "installed_files": 193,
+    "archive_sha256": "0562be8e9196c340680d3a92cdc75fbe16f5c2dfbcc362822836065e4eb94f4b",
+    "installed": true,
+    "remaining_updates": 0,
+    "temporary_web_files_removed": true
+  },
+  "final_admin_browser": {
+    "updates": "pass",
+    "plugins": "pass",
+    "site_health": "good",
+    "gateway_timeout": false
+  },
+  "public_runtime_qa": {
+    "pages": 17,
+    "http_200": 17,
+    "visible_php_errors": 0,
+    "contact_raw_inline_code_absent": true
+  },
+  "release_gate": {
+    "production_approved": false,
+    "blocker": "Restore an authenticated outbound mail path and verify receipt of both real messages."
+  }
+}

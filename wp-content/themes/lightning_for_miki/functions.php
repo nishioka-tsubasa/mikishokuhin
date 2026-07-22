@@ -79,6 +79,20 @@ function add_wp_footer_custom(){ ?>
 <?php }
 add_action( 'wp_footer', 'add_wp_footer_custom', 1 );
 
+function miki_version_child_stylesheet( $src, $handle ) {
+	if ( 'lightning-theme-style' !== $handle ) {
+		return $src;
+	}
+
+	$stylesheet_path = get_stylesheet_directory() . '/style.css';
+	if ( ! is_file( $stylesheet_path ) ) {
+		return $src;
+	}
+
+	return add_query_arg( 'ver', filemtime( $stylesheet_path ), remove_query_arg( 'ver', $src ) );
+}
+add_filter( 'style_loader_src', 'miki_version_child_stylesheet', PHP_INT_MAX, 2 );
+
 if ( ! function_exists( 'miki_get_acf_image_url' ) ) {
 	function miki_get_acf_image_url( $field_name, $post_id = false ) {
 		$image = get_field( $field_name, $post_id );

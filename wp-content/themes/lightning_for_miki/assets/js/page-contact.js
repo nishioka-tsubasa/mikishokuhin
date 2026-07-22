@@ -1,6 +1,24 @@
-; (function ($) {
+;(function ($) {
     // 入力画面: 住所自動入力用
     $('.mw_wp_form_input form').addClass('h-adr');
+
+    // 確認画面: 入力画面専用の案内を非表示
+    if ($('.mw_wp_form_confirm').length) {
+        $('.contact-form-wrap').hide();
+        $('.contact-form-privacy').hide();
+        $('.contact-form-check').hide();
+    }
+
+    // 入力画面: 流入元の選択内容に合わせて補足文を切り替える
+    function updateReferDetailLabel() {
+        var isOther = $('#refer-site-3').prop('checked');
+
+        $('#refer-detail-text1').toggle(!isOther);
+        $('#refer-detail-text2').toggle(isOther);
+    }
+
+    updateReferDetailLabel();
+    $('#refer-radio input').on('change', updateReferDetailLabel);
 
     // 入力画面: 入力に1つでも不備があれば表示
     $('#contact-mwwpform-block-error-index:has(.error)').show();
@@ -39,4 +57,4 @@
 
     // 確認画面: サンプル希望がある場合は表示
     $('tr#contact-mwwpform-block-sample:has(input[name="sample_check[data]"])').css('display','table-row');
-})(jQuery);;
+})(jQuery);

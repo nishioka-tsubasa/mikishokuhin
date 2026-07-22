@@ -62,7 +62,11 @@ get_header();
 	</div><!-- [ /.container ] -->
 </div><!-- [ /.siteContent ] -->
 
-<?php get_footer(); ?>
+<?php
+$page_contact_js = '/assets/js/page-contact.js';
+$yubinbango_js    = '/assets/js/yubinbango.js';
+?>
+<script src="<?php echo esc_url( add_query_arg( 'ver', filemtime( get_stylesheet_directory() . $page_contact_js ), get_stylesheet_directory_uri() . $page_contact_js ) ); ?>"></script>
+<script src="<?php echo esc_url( add_query_arg( 'ver', filemtime( get_stylesheet_directory() . $yubinbango_js ), get_stylesheet_directory_uri() . $yubinbango_js ) ); ?>"></script>
 
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/page-contact.js"></script>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/yubinbango.js"></script>
+<?php get_footer(); ?>

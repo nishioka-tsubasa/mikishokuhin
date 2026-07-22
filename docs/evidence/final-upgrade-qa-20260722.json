@@ -7,7 +7,8 @@
     "wordpress": "7.0.2",
     "active_plugins": 11,
     "plugin_updates": 0,
-    "theme_updates": 0
+    "theme_updates": 0,
+    "translation_updates": 0
   },
   "http": {
     "home_loopback": { "status": 200, "seconds": 0.092 },
@@ -48,7 +49,12 @@
     "reply_mail_created": true,
     "mail_payloads": 2,
     "delivery_intercepted": true,
-    "settings_unchanged": true,
+    "delivery_verified": false,
+    "delivery_blocked_by_migration_network": true,
+    "raw_inline_code_absent": true,
+    "admin_reply_to_uses_existing_field": true,
+    "destination_unchanged": true,
+    "settings_changed": ["admin_reply_to"],
     "generated_posts_remaining": 0
   },
   "runtime_php_issues": {
