@@ -1,0 +1,120 @@
+{
+  "target": "https://mikishokuhin.wiz-services.com/",
+  "completed_at_jst": "2026-07-22T19:15:00+09:00",
+  "production_modified": false,
+  "runtime": {
+    "php": "8.4.23",
+    "wordpress": "7.0.2",
+    "database_tables": 32,
+    "active_plugins": 11,
+    "active_theme": "lightning_for_miki",
+    "parent_theme": "lightning"
+  },
+  "urls": {
+    "home": "https://mikishokuhin.wiz-services.com",
+    "siteurl": "https://mikishokuhin.wiz-services.com/cms"
+  },
+  "deployment_database": {
+    "source_sql_direct_import_allowed": false,
+    "source_sql_issue": "WordPress percent placeholders remained in the original export",
+    "corrected_sql": "wiz-deploy-source-20260722-percent-restored.sql.gz",
+    "corrected_sql_bytes": 402214,
+    "corrected_sql_sha256": "68a11e99bddd8f8372c82089b373e73a516da6f21496e96dc2b5ac97e105ac0d",
+    "statements": 119,
+    "url_replacements": 195,
+    "placeholder_occurrences_after": 0,
+    "placeholder_fragment_occurrences_after": 0,
+    "permalink_structure": "/%category%/%postname%/"
+  },
+  "compatibility": {
+    "alpha_network_mu_plugin_present": false,
+    "portable_fields_mu_plugin_present": true,
+    "admin_performance_mu_plugin": {
+      "present": true,
+      "sha256": "b6702a9f075a325ec51bf8b8b86c2f5ff4e3fb9de17e67f074a3cfaa843b1e54"
+    },
+    "custom_field_suite_plugin_absent": true,
+    "secure_custom_fields_active": true,
+    "mw_wp_form_php84_patch": {
+      "expected_patch_only": true,
+      "sha256": "4ba50ddae4a34c9884e04015a7bc2f62c6296a778bf2760200923fc4abcecec5"
+    },
+    "userfeedback_php84_patch": {
+      "lint_ok": true,
+      "sha256": "1a6dcef71faaa6017902d9bd9995615179ec1276f947675492824439edb460d5"
+    }
+  },
+  "updates_remaining": {
+    "core": 0,
+    "plugins": 0,
+    "themes": 0,
+    "translations": 0
+  },
+  "server_qa": {
+    "loopback_http": 200,
+    "rest_api_http": 200,
+    "wordpress_org_http": 200,
+    "wp_cron_http": 200,
+    "wp_cron_test": "passed"
+  },
+  "public_qa": {
+    "pages_checked": 22,
+    "pages_http_200": 22,
+    "complete_html": 22,
+    "visible_php_errors": 0,
+    "old_production_urls": 0,
+    "database_placeholders": 0,
+    "firefox_private_desktop": "passed",
+    "firefox_private_desktop_scrolled": "passed",
+    "firefox_private_mobile": "passed",
+    "firefox_private_hamburger": "passed",
+    "firefox_private_contact": "passed"
+  },
+  "authenticated_admin_qa": {
+    "dashboard": { "http": 200, "seconds_including_login_redirect": 1.763 },
+    "plugins": { "http": 200, "seconds": 0.914 },
+    "site_health": { "http": 200, "seconds": 0.349, "status": "good" },
+    "updates": { "http": 200, "seconds": 1.417 },
+    "mw_wp_form_editor": { "http": 200, "seconds": 0.479 },
+    "gateway_timeouts": 0,
+    "temporary_admin_removed": true,
+    "temporary_admin_cookie_invalidated": true
+  },
+  "contact_qa": {
+    "input_confirm_back": "passed",
+    "values_preserved": true,
+    "raw_script_or_style_visible": false,
+    "administrator_mail_generated": true,
+    "automatic_reply_generated": true,
+    "delivery_intercepted": true,
+    "real_delivery_verified": false,
+    "new_destination_configured": false
+  },
+  "logging": {
+    "wordpress_debug_bytes_after_full_qa": 0,
+    "wordpress_debug_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "debug_disabled_after_qa": true,
+    "wp_config_mode": "0400"
+  },
+  "cleanup": {
+    "exposed_backup_files_removed": 4,
+    "deployment_helper_removed": true,
+    "admin_qa_helper_removed": true,
+    "protected_deployment_directory_removed": true,
+    "public_root_entries": [
+      ".htaccess",
+      "index.php",
+      "cms"
+    ],
+    "removed_urls_http": 404
+  },
+  "search_indexing": {
+    "wordpress_discourage_search_engines": true,
+    "x_robots_tag": "noindex, nofollow, noarchive"
+  },
+  "release_blockers": [
+    "Set the approved new MW WP Form administrator destination",
+    "Verify real delivery to both administrator and submitter",
+    "Obtain user acceptance before removing noindex"
+  ]
+}
