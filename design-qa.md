@@ -54,7 +54,7 @@ The implementation uses the existing site serif/sans typography, green/plum/gold
 
 - Six published recruit child pages render; the `voices` page itself is excluded.
 - Detail links match `kitamura`, `adachi`, `matsushita_m`, `matsushita_k`, `maeda_a`, and `ofiji`.
-- Pagination is configured at six items per page and remains hidden while there is only one page.
+- Pagination is configured at twelve items per page and remains hidden until a thirteenth published child page is added.
 - The Kitamura detail FV loads the same `kitamura.png` used by the list.
 - The detail editor contains 17 CFS loop headers; zero headers and zero bodies are open on initial load.
 - Browser console errors: none.

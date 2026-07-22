@@ -124,7 +124,7 @@ foreach ( $detail_pages as $detail_page ) {
 	}
 }
 
-$voices_per_page = 6;
+$voices_per_page = 12;
 $voices_page      = isset( $_GET['voices_page'] ) ? max( 1, absint( wp_unslash( $_GET['voices_page'] ) ) ) : 1;
 $voices_total     = count( $ordered_detail_pages );
 $voices_max_page  = max( 1, (int) ceil( $voices_total / $voices_per_page ) );
