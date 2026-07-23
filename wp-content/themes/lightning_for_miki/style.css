@@ -3490,8 +3490,8 @@ p.recruitment-info-block-about br:nth-child(1), p.recruitment-info-block-about b
 .miki-interview-profile__photo img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  object-fit: cover;
+  object-position: top;
 }
 
 .miki-interview-profile__name {
