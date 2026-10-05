@@ -157,8 +157,10 @@ else :
 
 			<?php
 			if ( $post_previous ) {
-				$options['body_prepend'] = '<p class="postNextPrev_label">' . __( 'Previous article', 'lightning' ) . '</p>';
-				VK_Component_Posts::the_view( $post_previous, $options );
+				$previous_options = $options;
+				$previous_options['display_image'] = has_post_thumbnail( $post_previous );
+				$previous_options['body_prepend'] = '<p class="postNextPrev_label">' . __( 'Previous article', 'lightning' ) . '</p>';
+				VK_Component_Posts::the_view( $post_previous, $previous_options );
 				// get_template_part( 'module_loop_post_card' );
 			} else {
 				echo '<div class="card card-noborder"></div>';
@@ -168,9 +170,11 @@ else :
 
 			<?php
 			if ( $post_next ) {
-				$options['body_prepend']   = '<p class="postNextPrev_label">' . __( 'Next article', 'lightning' ) . '</p>';
-				$options['class']['outer'] = 'card-sm card-holizontal-reverse postNextPrev_next';
-				VK_Component_Posts::the_view( $post_next, $options );
+				$next_options = $options;
+				$next_options['display_image'] = has_post_thumbnail( $post_next );
+				$next_options['body_prepend'] = '<p class="postNextPrev_label">' . __( 'Next article', 'lightning' ) . '</p>';
+				$next_options['class']['outer'] = 'card-sm card-holizontal-reverse postNextPrev_next';
+				VK_Component_Posts::the_view( $post_next, $next_options );
 			} else {
 				echo '<div class="card card-noborder"></div>';
 			} // if ( $post_next ) {
