@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Miki CFS Runtime
  * Description: Restores the site's ACF + CFS field stack and migrates SCF-backed CFS values without a database rollback.
- * Version: 1.2.0
+ * Version: 1.2.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -241,6 +241,36 @@ function miki_cfs_install_interview_content_group() {
 	CFS()->field_group->cache = array();
 }
 add_action( 'cfs_init', 'miki_cfs_install_interview_content_group', 19 );
+
+/**
+ * Restore the interview field box once when an administrator has previously
+ * hidden or collapsed it. Later preference changes remain under user control.
+ */
+function miki_cfs_restore_interview_metabox_visibility() {
+	if ( 1 <= (int) get_option( 'miki_cfs_interview_metabox_visibility_version', 0 ) ) {
+		return;
+	}
+
+	$group_id = miki_cfs_find_interview_content_group();
+	if ( ! $group_id ) {
+		return;
+	}
+
+	$box_id = 'cfs_input_' . $group_id;
+	$users  = get_users( array( 'role__in' => array( 'administrator' ), 'fields' => array( 'ID' ) ) );
+	foreach ( $users as $user ) {
+		foreach ( array( 'metaboxhidden_page', 'closedpostboxes_page' ) as $option_name ) {
+			$current = (array) get_user_option( $option_name, $user->ID );
+			$updated = array_values( array_diff( $current, array( $box_id ) ) );
+			if ( $updated !== $current ) {
+				update_user_option( $user->ID, $option_name, $updated );
+			}
+		}
+	}
+
+	update_option( 'miki_cfs_interview_metabox_visibility_version', 1 );
+}
+add_action( 'admin_init', 'miki_cfs_restore_interview_metabox_visibility', 5 );
 
 /**
  * Define fields added by the rebuilt employee interview page. The legacy CFS
