@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Miki CFS Runtime
  * Description: Restores the site's ACF + CFS field stack and migrates SCF-backed CFS values without a database rollback.
- * Version: 1.1.0
+ * Version: 1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -62,6 +62,185 @@ function miki_cfs_persist_active_plugins() {
 	add_filter( 'option_active_plugins', 'miki_cfs_filter_active_plugins', PHP_INT_MAX );
 }
 add_action( 'muplugins_loaded', 'miki_cfs_persist_active_plugins', 1 );
+
+/**
+ * Recreate the legacy interview-content loop when its original CFS group is
+ * missing. The saved interview rows live in post meta, so restoring only the
+ * field definition makes them editable again without rewriting their values.
+ */
+function miki_cfs_interview_content_fields() {
+	$fields  = array();
+	$next_id = 1;
+	$add     = function ( $name, $label, $type, $parent_id = 0, $options = array(), $notes = '' ) use ( &$fields, &$next_id ) {
+		$id       = $next_id++;
+		$fields[] = array(
+			'id'        => $id,
+			'name'      => $name,
+			'label'     => $label,
+			'type'      => $type,
+			'notes'     => $notes,
+			'parent_id' => $parent_id,
+			'weight'    => count( $fields ),
+			'options'   => $options,
+		);
+		return $id;
+	};
+
+	$textarea = array( 'default_value' => '', 'formatting' => 'auto_br', 'required' => '0' );
+	$wysiwyg  = array( 'formatting' => 'default', 'required' => '0' );
+	$loop_id  = $add(
+		'interview',
+		'インタビュー',
+		'loop',
+		0,
+		array(
+			'row_display' => '0',
+			'row_label' => 'インタビュー',
+			'button_label' => 'ブロック追加',
+			'limit_min' => '',
+			'limit_max' => '',
+		)
+	);
+
+	$add( 'interrupt', '割り込み', 'textarea', $loop_id, $textarea );
+	$add( 'question', '質問文', 'textarea', $loop_id, $textarea );
+	$add( 'answer', '回答', 'wysiwyg', $loop_id, $wysiwyg );
+	$add(
+		'img',
+		'画像',
+		'file',
+		$loop_id,
+		array( 'file_type' => 'image', 'return_value' => 'url', 'required' => '0' ),
+		'画像サイズ（横×縦）：横長 456px × 307px、縦長 350px × 470px'
+	);
+	$add( 'img-detail', '画像説明', 'wysiwyg', $loop_id, $wysiwyg );
+	$add(
+		'bg',
+		'背景',
+		'select',
+		$loop_id,
+		array(
+			'choices' => array( 'standard' => '標準', 'white' => '白', 'standard-image' => '標準+柄', 'image' => '白+柄' ),
+			'multiple' => '0',
+			'select2' => '0',
+			'required' => '0',
+		)
+	);
+	$add(
+		'position',
+		'配置',
+		'select',
+		$loop_id,
+		array(
+			'choices' => array( 'text_l' => 'テキスト左、画像右', 'text_r' => 'テキスト右、画像左' ),
+			'multiple' => '0',
+			'select2' => '0',
+			'required' => '0',
+		)
+	);
+
+	return $fields;
+}
+
+function miki_cfs_find_interview_content_group( $exclude_group_id = 0 ) {
+	$group_ids = get_posts(
+		array(
+			'post_type'      => 'cfs',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+
+	foreach ( $group_ids as $group_id ) {
+		if ( $exclude_group_id === (int) $group_id ) {
+			continue;
+		}
+
+		$rules           = get_post_meta( $group_id, 'cfs_rules', true );
+		$template_values = isset( $rules['page_templates']['values'] ) ? (array) $rules['page_templates']['values'] : array();
+		if ( ! in_array( 'page-recruit-detail.php', $template_values, true ) ) {
+			continue;
+		}
+
+		$fields = get_post_meta( $group_id, 'cfs_fields', true );
+		foreach ( (array) $fields as $field ) {
+			if ( 'interview' === (string) miki_array_value( $field, 'name' ) && 'loop' === (string) miki_array_value( $field, 'type' ) ) {
+				return (int) $group_id;
+			}
+		}
+	}
+
+	return 0;
+}
+
+function miki_cfs_install_interview_content_group() {
+	if ( ! function_exists( 'CFS' ) || ! is_object( CFS()->field_group ) ) {
+		return;
+	}
+
+	$slug     = 'miki-recruit-interview-content';
+	$fallback = get_posts(
+		array(
+			'post_type'      => 'cfs',
+			'post_status'    => array( 'publish', 'draft', 'private' ),
+			'name'           => $slug,
+			'posts_per_page' => 1,
+		)
+	);
+	$fallback = ! empty( $fallback ) ? reset( $fallback ) : null;
+	$fallback_id = $fallback instanceof WP_Post ? (int) $fallback->ID : 0;
+
+	// Prefer the original field group whenever it is present and applicable.
+	if ( miki_cfs_find_interview_content_group( $fallback_id ) ) {
+		if ( $fallback instanceof WP_Post && 'publish' === $fallback->post_status ) {
+			wp_update_post( array( 'ID' => $fallback_id, 'post_status' => 'draft' ) );
+			CFS()->field_group->cache = array();
+		}
+		return;
+	}
+
+	$fields = miki_cfs_interview_content_fields();
+	$rules  = array(
+		'page_templates' => array(
+			'operator' => '==',
+			'values'   => array( 'page-recruit-detail.php' ),
+		),
+	);
+	$extras = array( 'order' => 100, 'context' => 'normal', 'hide_editor' => '1' );
+
+	if ( $fallback instanceof WP_Post ) {
+		if ( $fields !== get_post_meta( $fallback_id, 'cfs_fields', true ) ) {
+			update_post_meta( $fallback_id, 'cfs_fields', $fields );
+		}
+		if ( $rules !== get_post_meta( $fallback_id, 'cfs_rules', true ) ) {
+			update_post_meta( $fallback_id, 'cfs_rules', $rules );
+		}
+		if ( $extras !== get_post_meta( $fallback_id, 'cfs_extras', true ) ) {
+			update_post_meta( $fallback_id, 'cfs_extras', $extras );
+		}
+		if ( 'publish' !== $fallback->post_status ) {
+			wp_update_post( array( 'ID' => $fallback_id, 'post_status' => 'publish' ) );
+		}
+	} else {
+		CFS()->field_group->import(
+			array(
+				'import_code' => array(
+					array(
+						'post_title' => '採用情報 - 社員インタビュー（本文）',
+						'post_name'  => $slug,
+						'cfs_fields' => $fields,
+						'cfs_rules'  => $rules,
+						'cfs_extras' => $extras,
+					),
+				),
+			)
+		);
+	}
+
+	CFS()->field_group->cache = array();
+}
+add_action( 'cfs_init', 'miki_cfs_install_interview_content_group', 19 );
 
 /**
  * Define fields added by the rebuilt employee interview page. The legacy CFS
