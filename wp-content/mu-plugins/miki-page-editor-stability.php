@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Miki Page Editor Stability
  * Description: Keeps the classic page editor layout stable and extends the CFS editing session.
- * Version: 1.0.0
+ * Version: 1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -84,6 +84,91 @@ function miki_stabilize_classic_page_editor_layout() {
 	}
 }
 add_action( 'admin_init', 'miki_stabilize_classic_page_editor_layout', 20 );
+
+/**
+ * Finish saving metabox placement before the page-update navigation begins.
+ * WordPress normally sends placement in a separate asynchronous request; an
+ * immediate Update click can cancel that request and restore an older layout.
+ */
+function miki_enqueue_page_editor_layout_guard() {
+	if ( ! miki_is_classic_page_editor_request() ) {
+		return;
+	}
+
+	$script = <<<'JS'
+(function($) {
+	$(function() {
+		window.setTimeout(function() {
+			var layoutDirty = false;
+			var resubmitting = false;
+
+			function saveLayout() {
+				var page = (window.postboxes && window.postboxes.page) || 'page';
+				var orderVars = {
+					action: 'meta-box-order',
+					_ajax_nonce: $('#meta-box-order-nonce').val(),
+					page_columns: $('.columns-prefs input:checked').val() || 0,
+					page: page
+				};
+
+				$('.meta-box-sortables').each(function() {
+					orderVars['order[' + this.id.split('-')[0] + ']'] = $(this).sortable('toArray').join(',');
+				});
+
+				var closed = $('.postbox').filter('.closed').map(function() {
+					return this.id;
+				}).get().join(',');
+				var hidden = $('.postbox').filter(':hidden').map(function() {
+					return this.id;
+				}).get().join(',');
+
+				return $.when(
+					$.ajax({
+						url: ajaxurl,
+						method: 'POST',
+						data: orderVars,
+						timeout: 5000
+					}),
+					$.ajax({
+						url: ajaxurl,
+						method: 'POST',
+						data: {
+							action: 'closed-postboxes',
+							closed: closed,
+							hidden: hidden,
+							closedpostboxesnonce: $('#closedpostboxesnonce').val(),
+							page: page
+						},
+						timeout: 5000
+					})
+				);
+			}
+
+			$(document).on('sortstop.mikiPageEditor postbox-toggled.mikiPageEditor', function() {
+				layoutDirty = true;
+			});
+
+			$('form#post').on('submit.mikiPageEditor', function(event) {
+				if (resubmitting || !layoutDirty || event.isDefaultPrevented()) {
+					return;
+				}
+
+				event.preventDefault();
+				var form = this;
+				saveLayout().always(function() {
+					layoutDirty = false;
+					resubmitting = true;
+					HTMLFormElement.prototype.submit.call(form);
+				});
+			});
+		}, 0);
+	});
+})(jQuery);
+JS;
+
+	wp_add_inline_script( 'postbox', $script, 'after' );
+}
+add_action( 'admin_enqueue_scripts', 'miki_enqueue_page_editor_layout_guard', 100 );
 
 /**
  * CFS defaults to a four-hour form session. Fixed pages with long interview
